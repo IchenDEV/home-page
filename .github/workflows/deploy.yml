@@ -1,11 +1,18 @@
 name: Build & Deploy
 
+# Manual-only for now: GitHub Pages is not available for a private repo on the
+# free plan, so any automatic run would just fail on `configure-pages` and send
+# a failure email every morning.
+#
+# To turn deployment back on once the repo is public (or the account is on Pro),
+# uncomment the two triggers below and set Settings -> Pages -> Source to
+# "GitHub Actions".
 on:
-  push:
-    branches: [main]
-  # Refresh the GitHub snapshot every day at 03:00 UTC (11:00 Asia/Shanghai).
-  schedule:
-    - cron: '0 3 * * *'
+  # push:
+  #   branches: [main]
+  # # Refresh the GitHub snapshot every day at 03:00 UTC (11:00 Asia/Shanghai).
+  # schedule:
+  #   - cron: '0 3 * * *'
   workflow_dispatch:
 
 permissions:

@@ -46,13 +46,16 @@ GitHub API，页面不会空着。
 
 ## 部署
 
-两种都已配好，任选其一。
+> **当前状态：未部署。** 仓库是私有的，而免费版 GitHub **不支持私有仓库使用 Pages**
+> （API 原话：`Your current plan does not support GitHub Pages for this repository.`）。
+> 所以 `.github/workflows/deploy.yml` 目前只保留手动触发（`workflow_dispatch`），
+> push 和每天定时都注释掉了——否则每天定时跑都会失败并发报错邮件。
 
 ### GitHub Pages
 
-`.github/workflows/deploy.yml` 会在 push、每天 03:00 UTC 以及手动触发时重新抓数据并发布。
+前提是**把仓库改成 public**，或者账号升级到 GitHub Pro。满足之后：
 
-1. 把仓库推到 GitHub。
+1. 取消注释 `deploy.yml` 里的 `push` 和 `schedule` 两个触发器。
 2. Settings → Pages → Source 选 **GitHub Actions**。
 3. 想要官方贡献日历的话，加一个 `PAT_GITHUB` secret（classic token，勾 `read:user`）。
    不加也能跑，脚本会自动走公开代理。
@@ -63,7 +66,8 @@ GitHub API，页面不会空着。
 
 ### Vercel
 
-导入仓库即可，`vercel.json` 已经写好：构建命令跑抓取脚本，输出目录是仓库根。
+Vercel 对私有仓库没有限制，所以这条路现在就能走：导入仓库即可，`vercel.json` 已经写好，
+构建命令跑抓取脚本，输出目录是仓库根。
 想让 Vercel 也定时刷新数据，在项目里开一个 Cron Job 打 Deploy Hook，或者直接依赖
 GitHub Actions 每天的 push。
 
