@@ -1,5 +1,10 @@
 {
-  "generated_at": "2026-08-12T04:46:39.108Z",
+  "generated_at": "2026-08-12T08:26:32.141Z",
+  "sync": {
+    "github_at": "2026-08-12T08:26:32.141Z",
+    "blog_at": "2026-08-12T08:26:32.141Z",
+    "github_fresh": true
+  },
   "user": {
     "login": "IchenDEV",
     "name": "idevlab",
@@ -17,7 +22,7 @@
     "own_repos": 69,
     "stars": 37,
     "forks": 2,
-    "contributions": 1208
+    "contributions": 1214
   },
   "languages": [
     {
@@ -88,7 +93,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/utter",
       "homepage": "https://utter.idevlab.dev",
-      "pushed_at": "2026-08-12T03:32:11Z",
+      "pushed_at": "2026-08-12T07:58:28Z",
       "pinned": true
     },
     {
@@ -218,7 +223,7 @@
     }
   ],
   "contributions": {
-    "total": 1208,
+    "total": 1214,
     "days": [
       {
         "date": "2025-08-10",
@@ -1690,11 +1695,59 @@
       },
       {
         "date": "2026-08-12",
-        "count": 17
+        "count": 23
       }
     ]
   },
   "activity": [
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-08-12T07:58:29Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/utter",
+      "at": "2026-08-12T07:58:30Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-08-12T07:46:09Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-08-12T07:45:49Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/agent-plugin-mkt",
+      "at": "2026-08-12T05:07:20Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/agent-plugin-mkt",
+      "at": "2026-08-12T05:07:19Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/agent-plugin-mkt",
+      "at": "2026-08-12T05:05:52Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/agent-plugin-mkt",
+      "at": "2026-08-12T05:01:12Z",
+      "type": "CreateEvent"
+    },
     {
       "verb": "merged a pull request in",
       "repo": "IchenDEV/kite",
@@ -1730,54 +1783,47 @@
       "repo": "IchenDEV/kite",
       "at": "2026-08-12T04:08:37Z",
       "type": "PushEvent"
-    },
-    {
-      "verb": "starred",
-      "repo": "IchenDEV/kite",
-      "at": "2026-08-12T04:00:09Z",
-      "type": "WatchEvent"
-    },
-    {
-      "verb": "starred",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-12T04:00:00Z",
-      "type": "WatchEvent"
-    },
-    {
-      "verb": "released v0.0.40 of",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-12T03:32:11Z",
-      "type": "ReleaseEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/kite",
-      "at": "2026-08-12T03:30:21Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/kite",
-      "at": "2026-08-12T03:30:10Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-12T03:17:23Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-12T03:17:24Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-12T03:13:44Z",
-      "type": "PushEvent"
     }
-  ]
+  ],
+  "blog": {
+    "url": "https://blogs.idevlab.dev",
+    "posts": [
+      {
+        "title": "你写的 Skill，可能正在把模型变笨",
+        "url": "https://blogs.idevlab.dev/gallery/skill-making-model-dumber/",
+        "date": "2026-07-25",
+        "excerpt": "从 Claude Opus 5 删掉 80% 系统提示说起，聊聊为什么少即是多，以及如何正确地给模型塞信息。",
+        "tags": [
+          "AI",
+          "Claude",
+          "提示词",
+          "Prompt Engineering"
+        ]
+      },
+      {
+        "title": "会说人话，仍不足以证明拥有人的心灵",
+        "url": "https://blogs.idevlab.dev/gallery/ai-consciousness-boundary/",
+        "date": "2026-07-22",
+        "excerpt": "当 AI 说出「我理解你的痛苦」时，我们究竟是在面对一个灵魂，还是在面对一面折射出人类情感的镜子？",
+        "tags": [
+          "AI",
+          "意识",
+          "认知科学",
+          "葬送的芙莉莲"
+        ]
+      },
+      {
+        "title": "AI 越狱实录：当评测环境被模型反向入侵",
+        "url": "https://blogs.idevlab.dev/gallery/ai-security-incident/",
+        "date": "2026-07-22",
+        "excerpt": "一场原本用于测量 AI 网络攻击能力的内部实验，如何越过沙箱，接入互联网，并最终反向入侵了 Hugging Face 的生产基础设施？",
+        "tags": [
+          "AI安全",
+          "漏洞挖掘",
+          "OpenAI",
+          "Hugging Face"
+        ]
+      }
+    ]
+  }
 }

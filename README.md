@@ -1,7 +1,7 @@
 # idevlab — home page
 
 个人主页。终端风格（与 [blogs.idevlab.dev](https://blogs.idevlab.dev) 共用同一套设计变量），
-Three.js 做 3D，项目 / 贡献 / 动态全部来自 GitHub，自动更新。
+Three.js 做 3D，项目 / 贡献 / 动态来自 GitHub，最新文章来自博客索引，由 GitHub Actions 每天同步。
 
 ## 有什么
 
@@ -15,7 +15,7 @@ Three.js 做 3D，项目 / 贡献 / 动态全部来自 GitHub，自动更新。
 ## 本地开发
 
 ```bash
-npm run fetch   # 抓取 GitHub 数据 → data/github.json
+npm run fetch   # 抓取 GitHub + 最新博客 → data/github.json
 npm run dev     # http://localhost:4173
 ```
 
@@ -28,11 +28,14 @@ GITHUB_TOKEN="$(gh auth token)" npm run fetch
 
 ## 数据从哪来
 
-`scripts/fetch-github.mjs` 在构建时把资料快照进 `data/github.json`，页面读的是这个文件——
-所以访客不会消耗 GitHub 的匿名速率限制，首屏也不用等 API。万一文件缺失，前端会退回直接调用
-GitHub API，页面不会空着。
+`.github/workflows/deploy.yml` 在每天 **03:00 UTC（杭州 / 新加坡 11:00）**运行一次：
 
-抓取失败时脚本**不会**覆盖已有快照，构建仍然用上一次的好数据。
+1. 读取 GitHub 用户、仓库、贡献和公开活动；
+2. 读取博客首页内嵌的结构化文章索引，取最新 3 篇；
+3. 更新并提交 `data/github.json` 到 `main`；
+4. 页面优先读取这份静态快照，读取失败时才调用 GitHub 公开 API。
+
+抓取任一数据源失败时，工作流会失败并保留仓库里的上一份快照，不会用空数据覆盖现有内容。
 
 几个可调的地方，都在 `scripts/fetch-github.mjs` 顶部：
 
@@ -46,30 +49,18 @@ GitHub API，页面不会空着。
 
 ## 部署
 
-> **当前状态：未部署。** 仓库是私有的，而免费版 GitHub **不支持私有仓库使用 Pages**
-> （API 原话：`Your current plan does not support GitHub Pages for this repository.`）。
-> 所以 `.github/workflows/deploy.yml` 目前只保留手动触发（`workflow_dispatch`），
-> push 和每天定时都注释掉了——否则每天定时跑都会失败并发报错邮件。
+### GitHub Actions（每日同步）
 
-### GitHub Pages
-
-前提是**把仓库改成 public**，或者账号升级到 GitHub Pro。满足之后：
-
-1. 取消注释 `deploy.yml` 里的 `push` 和 `schedule` 两个触发器。
-2. Settings → Pages → Source 选 **GitHub Actions**。
-3. 想要官方贡献日历的话，加一个 `PAT_GITHUB` secret（classic token，勾 `read:user`）。
-   不加也能跑，脚本会自动走公开代理。
+工作流已包含 `schedule` 与手动触发入口。默认 `GITHUB_TOKEN` 可以刷新公开数据并把快照提交回仓库；
+想直接读取官方贡献日历，可以再添加 `PAT_GITHUB` secret（classic token，勾 `read:user`），
+否则脚本会自动走公开代理。
 
 > 默认的 `GITHUB_TOKEN` 读不到 contributions GraphQL，这是唯一需要 PAT 的地方。
 
-仓库里有 `.nojekyll`，Jekyll 不会去处理 `vendor/`、`js/` 这些目录。
-
 ### Vercel
 
-Vercel 对私有仓库没有限制，所以这条路现在就能走：导入仓库即可，`vercel.json` 已经写好，
-构建命令跑抓取脚本，输出目录是仓库根。
-想让 Vercel 也定时刷新数据，在项目里开一个 Cron Job 打 Deploy Hook，或者直接依赖
-GitHub Actions 每天的 push。
+`vercel.json` 已配置构建时抓取数据，输出目录是仓库根。Vercel 项目连接这个 GitHub 仓库后，
+每日同步产生的提交也会触发一次新部署，让最新博客快照上线。
 
 ## 结构
 
@@ -81,8 +72,9 @@ js/scene.js           英雄区 WebGL 场景
 js/contrib3d.js       3D 贡献热力图
 scripts/fetch-github.mjs   构建期抓取 GitHub 数据
 scripts/serve.mjs     本地静态服务器（零依赖）
+.github/workflows/deploy.yml  每日数据同步与快照提交
 vendor/three.module.js     Three.js r169
-data/github.json      生成的数据快照（已提交）
+data/github.json      GitHub + 最新博客的静态快照（已提交）
 ```
 
 ## 无障碍与降级

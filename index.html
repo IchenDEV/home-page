@@ -63,10 +63,10 @@
       <nav class="site-nav" aria-label="主导航">
         <a href="#about">_about</a>
         <a href="#projects">_projects</a>
+        <a href="#blog">_blog</a>
         <a href="#contrib">_activity</a>
         <a href="#links">_links</a>
         <span class="nav-spacer"></span>
-        <a href="https://blogs.idevlab.dev" target="_blank" rel="noopener">_blog</a>
         <a href="https://github.com/IchenDEV" target="_blank" rel="noopener">_github</a>
       </nav>
 
@@ -78,8 +78,7 @@
 
         <div class="hero-meta" id="hero-meta">
           <span>Hangzhou, CN</span>
-          <span>macOS &amp; AI Agents</span>
-          <span>since 2017</span>
+          <span>AI &amp; Agent</span>
         </div>
 
         <div class="hero-actions">
@@ -101,13 +100,14 @@
 
         <div class="about-grid">
           <div class="panel about-text reveal">
-            <p>你好，我是 <span class="kw">idevlab</span>（GitHub <span class="str">@IchenDEV</span>），
-               一个待在杭州、被咖啡因驱动的开发者。</p>
-            <p>我大部分时间花在三件事上：给 macOS 写<span class="kw">原生应用</span>（SwiftUI 是我的舒适区）、
-               折腾各种 <span class="kw">AI Agent</span> 的工具链与 Skills，以及在 Web 上做一些
-               <span class="kw">好玩但不一定有用</span>的东西。</p>
-            <p>信奉本地优先（local-first）：数据在自己的硬盘上，工具趁手，能离线就离线。
-               写完的东西大多会开源，顺手记在 <a href="https://blogs.idevlab.dev" target="_blank" rel="noopener">博客</a> 里。</p>
+            <p>你好，我是 <span class="kw">idevlab</span>，一名 <span class="kw">macOS 用户</span>，
+               也是每个月在 AI 上投入超过 <span class="str">300 美元</span>的重度用户。
+               现在的身份是创业者，专注于 <span class="kw">AI &amp; Agent</span>。</p>
+            <p>我会时不时分享关于 AI 的见解，也会做一些
+               <span class="kw">有趣、好玩的工具和应用</span>。</p>
+            <p>我正在尝试成为一名 <span class="kw">AI-native 开发者</span>，
+               探索控制 Agent 的控制论。</p>
+            <p>我关注<span class="str">科技与人文的十字路口</span>。</p>
             <p class="hero-prompt" style="margin-top:1.2rem">
               <b>$</b> echo <span class="str">"keep learning, keep shipping."</span>
             </p>
@@ -132,6 +132,21 @@
         <p style="margin-top:1.4rem">
           <a class="btn" href="https://github.com/IchenDEV?tab=repositories" target="_blank" rel="noopener">
             查看全部仓库 →
+          </a>
+        </p>
+      </section>
+
+      <!-- ------------------------------------------------------------ blog -->
+      <section class="section wrap" id="blog">
+        <div class="section-head reveal">
+          <h2>tail -n 3 ~/blog</h2>
+          <p>最新发布的文章 — 每天由 GitHub Actions 自动同步</p>
+          <div class="rule"></div>
+        </div>
+        <div class="blog-grid" id="blog-grid"></div>
+        <p style="margin-top:1.4rem">
+          <a class="btn" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">
+            查看全部文章 →
           </a>
         </p>
       </section>
@@ -179,9 +194,6 @@
           <span>© <span id="year">2026</span> idevlab</span>
           <span>&gt; keep learning, keep shipping.</span>
           <span class="stamp" id="build-stamp"></span>
-        </div>
-        <div class="row">
-          <span>Built with Three.js · 无框架 · 部署于 GitHub Pages / Vercel</span>
         </div>
       </footer>
 

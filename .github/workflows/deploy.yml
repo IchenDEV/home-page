@@ -1,59 +1,49 @@
-name: Build & Deploy
+name: Sync homepage data
 
-# Manual-only for now: GitHub Pages is not available for a private repo on the
-# free plan, so any automatic run would just fail on `configure-pages` and send
-# a failure email every morning.
-#
-# To turn deployment back on once the repo is public (or the account is on Pro),
-# uncomment the two triggers below and set Settings -> Pages -> Source to
-# "GitHub Actions".
 on:
-  # push:
-  #   branches: [main]
-  # # Refresh the GitHub snapshot every day at 03:00 UTC (11:00 Asia/Shanghai).
-  # schedule:
-  #   - cron: '0 3 * * *'
+  schedule:
+    # GitHub Actions cron uses UTC: 03:00 UTC = 11:00 Asia/Shanghai/Singapore.
+    - cron: '0 3 * * *'
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: homepage-data-sync
+  cancel-in-progress: false
 
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Refresh GitHub data
+      - name: Refresh GitHub and blog data
         env:
-          # A default GITHUB_TOKEN cannot read the contribution calendar, so the
-          # script falls back to the public proxy unless PAT_GITHUB is set.
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB || github.token }}
           GH_USER: ${{ github.repository_owner }}
-        run: node scripts/fetch-github.mjs
+          BLOG_URL: https://blogs.idevlab.dev
+        run: npm run fetch
 
-      - uses: actions/configure-pages@v5
+      - name: Publish refreshed snapshot
+        run: |
+          if git diff --quiet -- data/github.json; then
+            echo "Snapshot is already current."
+            exit 0
+          fi
 
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/github.json
+          git commit -m "chore: sync homepage data"
+          git pull --rebase origin main
+          git push origin HEAD:main

@@ -14,7 +14,9 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const USER = process.env.GH_USER || 'IchenDEV';
 const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
+const BLOG_URL = process.env.BLOG_URL || 'https://blogs.idevlab.dev';
 const OUT = resolve(ROOT, 'data/github.json');
+const MAX_BLOG_BYTES = 1_000_000;
 
 /** Repos that are noise on a homepage even when they rank well. */
 const EXCLUDE = new Set([USER, `${USER}.github.io`, 'test-wx-cloud', 'code-test']);
@@ -148,10 +150,45 @@ async function fetchActivity() {
   return out;
 }
 
+function excerptFromSearchText(title, text) {
+  let body = text.replace(/\s+/g, ' ').trim();
+  if (body.startsWith(title)) body = body.slice(title.length).trim();
+  const end = body.search(/[。！？!?](?:\s|$)/);
+  const excerpt = end >= 0 && end < 180 ? body.slice(0, end + 1) : body.slice(0, 180);
+  return excerpt.trim();
+}
+
+/** Latest posts from the blog's embedded structured search index. */
+async function fetchBlog() {
+  const res = await fetch(BLOG_URL, { headers: { 'user-agent': `${USER}-home-page` } });
+  if (!res.ok) throw new Error(`blog -> ${res.status}`);
+  const declared = Number(res.headers.get('content-length') || 0);
+  if (declared > MAX_BLOG_BYTES) throw new Error('blog response is too large');
+  const html = await res.text();
+  if (Buffer.byteLength(html) > MAX_BLOG_BYTES) throw new Error('blog response is too large');
+  const match = html.match(/<script[^>]*id=["']terminal-search-data["'][^>]*>([\s\S]*?)<\/script>/i);
+  if (!match?.[1]) throw new Error('blog search index not found');
+
+  const posts = JSON.parse(match[1])
+    .filter((post) => post?.title && post?.url && post?.date)
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 3)
+    .map((post) => ({
+      title: post.title,
+      url: new URL(post.url, BLOG_URL).href,
+      date: post.date,
+      excerpt: excerptFromSearchText(post.title, post.text || ''),
+      tags: Array.isArray(post.tags) ? post.tags.slice(0, 4) : [],
+    }));
+
+  if (!posts.length) throw new Error('blog search index contains no posts');
+  return { url: BLOG_URL, posts };
+}
+
 async function main() {
   console.log(`> fetching github data for ${USER}${TOKEN ? ' (authenticated)' : ' (anonymous)'}`);
 
-  const [user, repoPages, contributions, activity] = await Promise.all([
+  const [user, repoPages, contributions, activity, blog] = await Promise.all([
     api(`/users/${USER}`),
     Promise.all([
       api(`/users/${USER}/repos?per_page=100&sort=pushed&page=1`),
@@ -165,11 +202,20 @@ async function main() {
       console.warn(`  activity unavailable: ${err.message}`);
       return [];
     }),
+    // Blog content is a first-class part of the snapshot. If it fails, keep
+    // the previous complete snapshot instead of publishing an empty section.
+    fetchBlog(),
   ]);
 
   const own = repoPages.filter((r) => !r.fork);
+  const generatedAt = new Date().toISOString();
   const payload = {
-    generated_at: new Date().toISOString(),
+    generated_at: generatedAt,
+    sync: {
+      github_at: generatedAt,
+      blog_at: generatedAt,
+      github_fresh: true,
+    },
     user: {
       login: user.login,
       name: user.name,
@@ -193,6 +239,7 @@ async function main() {
     repos: rankRepos(repoPages),
     contributions,
     activity,
+    blog,
   };
 
   await mkdir(dirname(OUT), { recursive: true });
@@ -200,7 +247,8 @@ async function main() {
 
   console.log(`> wrote ${OUT}`);
   console.log(`  ${payload.repos.length} repos, ${payload.stats.stars} stars, ` +
-    `${payload.contributions.days.length} days, ${payload.activity.length} events`);
+    `${payload.contributions.days.length} days, ${payload.activity.length} events, ` +
+    `${payload.blog.posts.length} posts`);
 }
 
 main().catch(async (err) => {
@@ -209,8 +257,6 @@ main().catch(async (err) => {
   try {
     await readFile(OUT);
     console.error('  keeping existing data/github.json');
-    process.exit(0);
-  } catch {
-    process.exit(1);
-  }
+  } catch {}
+  process.exit(1);
 });

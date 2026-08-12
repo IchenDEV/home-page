@@ -9,6 +9,22 @@ import { initContribScene } from './contrib3d.js';
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const GH_USER = 'IchenDEV';
 
+/** Project-specific marks generated for the portfolio's terminal visual system. */
+const PROJECT_LOGOS = Object.fromEntries([
+  'kite',
+  'utter',
+  'superman',
+  'prompt-optimizer-plugins',
+  'larkfs',
+  'yemai',
+  'roundtable-skill-cloud',
+  'petx-desktop',
+  'petshare',
+  'petx',
+  'room-design',
+  'gbz185-sdk',
+].map((name) => [name, `./assets/project-logos/${name}.png`]));
+
 /**
  * Friend links + my own sites.
  * To add a friend's blog, drop another entry in here — nothing else to change.
@@ -109,9 +125,7 @@ function renderStats(data) {
   const wrap = $('#stats');
   const items = [
     ['公开仓库', data.stats.public_repos],
-    ['获得 Star', data.stats.stars],
     ['年度贡献', data.stats.contributions],
-    ['关注者', data.user.followers],
   ];
   for (const [label, value] of items) {
     const box = el('div', 'stat');
@@ -181,11 +195,30 @@ function renderProjects(data) {
     const card = el('article', 'card reveal');
 
     const top = el('div', 'card-top');
+    const logo = el('a', 'card-logo');
+    logo.href = repo.url;
+    logo.target = '_blank';
+    logo.rel = 'noopener';
+    logo.setAttribute('aria-label', `打开 ${repo.name} 项目`);
+    const logoPath = PROJECT_LOGOS[repo.name];
+    if (logoPath) {
+      const image = el('img');
+      image.src = logoPath;
+      image.alt = '';
+      image.width = 320;
+      image.height = 320;
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      logo.append(image);
+    } else {
+      logo.classList.add('card-logo-fallback');
+      logo.textContent = repo.name.slice(0, 2).toUpperCase();
+    }
     const name = el('a', 'card-name', repo.name);
     name.href = repo.url;
     name.target = '_blank';
     name.rel = 'noopener';
-    top.append(name);
+    top.append(logo, name);
     if (repo.pinned) top.append(el('span', 'card-pin', 'PINNED'));
 
     const desc = el('p', 'card-desc', repo.description || '');
@@ -201,7 +234,6 @@ function renderProjects(data) {
       lang.append(dot, document.createTextNode(repo.language));
       foot.append(lang);
     }
-    if (repo.stars) foot.append(el('span', null, `★ ${repo.stars}`));
     foot.append(el('span', null, ago(repo.pushed_at)));
 
     const links = el('div', 'card-links');
@@ -222,6 +254,40 @@ function renderProjects(data) {
     card.append(top, desc, topics, foot);
     grid.append(card);
     attachTilt(card);
+  }
+}
+
+/* ------------------------------------------------------------------- blog -- */
+
+function renderBlog(data) {
+  const section = $('#blog');
+  const grid = $('#blog-grid');
+  const posts = data.blog?.posts || [];
+  if (!posts.length) {
+    section.hidden = true;
+    return;
+  }
+
+  for (const post of posts) {
+    const card = el('article', 'blog-card panel reveal');
+    const date = el('time', 'blog-date', post.date);
+    date.dateTime = post.date;
+
+    const title = el('a', 'blog-title', post.title);
+    title.href = post.url;
+    title.target = '_blank';
+    title.rel = 'noopener';
+
+    const excerpt = el('p', 'blog-excerpt', post.excerpt || '');
+    const tags = el('div', 'blog-tags');
+    for (const tag of post.tags || []) tags.append(el('span', null, `#${tag}`));
+
+    const read = el('a', 'blog-read', 'read ↗');
+    read.href = post.url;
+    read.target = '_blank';
+    read.rel = 'noopener';
+    card.append(date, title, excerpt, tags, read);
+    grid.append(card);
   }
 }
 
@@ -340,7 +406,7 @@ function initNavSpy() {
       map.get(e.target.id)?.classList.add('is-active');
     }
   }, { root: $('#viewport'), rootMargin: '-45% 0px -50% 0px' });
-  ['about', 'projects', 'contrib', 'links'].forEach((id) => {
+  ['about', 'projects', 'blog', 'contrib', 'links'].forEach((id) => {
     const n = document.getElementById(id);
     if (n) io.observe(n);
   });
@@ -371,7 +437,8 @@ function initKeys(viewport) {
 /* ------------------------------------------------------------------- boot -- */
 
 async function loadData() {
-  // Prefer the build-time snapshot; fall back to the live API if it is missing.
+  // Prefer the snapshot refreshed by GitHub Actions. The live GitHub API is
+  // only a final fail-safe when the committed file is unavailable.
   try {
     const res = await fetch('./data/github.json', { cache: 'no-cache' });
     if (res.ok) return await res.json();
@@ -402,6 +469,7 @@ async function loadLive() {
     })),
     contributions: { total: 0, days: [] },
     activity: [],
+    blog: { url: 'https://blogs.idevlab.dev', posts: [] },
   };
 }
 
@@ -435,6 +503,7 @@ async function boot() {
   renderStats(data);
   renderLanguages(data);
   renderProjects(data);
+  renderBlog(data);
   renderActivity(data);
 
   // A 53-week strip inside a phone-width canvas renders as unreadable specks,
@@ -465,7 +534,11 @@ async function boot() {
   renderContribMeta(data, contrib?.ramp);
 
   if (data.generated_at) {
-    $('#build-stamp').textContent = `data synced ${data.generated_at.slice(0, 10)}`;
+    const githubAt = data.sync?.github_at?.slice(0, 10);
+    const blogAt = data.sync?.blog_at?.slice(0, 10);
+    $('#build-stamp').textContent = githubAt && blogAt
+      ? `github ${githubAt} · blog ${blogAt}`
+      : `data synced ${data.generated_at.slice(0, 10)}`;
   }
 
   initReveal();
