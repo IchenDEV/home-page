@@ -1,0 +1,16 @@
+{
+  "name": "idevlab-home-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "idevlab's personal home page — terminal-styled, WebGL, data straight from GitHub",
+  "type": "module",
+  "scripts": {
+    "fetch": "node scripts/fetch-github.mjs",
+    "build": "node scripts/fetch-github.mjs",
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

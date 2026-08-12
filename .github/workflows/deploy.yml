@@ -1,0 +1,52 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+  # Refresh the GitHub snapshot every day at 03:00 UTC (11:00 Asia/Shanghai).
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Refresh GitHub data
+        env:
+          # A default GITHUB_TOKEN cannot read the contribution calendar, so the
+          # script falls back to the public proxy unless PAT_GITHUB is set.
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB || github.token }}
+          GH_USER: ${{ github.repository_owner }}
+        run: node scripts/fetch-github.mjs
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

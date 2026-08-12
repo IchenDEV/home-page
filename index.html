@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-terminal-theme="green">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>idevlab — hacker &amp; creator</title>
+<meta name="description" content="idevlab 的个人主页 — macOS / AI Agent / 前端。最近的开源项目、GitHub 贡献可视化与博客入口。">
+<meta name="author" content="idevlab">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/34794972?v=4">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="idevlab — hacker &amp; creator">
+<meta property="og:description" content="macOS / AI Agent / 前端。最近的开源项目与 GitHub 贡献可视化。">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/34794972?v=4">
+
+<!-- Theme is applied before first paint so there is no flash of the wrong color. -->
+<script>
+  (function () {
+    var themes = ["green", "amber", "cyan", "magenta", "white"];
+    var theme = "green";
+    try {
+      var saved = localStorage.getItem("terminal-theme");
+      if (themes.indexOf(saved) !== -1) theme = saved;
+    } catch (e) {}
+    document.documentElement.dataset.terminalTheme = theme;
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js" } }
+</script>
+</head>
+
+<body>
+<div class="terminal-shell">
+
+  <header class="terminal-titlebar">
+    <div class="terminal-controls" aria-hidden="true">
+      <span class="control control-close"></span>
+      <span class="control control-minimize"></span>
+      <span class="control control-zoom"></span>
+    </div>
+    <div class="terminal-title">idevlab — ~/home</div>
+    <div class="theme-switcher" aria-label="配色主题">
+      <button type="button" data-theme-choice="green" aria-label="terminal-green"></button>
+      <button type="button" data-theme-choice="amber" aria-label="terminal-amber"></button>
+      <button type="button" data-theme-choice="cyan" aria-label="terminal-cyan"></button>
+      <button type="button" data-theme-choice="magenta" aria-label="terminal-magenta"></button>
+      <button type="button" data-theme-choice="white" aria-label="terminal-white"></button>
+    </div>
+  </header>
+
+  <div class="terminal-body">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <div class="terminal-viewport" id="viewport">
+
+      <nav class="site-nav" aria-label="主导航">
+        <a href="#about">_about</a>
+        <a href="#projects">_projects</a>
+        <a href="#contrib">_activity</a>
+        <a href="#links">_links</a>
+        <span class="nav-spacer"></span>
+        <a href="https://blogs.idevlab.dev" target="_blank" rel="noopener">_blog</a>
+        <a href="https://github.com/IchenDEV" target="_blank" rel="noopener">_github</a>
+      </nav>
+
+      <!-- ------------------------------------------------------------ hero -->
+      <section class="hero wrap">
+        <div class="hero-prompt"><b>idevlab@hangzhou</b>:<span>~</span>$ whoami</div>
+        <h1>i<span class="accent">dev</span>lab</h1>
+        <p class="hero-typed"><span id="typed"></span><span class="cursor" aria-hidden="true"></span></p>
+
+        <div class="hero-meta" id="hero-meta">
+          <span>Hangzhou, CN</span>
+          <span>macOS &amp; AI Agents</span>
+          <span>since 2017</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">cat ~/blog</a>
+          <a class="btn" href="https://github.com/IchenDEV" target="_blank" rel="noopener">git clone me</a>
+          <a class="btn" href="mailto:idevlab@outlook.com">send mail</a>
+        </div>
+
+        <div class="scroll-hint">▼ scroll — 或按 <kbd>j</kbd> / <kbd>k</kbd></div>
+      </section>
+
+      <!-- ----------------------------------------------------------- about -->
+      <section class="section wrap" id="about">
+        <div class="section-head reveal">
+          <h2>cat ~/about.md</h2>
+          <p>一点关于我的背景</p>
+          <div class="rule"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="panel about-text reveal">
+            <p>你好，我是 <span class="kw">idevlab</span>（GitHub <span class="str">@IchenDEV</span>），
+               一个待在杭州、被咖啡因驱动的开发者。</p>
+            <p>我大部分时间花在三件事上：给 macOS 写<span class="kw">原生应用</span>（SwiftUI 是我的舒适区）、
+               折腾各种 <span class="kw">AI Agent</span> 的工具链与 Skills，以及在 Web 上做一些
+               <span class="kw">好玩但不一定有用</span>的东西。</p>
+            <p>信奉本地优先（local-first）：数据在自己的硬盘上，工具趁手，能离线就离线。
+               写完的东西大多会开源，顺手记在 <a href="https://blogs.idevlab.dev" target="_blank" rel="noopener">博客</a> 里。</p>
+            <p class="hero-prompt" style="margin-top:1.2rem">
+              <b>$</b> echo <span class="str">"keep learning, keep shipping."</span>
+            </p>
+          </div>
+
+          <div class="reveal">
+            <div class="stat-grid" id="stats"></div>
+            <div class="lang-bar" id="lang-bar"></div>
+            <div class="lang-legend" id="lang-legend"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------- projects -->
+      <section class="section wrap" id="projects">
+        <div class="section-head reveal">
+          <h2>ls -lt ~/projects</h2>
+          <p>最近在写的开源项目 — 数据直接来自 GitHub，自动更新</p>
+          <div class="rule"></div>
+        </div>
+        <div class="project-grid" id="projects-grid"></div>
+        <p style="margin-top:1.4rem">
+          <a class="btn" href="https://github.com/IchenDEV?tab=repositories" target="_blank" rel="noopener">
+            查看全部仓库 →
+          </a>
+        </p>
+      </section>
+
+      <!-- ---------------------------------------------------- contributions -->
+      <section class="section wrap" id="contrib">
+        <div class="section-head reveal">
+          <h2>git log --graph --3d</h2>
+          <p>过去一年的贡献热力图 — 拖动可以旋转</p>
+          <div class="rule"></div>
+        </div>
+
+        <div class="contrib-wrap reveal">
+          <canvas id="contrib-canvas"></canvas>
+          <div class="contrib-tip" id="contrib-tip"></div>
+          <div class="contrib-foot">
+            <span id="contrib-total">—</span>
+            <span id="contrib-streak">—</span>
+            <span id="contrib-range"></span>
+            <span class="legend">
+              <span>less</span>
+              <i data-level="0"></i><i data-level="1"></i><i data-level="2"></i><i data-level="3"></i><i data-level="4"></i>
+              <span>more</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="panel activity reveal" style="margin-top:1.5rem">
+          <ul id="activity-list"></ul>
+        </div>
+      </section>
+
+      <!-- ----------------------------------------------------------- links -->
+      <section class="section wrap" id="links">
+        <div class="section-head reveal">
+          <h2>ls ~/links</h2>
+          <p>我的站点与友情链接</p>
+          <div class="rule"></div>
+        </div>
+        <div class="link-grid" id="link-grid"></div>
+      </section>
+
+      <footer class="site-footer wrap">
+        <div class="row">
+          <span>© <span id="year">2026</span> idevlab</span>
+          <span>&gt; keep learning, keep shipping.</span>
+          <span class="stamp" id="build-stamp"></span>
+        </div>
+        <div class="row">
+          <span>Built with Three.js · 无框架 · 部署于 GitHub Pages / Vercel</span>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
