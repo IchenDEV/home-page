@@ -59,8 +59,8 @@ GITHUB_TOKEN="$(gh auth token)" npm run fetch
 
 ### Vercel
 
-`vercel.json` 已配置构建时抓取数据，输出目录是仓库根。Vercel 项目连接这个 GitHub 仓库后，
-每日同步产生的提交也会触发一次新部署，让最新博客快照上线。
+`vercel.json` 已配置为直接发布仓库根目录的静态内容，不在 Vercel 构建阶段重复抓取外部数据。
+Vercel 项目连接这个 GitHub 仓库后，每日同步产生的提交会触发一次新部署，让最新博客快照上线。
 
 ## 结构
 
