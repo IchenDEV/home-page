@@ -1,7 +1,7 @@
 # idevlab — home page
 
 个人主页。终端风格（与 [blogs.idevlab.dev](https://blogs.idevlab.dev) 共用同一套设计变量），
-Three.js 做 3D，项目 / 贡献 / 动态来自 GitHub，最新文章来自博客索引，由 GitHub Actions 每天同步。
+Three.js 做 3D，项目 / 贡献 / 动态来自 GitHub，最新文章来自博客索引，由 GitHub Actions 每天同步并发布到 GitHub Pages。
 
 ## 有什么
 
@@ -57,10 +57,13 @@ GITHUB_TOKEN="$(gh auth token)" npm run fetch
 
 > 默认的 `GITHUB_TOKEN` 读不到 contributions GraphQL，这是唯一需要 PAT 的地方。
 
-### Vercel
+### GitHub Pages
 
-`vercel.json` 已配置为直接发布仓库根目录的静态内容，不在 Vercel 构建阶段重复抓取外部数据。
-Vercel 项目连接这个 GitHub 仓库后，每日同步产生的提交会触发一次新部署，让最新博客快照上线。
+`.github/workflows/pages.yml` 在 `main` 分支有新提交时，将页面所需的静态文件打包并发布到 GitHub Pages。
+每日同步产生的提交会自动触发 Pages 部署；也可以从 Actions 页面手动运行。
+
+自定义域名使用 `www.idevlab.dev`。Cloudflare DNS 应保持一条仅 DNS 的
+`CNAME www -> ichendev.github.io`，GitHub Pages 中启用自定义域名并强制 HTTPS。
 
 ## 结构
 
@@ -73,6 +76,7 @@ js/contrib3d.js       3D 贡献热力图
 scripts/fetch-github.mjs   构建期抓取 GitHub 数据
 scripts/serve.mjs     本地静态服务器（零依赖）
 .github/workflows/deploy.yml  每日数据同步与快照提交
+.github/workflows/pages.yml   GitHub Pages 静态发布
 vendor/three.module.js     Three.js r169
 data/github.json      GitHub + 最新博客的静态快照（已提交）
 ```
