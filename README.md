@@ -10,7 +10,10 @@ Three.js 做 3D，项目 / 贡献 / 动态来自 GitHub，最新文章来自博�
 - **项目卡片** — 鼠标追踪的 3D 倾斜与光泽，数据直接取自 GitHub API。
 - **5 套配色** — green / amber / cyan / magenta / white，与博客同款，`t` 键循环；WebGL 图层会一起换色。
 - **键盘操作** — `j`/`k` 滚动，`gg`/`G` 到顶/底，`t` 换主题。
-- 无框架、无构建步骤，Three.js 已 vendored 到 `vendor/`，离线可跑。
+- **本地 LLM 对话** — 导航栏 `_chat` 打开终端窗口，`/load` 后 Qwen3-0.6B 直接在访客浏览器里推理
+  （WebLLM + WebGPU，引擎跑在 Web Worker 里）。权重从 Hugging Face 按需下载、进浏览器缓存，
+  对话不出本机；GPU 不支持 f16 时自动换 f32 权重，`/model` 可切到 Qwen3.5-0.8B。
+- 无框架、无构建步骤，Three.js 与 WebLLM 已 vendored 到 `vendor/`，页面本体离线可跑。
 
 ## 本地开发
 
@@ -73,11 +76,14 @@ css/style.css         设计变量（与博客同步）+ 全部样式
 js/main.js            数据加载、各区块渲染、主题 / 键盘 / 交互
 js/scene.js           英雄区 WebGL 场景
 js/contrib3d.js       3D 贡献热力图
+js/chat.js            本地 LLM 终端（命令、流式输出、加载进度）
+js/chat-worker.js     WebLLM 引擎宿主（Web Worker，推理不阻塞页面）
 scripts/fetch-github.mjs   构建期抓取 GitHub 数据
 scripts/serve.mjs     本地静态服务器（零依赖）
 .github/workflows/deploy.yml  每日数据同步与快照提交
 .github/workflows/pages.yml   GitHub Pages 静态发布
 vendor/three.module.js     Three.js r169
+vendor/web-llm.module.js   WebLLM 0.2.84（按需 dynamic import，首屏不加载）
 data/github.json      GitHub + 最新博客的静态快照（已提交）
 ```
 
@@ -85,4 +91,6 @@ data/github.json      GitHub + 最新博客的静态快照（已提交）
 
 - 尊重 `prefers-reduced-motion`：关掉打字机、倾斜、自动旋转，动画大幅放缓。
 - 没有 WebGL 也不会白屏——两个 3D 场景都会静默跳过，内容照常显示。
+- 没有 WebGPU 时 `_chat` 会在窗口里说明原因并降级，页面其它功能不受影响；
+  模型权重必须用户输入 `/load` 显式触发才开始下载，打开页面不会偷偷拉几百 MB。
 - 标签页隐藏 / 图表滚出视口时暂停渲染，不空耗 GPU。

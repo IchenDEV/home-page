@@ -257,9 +257,20 @@ a:hover { color: var(--terminal-cyan); }
   scrollbar-width: none;
 }
 .site-nav::-webkit-scrollbar { display: none; }
-.site-nav a { color: var(--terminal-muted); white-space: nowrap; }
-.site-nav a::before { content: "> "; color: var(--terminal-dim); }
+.site-nav a,
+.site-nav button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  color: var(--terminal-muted);
+  white-space: nowrap;
+}
+.site-nav a::before,
+.site-nav button::before { content: "> "; color: var(--terminal-dim); }
 .site-nav a:hover,
+.site-nav button:hover,
 .site-nav a.is-active { color: var(--terminal-green); text-shadow: var(--glow); }
 .site-nav .nav-spacer { flex: 1 1 auto; }
 
@@ -621,6 +632,101 @@ kbd {
 .link-name { font-weight: 700; font-size: 0.9rem; }
 .link-desc { color: var(--terminal-dim); font-size: 0.76rem; }
 
+/* ----------------------------------------------------------- local chat -- */
+
+/* A mini terminal window floating inside the shell — same chrome language. */
+.chat-panel {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  width: min(30rem, calc(100% - 2rem));
+  height: min(32rem, calc(100% - 2rem));
+  border: 1px solid var(--terminal-line-bright);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--terminal-panel) 96%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--terminal-shadow);
+}
+.chat-panel[hidden] { display: none; }
+
+.chat-head {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid var(--terminal-line);
+}
+.chat-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--terminal-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chat-status {
+  margin-left: auto;
+  padding: 0 0.4rem;
+  border: 1px solid var(--terminal-line);
+  border-radius: 3px;
+  color: var(--terminal-dim);
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+.chat-status[data-state="ready"] { color: var(--terminal-green); border-color: currentColor; }
+.chat-status[data-state="busy"],
+.chat-status[data-state="loading"] { color: var(--terminal-amber); border-color: currentColor; }
+.chat-status[data-state="error"] { color: var(--terminal-red); border-color: currentColor; }
+.chat-close {
+  padding: 0 0.2rem;
+  border: 0;
+  background: none;
+  color: var(--terminal-dim);
+  font: inherit;
+  cursor: pointer;
+}
+.chat-close:hover { color: var(--terminal-red); }
+
+.chat-log {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 0.8rem 0.9rem;
+  font-size: 0.82rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--terminal-line-bright) transparent;
+}
+.chat-log div { margin: 0 0 0.55rem; white-space: pre-wrap; word-break: break-word; }
+.chat-log .sys { color: var(--terminal-dim); }
+.chat-log .err { color: var(--terminal-red); }
+.chat-log .user::before { content: "> "; color: var(--terminal-green); font-weight: 700; }
+.chat-log .ai { color: var(--terminal-cyan); }
+
+.chat-input-row {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  border-top: 1px solid var(--terminal-line);
+}
+.chat-prompt-sign { color: var(--terminal-green); font-weight: 700; }
+#chat-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  background: none;
+  color: var(--terminal-text);
+  font: inherit;
+  font-size: 0.85rem;
+  outline: none;
+  caret-color: var(--terminal-green);
+}
+#chat-input::placeholder { color: var(--terminal-dim); }
+
 /* --------------------------------------------------------------- footer -- */
 
 .site-footer {
@@ -664,6 +770,9 @@ kbd {
   #contrib-canvas { height: 220px; }
   .contrib-foot { font-size: 0.7rem; gap: 0.4rem 0.8rem; }
   .contrib-foot .legend { margin-left: 0; }
+  /* On phones the chat takes the whole shell — a floating window would be
+     mostly keyboard anyway. */
+  .chat-panel { inset: 0.5rem; width: auto; height: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {

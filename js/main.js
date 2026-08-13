@@ -5,6 +5,7 @@
 
 import { initHeroScene } from './scene.js';
 import { initContribScene } from './contrib3d.js';
+import { initChat } from './chat.js';
 
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const GH_USER = 'IchenDEV';
@@ -477,6 +478,10 @@ async function boot() {
   initTheme();
   initTyping($('#typed'));
   initKeys($('#viewport'));
+  const chat = initChat();
+  document.querySelectorAll('[data-chat-open]').forEach((b) => {
+    b.addEventListener('click', () => chat.open());
+  });
   renderLinks();
   $('#year').textContent = String(new Date().getFullYear());
 

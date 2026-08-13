@@ -66,6 +66,7 @@
         <a href="#blog">_blog</a>
         <a href="#contrib">_activity</a>
         <a href="#links">_links</a>
+        <button type="button" data-chat-open>_chat</button>
         <span class="nav-spacer"></span>
         <a href="https://github.com/IchenDEV" target="_blank" rel="noopener">_github</a>
       </nav>
@@ -85,6 +86,7 @@
           <a class="btn btn-primary" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">cat ~/blog</a>
           <a class="btn" href="https://github.com/IchenDEV" target="_blank" rel="noopener">git clone me</a>
           <a class="btn" href="mailto:idevlab@outlook.com">send mail</a>
+          <button class="btn" type="button" data-chat-open>./chat --local</button>
         </div>
 
         <div class="scroll-hint">▼ scroll — 或按 <kbd>j</kbd> / <kbd>k</kbd></div>
@@ -198,6 +200,21 @@
       </footer>
 
     </div>
+
+    <!-- ------------------------------------------------- local llm chat -->
+    <section class="chat-panel" id="chat-panel" hidden aria-label="本地模型对话">
+      <header class="chat-head">
+        <span class="chat-title">idevlab@local:~$ ./chat --local</span>
+        <span class="chat-status" id="chat-status" data-state="offline">offline</span>
+        <button type="button" class="chat-close" id="chat-close" aria-label="关闭对话">✕</button>
+      </header>
+      <div class="chat-log" id="chat-log" aria-live="polite"></div>
+      <form class="chat-input-row" id="chat-form">
+        <span class="chat-prompt-sign" aria-hidden="true">$</span>
+        <input id="chat-input" autocomplete="off" autocapitalize="off" spellcheck="false"
+               placeholder="/load 启动本地模型" aria-label="输入消息或命令">
+      </form>
+    </section>
   </div>
 </div>
 
