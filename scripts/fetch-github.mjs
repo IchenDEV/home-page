@@ -15,6 +15,9 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const USER = process.env.GH_USER || 'IchenDEV';
 const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
 const BLOG_URL = process.env.BLOG_URL || 'https://blogs.idevlab.dev';
+const BLOG_REPO = process.env.BLOG_REPO || 'IchenDEV/IchenDEV.github.io';
+const BLOG_REF = process.env.BLOG_REF || 'gh-pages';
+const BLOG_SOURCE_URL = `https://raw.githubusercontent.com/${BLOG_REPO}/${BLOG_REF}/index.html`;
 const OUT = resolve(ROOT, 'data/github.json');
 const MAX_BLOG_BYTES = 1_000_000;
 
@@ -160,8 +163,8 @@ function excerptFromSearchText(title, text) {
 
 /** Latest posts from the blog's embedded structured search index. */
 async function fetchBlog() {
-  const res = await fetch(BLOG_URL, { headers: { 'user-agent': `${USER}-home-page` } });
-  if (!res.ok) throw new Error(`blog -> ${res.status}`);
+  const res = await fetch(BLOG_SOURCE_URL, { headers: { 'user-agent': `${USER}-home-page` } });
+  if (!res.ok) throw new Error(`blog repository -> ${res.status}`);
   const declared = Number(res.headers.get('content-length') || 0);
   if (declared > MAX_BLOG_BYTES) throw new Error('blog response is too large');
   const html = await res.text();

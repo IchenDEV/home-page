@@ -34,7 +34,7 @@ GITHUB_TOKEN="$(gh auth token)" npm run fetch
 `.github/workflows/deploy.yml` 在每天 **03:00 UTC（杭州 / 新加坡 11:00）**运行一次：
 
 1. 读取 GitHub 用户、仓库、贡献和公开活动；
-2. 读取博客首页内嵌的结构化文章索引，取最新 3 篇；
+2. 从 `IchenDEV/IchenDEV.github.io` 仓库的 `gh-pages/index.html` 读取结构化文章索引，取最新 3 篇；
 3. 更新并提交 `data/github.json` 到 `main`；
 4. 页面优先读取这份静态快照，读取失败时才调用 GitHub 公开 API。
 
@@ -47,6 +47,8 @@ GITHUB_TOKEN="$(gh auth token)" npm run fetch
 | `PINNED` | 置顶项目，按数组顺序排前面 |
 | `EXCLUDE` | 不想出现在主页的仓库 |
 | `USER` | GitHub 用户名（也可用环境变量 `GH_USER`） |
+| `BLOG_REPO` | 博客 GitHub 仓库（也可用同名环境变量覆盖） |
+| `BLOG_REF` | 博客发布分支（默认 `gh-pages`） |
 
 友情链接在 `js/main.js` 顶部的 `LINKS` 数组里，加一项就行。
 
