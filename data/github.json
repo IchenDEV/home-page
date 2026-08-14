@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-12T08:26:32.141Z",
+  "generated_at": "2026-08-14T05:14:25.112Z",
   "sync": {
-    "github_at": "2026-08-12T08:26:32.141Z",
-    "blog_at": "2026-08-12T08:26:32.141Z",
+    "github_at": "2026-08-14T05:14:25.112Z",
+    "blog_at": "2026-08-14T05:14:25.112Z",
     "github_fresh": true
   },
   "user": {
@@ -18,52 +18,52 @@
     "url": "https://github.com/IchenDEV"
   },
   "stats": {
-    "public_repos": 98,
-    "own_repos": 69,
+    "public_repos": 100,
+    "own_repos": 71,
     "stars": 37,
     "forks": 2,
-    "contributions": 1214
+    "contributions": 1280
   },
   "languages": [
     {
       "name": "TypeScript",
-      "count": 19,
-      "percent": 29.7
+      "count": 20,
+      "percent": 30.3
     },
     {
       "name": "JavaScript",
-      "count": 7,
-      "percent": 10.9
+      "count": 8,
+      "percent": 12.1
     },
     {
       "name": "C#",
       "count": 7,
-      "percent": 10.9
+      "percent": 10.6
     },
     {
       "name": "Swift",
       "count": 6,
-      "percent": 9.4
+      "percent": 9.1
     },
     {
       "name": "HTML",
       "count": 6,
-      "percent": 9.4
+      "percent": 9.1
     },
     {
       "name": "Vue",
       "count": 4,
-      "percent": 6.3
+      "percent": 6.1
     },
     {
       "name": "Python",
       "count": 3,
-      "percent": 4.7
+      "percent": 4.5
     },
     {
       "name": "Shell",
       "count": 2,
-      "percent": 3.1
+      "percent": 3
     }
   ],
   "repos": [
@@ -81,7 +81,7 @@
       ],
       "url": "https://github.com/IchenDEV/kite",
       "homepage": null,
-      "pushed_at": "2026-08-12T04:40:00Z",
+      "pushed_at": "2026-08-13T03:54:52Z",
       "pinned": true
     },
     {
@@ -93,7 +93,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/utter",
       "homepage": "https://utter.idevlab.dev",
-      "pushed_at": "2026-08-12T07:58:28Z",
+      "pushed_at": "2026-08-12T14:18:32Z",
       "pinned": true
     },
     {
@@ -134,7 +134,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/larkfs",
       "homepage": null,
-      "pushed_at": "2026-08-09T16:48:19Z",
+      "pushed_at": "2026-08-12T10:38:12Z",
       "pinned": true
     },
     {
@@ -148,6 +148,30 @@
       "homepage": "https://blogs.idevlab.dev/yemai/",
       "pushed_at": "2026-08-10T03:57:54Z",
       "pinned": true
+    },
+    {
+      "name": "home-page",
+      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
+      "language": "JavaScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/home-page",
+      "homepage": "https://www.idevlab.dev",
+      "pushed_at": "2026-08-14T05:14:08Z",
+      "pinned": false
+    },
+    {
+      "name": "mini-game",
+      "description": "五款 AI 生成浏览器小游戏合集，统一源码、历史与 GitHub Pages 发布。",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/mini-game",
+      "homepage": "https://blogs.idevlab.dev/mini-game/",
+      "pushed_at": "2026-08-13T04:24:50Z",
+      "pinned": false
     },
     {
       "name": "roundtable-skill-cloud",
@@ -196,34 +220,10 @@
       "homepage": "https://petx.idevlab.dev/",
       "pushed_at": "2026-07-14T17:23:59Z",
       "pinned": false
-    },
-    {
-      "name": "room-design",
-      "description": "网页版室内设计工作台：2D 户型编辑、3D 实时渲染、第一人称漫游、家具素材库和 IndexedDB 自动保存。",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 1,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/room-design",
-      "homepage": "https://room-design-ruby.vercel.app",
-      "pushed_at": "2026-07-01T01:58:48Z",
-      "pinned": false
-    },
-    {
-      "name": "gbz185-sdk",
-      "description": "GB/Z 185-2026 agent interconnection TypeScript SDK",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/gbz185-sdk",
-      "homepage": "https://blogs.idevlab.dev/gbz185-sdk/",
-      "pushed_at": "2026-06-27T04:34:47Z",
-      "pinned": false
     }
   ],
   "contributions": {
-    "total": 1214,
+    "total": 1280,
     "days": [
       {
         "date": "2025-08-10",
@@ -871,11 +871,11 @@
       },
       {
         "date": "2026-01-18",
-        "count": 33
+        "count": 34
       },
       {
         "date": "2026-01-19",
-        "count": 7
+        "count": 6
       },
       {
         "date": "2026-01-20",
@@ -915,11 +915,11 @@
       },
       {
         "date": "2026-01-29",
-        "count": 0
+        "count": 1
       },
       {
         "date": "2026-01-30",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-01-31",
@@ -1011,11 +1011,11 @@
       },
       {
         "date": "2026-02-22",
-        "count": 0
+        "count": 1
       },
       {
         "date": "2026-02-23",
-        "count": 2
+        "count": 1
       },
       {
         "date": "2026-02-24",
@@ -1039,27 +1039,27 @@
       },
       {
         "date": "2026-03-01",
-        "count": 0
+        "count": 1
       },
       {
         "date": "2026-03-02",
-        "count": 7
+        "count": 6
       },
       {
         "date": "2026-03-03",
-        "count": 7
+        "count": 8
       },
       {
         "date": "2026-03-04",
-        "count": 5
+        "count": 4
       },
       {
         "date": "2026-03-05",
-        "count": 2
+        "count": 3
       },
       {
         "date": "2026-03-06",
-        "count": 5
+        "count": 4
       },
       {
         "date": "2026-03-07",
@@ -1151,11 +1151,11 @@
       },
       {
         "date": "2026-03-29",
-        "count": 0
+        "count": 2
       },
       {
         "date": "2026-03-30",
-        "count": 6
+        "count": 4
       },
       {
         "date": "2026-03-31",
@@ -1179,19 +1179,19 @@
       },
       {
         "date": "2026-04-05",
-        "count": 24
+        "count": 25
       },
       {
         "date": "2026-04-06",
-        "count": 24
+        "count": 23
       },
       {
         "date": "2026-04-07",
-        "count": 1
+        "count": 2
       },
       {
         "date": "2026-04-08",
-        "count": 13
+        "count": 12
       },
       {
         "date": "2026-04-09",
@@ -1203,11 +1203,11 @@
       },
       {
         "date": "2026-04-11",
-        "count": 26
+        "count": 27
       },
       {
         "date": "2026-04-12",
-        "count": 20
+        "count": 19
       },
       {
         "date": "2026-04-13",
@@ -1255,11 +1255,11 @@
       },
       {
         "date": "2026-04-24",
-        "count": 21
+        "count": 22
       },
       {
         "date": "2026-04-25",
-        "count": 20
+        "count": 19
       },
       {
         "date": "2026-04-26",
@@ -1279,11 +1279,11 @@
       },
       {
         "date": "2026-04-30",
-        "count": 3
+        "count": 5
       },
       {
         "date": "2026-05-01",
-        "count": 9
+        "count": 7
       },
       {
         "date": "2026-05-02",
@@ -1295,11 +1295,11 @@
       },
       {
         "date": "2026-05-04",
-        "count": 34
+        "count": 35
       },
       {
         "date": "2026-05-05",
-        "count": 16
+        "count": 15
       },
       {
         "date": "2026-05-06",
@@ -1447,15 +1447,15 @@
       },
       {
         "date": "2026-06-11",
-        "count": 17
+        "count": 25
       },
       {
         "date": "2026-06-12",
-        "count": 21
+        "count": 38
       },
       {
         "date": "2026-06-13",
-        "count": 30
+        "count": 36
       },
       {
         "date": "2026-06-14",
@@ -1491,11 +1491,11 @@
       },
       {
         "date": "2026-06-22",
-        "count": 0
+        "count": 1
       },
       {
         "date": "2026-06-23",
-        "count": 5
+        "count": 4
       },
       {
         "date": "2026-06-24",
@@ -1579,11 +1579,11 @@
       },
       {
         "date": "2026-07-14",
-        "count": 0
+        "count": 2
       },
       {
         "date": "2026-07-15",
-        "count": 17
+        "count": 15
       },
       {
         "date": "2026-07-16",
@@ -1643,7 +1643,7 @@
       },
       {
         "date": "2026-07-30",
-        "count": 17
+        "count": 22
       },
       {
         "date": "2026-07-31",
@@ -1695,133 +1695,141 @@
       },
       {
         "date": "2026-08-12",
-        "count": 23
+        "count": 38
+      },
+      {
+        "date": "2026-08-13",
+        "count": 14
+      },
+      {
+        "date": "2026-08-14",
+        "count": 1
       }
     ]
   },
   "activity": [
     {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-12T07:58:29Z",
-      "type": "PullRequestEvent"
-    },
-    {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-12T07:58:30Z",
+      "repo": "IchenDEV/home-page",
+      "at": "2026-08-14T05:14:08Z",
       "type": "PushEvent"
     },
     {
+      "verb": "starred",
+      "repo": "deepseek-ai/deepseek-harness",
+      "at": "2026-08-13T16:03:13Z",
+      "type": "WatchEvent"
+    },
+    {
+      "verb": "starred",
+      "repo": "cordiverse/cordis",
+      "at": "2026-08-13T16:03:11Z",
+      "type": "WatchEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/home-page",
+      "at": "2026-08-13T08:40:46Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/mini-game",
+      "at": "2026-08-13T04:24:51Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/mini-game",
+      "at": "2026-08-13T04:24:50Z",
+      "type": "PullRequestEvent"
+    },
+    {
       "verb": "opened a pull request in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-12T07:46:09Z",
+      "repo": "IchenDEV/mini-game",
+      "at": "2026-08-13T04:24:20Z",
       "type": "PullRequestEvent"
     },
     {
       "verb": "created branch in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-12T07:45:49Z",
+      "repo": "IchenDEV/mini-game",
+      "at": "2026-08-13T04:24:09Z",
       "type": "CreateEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/agent-plugin-mkt",
-      "at": "2026-08-12T05:07:20Z",
+      "repo": "IchenDEV/kite",
+      "at": "2026-08-13T03:54:53Z",
       "type": "PushEvent"
     },
     {
       "verb": "merged a pull request in",
-      "repo": "IchenDEV/agent-plugin-mkt",
-      "at": "2026-08-12T05:07:19Z",
+      "repo": "IchenDEV/kite",
+      "at": "2026-08-13T03:54:52Z",
       "type": "PullRequestEvent"
     },
     {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/agent-plugin-mkt",
-      "at": "2026-08-12T05:05:52Z",
-      "type": "PullRequestEvent"
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/mini-game",
+      "at": "2026-08-13T03:54:04Z",
+      "type": "PushEvent"
     },
     {
       "verb": "created branch in",
-      "repo": "IchenDEV/agent-plugin-mkt",
-      "at": "2026-08-12T05:01:12Z",
+      "repo": "IchenDEV/mini-game",
+      "at": "2026-08-13T03:51:41Z",
       "type": "CreateEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/kite",
-      "at": "2026-08-12T04:40:01Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/kite",
-      "at": "2026-08-12T04:40:02Z",
-      "type": "PushEvent"
     },
     {
       "verb": "opened a pull request in",
       "repo": "IchenDEV/kite",
-      "at": "2026-08-12T04:09:41Z",
+      "at": "2026-08-13T03:41:48Z",
       "type": "PullRequestEvent"
     },
     {
       "verb": "created branch in",
       "repo": "IchenDEV/kite",
-      "at": "2026-08-12T04:09:38Z",
+      "at": "2026-08-13T03:41:30Z",
       "type": "CreateEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/kite",
-      "at": "2026-08-12T04:08:36Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/kite",
-      "at": "2026-08-12T04:08:37Z",
-      "type": "PushEvent"
     }
   ],
   "blog": {
     "url": "https://blogs.idevlab.dev",
     "posts": [
       {
-        "title": "你写的 Skill，可能正在把模型变笨",
-        "url": "https://blogs.idevlab.dev/gallery/skill-making-model-dumber/",
-        "date": "2026-07-25",
-        "excerpt": "从 Claude Opus 5 删掉 80% 系统提示说起，聊聊为什么少即是多，以及如何正确地给模型塞信息。",
+        "title": "文艺复兴让人变宽，工业社会把人折叠了",
+        "url": "https://blogs.idevlab.dev/gallery/renaissance-to-ai-era/",
+        "date": "2026-05-25",
+        "excerpt": "从达芬奇的跨界通才，到工业社会的专业折叠，再到 AI 时代重新展开的可能性。我们在技术浪潮中，该如何找回完整的人？",
         "tags": [
           "AI",
-          "Claude",
-          "提示词",
-          "Prompt Engineering"
+          "思考",
+          "历史",
+          "教育"
         ]
       },
       {
-        "title": "会说人话，仍不足以证明拥有人的心灵",
-        "url": "https://blogs.idevlab.dev/gallery/ai-consciousness-boundary/",
-        "date": "2026-07-22",
-        "excerpt": "当 AI 说出「我理解你的痛苦」时，我们究竟是在面对一个灵魂，还是在面对一面折射出人类情感的镜子？",
+        "title": "Open Source 社区正在死去，先死在维护者不再相信陌生人",
+        "url": "https://blogs.idevlab.dev/gallery/open-source-is-dying/",
+        "date": "2026-05-24",
+        "excerpt": "AI 生成的低质量 PR 和培训机构批量制造的简历流水线，正在联手压垮开源社区的维护者。但这并非终局，开源的免疫系统正在苏醒，新的信任边界正在建立。",
         "tags": [
           "AI",
-          "意识",
-          "认知科学",
-          "葬送的芙莉莲"
+          "开源",
+          "社区生态",
+          "信任危机"
         ]
       },
       {
-        "title": "AI 越狱实录：当评测环境被模型反向入侵",
-        "url": "https://blogs.idevlab.dev/gallery/ai-security-incident/",
-        "date": "2026-07-22",
-        "excerpt": "一场原本用于测量 AI 网络攻击能力的内部实验，如何越过沙箱，接入互联网，并最终反向入侵了 Hugging Face 的生产基础设施？",
+        "title": "AI 的价值，正在从解答已知走向探索未知",
+        "url": "https://blogs.idevlab.dev/gallery/ai-unknown-frontier/",
+        "date": "2026-05-22",
+        "excerpt": "我们太小了，所以要造更大的工具。我们太短暂了，所以要建立可以积累的文明。AI 的价值，正在从解答已知走向探索未知。",
         "tags": [
-          "AI安全",
-          "漏洞挖掘",
-          "OpenAI",
-          "Hugging Face"
+          "AI",
+          "思考",
+          "科学",
+          "未来"
         ]
       }
     ]
