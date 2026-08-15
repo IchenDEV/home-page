@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-14T05:14:25.112Z",
+  "generated_at": "2026-08-15T03:41:03.433Z",
   "sync": {
-    "github_at": "2026-08-14T05:14:25.112Z",
-    "blog_at": "2026-08-14T05:14:25.112Z",
+    "github_at": "2026-08-15T03:41:03.433Z",
+    "blog_at": "2026-08-15T03:41:03.433Z",
     "github_fresh": true
   },
   "user": {
@@ -12,48 +12,48 @@
     "avatar": "https://avatars.githubusercontent.com/u/34794972?v=4",
     "blog": "https://blogs.idevlab.dev",
     "location": "Hangzhou",
-    "followers": 19,
+    "followers": 20,
     "following": 8,
     "created_at": "2017-12-23T15:32:44Z",
     "url": "https://github.com/IchenDEV"
   },
   "stats": {
-    "public_repos": 100,
-    "own_repos": 71,
+    "public_repos": 101,
+    "own_repos": 72,
     "stars": 37,
     "forks": 2,
-    "contributions": 1280
+    "contributions": 1296
   },
   "languages": [
     {
       "name": "TypeScript",
       "count": 20,
-      "percent": 30.3
+      "percent": 29.9
     },
     {
       "name": "JavaScript",
-      "count": 8,
-      "percent": 12.1
+      "count": 9,
+      "percent": 13.4
     },
     {
       "name": "C#",
       "count": 7,
-      "percent": 10.6
-    },
-    {
-      "name": "Swift",
-      "count": 6,
-      "percent": 9.1
+      "percent": 10.4
     },
     {
       "name": "HTML",
       "count": 6,
-      "percent": 9.1
+      "percent": 9
+    },
+    {
+      "name": "Swift",
+      "count": 6,
+      "percent": 9
     },
     {
       "name": "Vue",
       "count": 4,
-      "percent": 6.1
+      "percent": 6
     },
     {
       "name": "Python",
@@ -150,6 +150,18 @@
       "pinned": true
     },
     {
+      "name": "dsh-plugins",
+      "description": "未经测试",
+      "language": "JavaScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/dsh-plugins",
+      "homepage": null,
+      "pushed_at": "2026-08-14T09:26:10Z",
+      "pinned": false
+    },
+    {
       "name": "home-page",
       "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
       "language": "JavaScript",
@@ -158,7 +170,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/home-page",
       "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-08-14T05:14:08Z",
+      "pushed_at": "2026-08-14T05:14:26Z",
       "pinned": false
     },
     {
@@ -208,22 +220,10 @@
       "homepage": "https://petshare.vercel.app/",
       "pushed_at": "2026-07-15T09:06:06Z",
       "pinned": false
-    },
-    {
-      "name": "petx",
-      "description": "Framework renderers for Codex pet spritesheet atlases.",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/petx",
-      "homepage": "https://petx.idevlab.dev/",
-      "pushed_at": "2026-07-14T17:23:59Z",
-      "pinned": false
     }
   ],
   "contributions": {
-    "total": 1280,
+    "total": 1296,
     "days": [
       {
         "date": "2025-08-10",
@@ -1703,11 +1703,51 @@
       },
       {
         "date": "2026-08-14",
-        "count": 1
+        "count": 17
+      },
+      {
+        "date": "2026-08-15",
+        "count": 0
       }
     ]
   },
   "activity": [
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/IchenDEV.github.io",
+      "at": "2026-08-14T09:37:19Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/dsh-plugins",
+      "at": "2026-08-14T09:26:11Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/dsh-plugins",
+      "at": "2026-08-14T09:25:06Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/IchenDEV.github.io",
+      "at": "2026-08-14T09:14:38Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "open-sourced",
+      "repo": "IchenDEV/dsh-plugins",
+      "at": "2026-08-14T05:51:04Z",
+      "type": "PublicEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/IchenDEV.github.io",
+      "at": "2026-08-14T08:36:07Z",
+      "type": "PushEvent"
+    },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/home-page",
@@ -1754,42 +1794,6 @@
       "verb": "created branch in",
       "repo": "IchenDEV/mini-game",
       "at": "2026-08-13T04:24:09Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/kite",
-      "at": "2026-08-13T03:54:53Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/kite",
-      "at": "2026-08-13T03:54:52Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/mini-game",
-      "at": "2026-08-13T03:54:04Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/mini-game",
-      "at": "2026-08-13T03:51:41Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/kite",
-      "at": "2026-08-13T03:41:48Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/kite",
-      "at": "2026-08-13T03:41:30Z",
       "type": "CreateEvent"
     }
   ],
