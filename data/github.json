@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-15T03:41:03.433Z",
+  "generated_at": "2026-08-16T03:50:21.989Z",
   "sync": {
-    "github_at": "2026-08-15T03:41:03.433Z",
-    "blog_at": "2026-08-15T03:41:03.433Z",
+    "github_at": "2026-08-16T03:50:21.989Z",
+    "blog_at": "2026-08-16T03:50:21.989Z",
     "github_fresh": true
   },
   "user": {
@@ -150,6 +150,18 @@
       "pinned": true
     },
     {
+      "name": "home-page",
+      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
+      "language": "JavaScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/home-page",
+      "homepage": "https://www.idevlab.dev",
+      "pushed_at": "2026-08-15T03:41:04Z",
+      "pinned": false
+    },
+    {
       "name": "dsh-plugins",
       "description": "未经测试",
       "language": "JavaScript",
@@ -159,18 +171,6 @@
       "url": "https://github.com/IchenDEV/dsh-plugins",
       "homepage": null,
       "pushed_at": "2026-08-14T09:26:10Z",
-      "pinned": false
-    },
-    {
-      "name": "home-page",
-      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
-      "language": "JavaScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/home-page",
-      "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-08-14T05:14:26Z",
       "pinned": false
     },
     {
@@ -225,34 +225,6 @@
   "contributions": {
     "total": 1296,
     "days": [
-      {
-        "date": "2025-08-10",
-        "count": 0
-      },
-      {
-        "date": "2025-08-11",
-        "count": 0
-      },
-      {
-        "date": "2025-08-12",
-        "count": 0
-      },
-      {
-        "date": "2025-08-13",
-        "count": 0
-      },
-      {
-        "date": "2025-08-14",
-        "count": 0
-      },
-      {
-        "date": "2025-08-15",
-        "count": 0
-      },
-      {
-        "date": "2025-08-16",
-        "count": 0
-      },
       {
         "date": "2025-08-17",
         "count": 0
@@ -1707,6 +1679,10 @@
       },
       {
         "date": "2026-08-15",
+        "count": 0
+      },
+      {
+        "date": "2026-08-16",
         "count": 0
       }
     ]
