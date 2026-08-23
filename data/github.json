@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-22T03:43:18.336Z",
+  "generated_at": "2026-08-23T03:52:14.618Z",
   "sync": {
-    "github_at": "2026-08-22T03:43:18.336Z",
-    "blog_at": "2026-08-22T03:43:18.336Z",
+    "github_at": "2026-08-23T03:52:14.618Z",
+    "blog_at": "2026-08-23T03:52:14.618Z",
     "github_fresh": true
   },
   "user": {
@@ -150,6 +150,18 @@
       "pinned": true
     },
     {
+      "name": "home-page",
+      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
+      "language": "JavaScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/home-page",
+      "homepage": "https://www.idevlab.dev",
+      "pushed_at": "2026-08-22T03:43:19Z",
+      "pinned": false
+    },
+    {
       "name": "codeTwo",
       "description": "Document-first coding-agent app: one Rust core driving a Tauri desktop app + a ratatui TUI over ACP (Claude Code / Codex / Grok / Cursor / OpenCode).",
       "language": "Rust",
@@ -159,18 +171,6 @@
       "url": "https://github.com/IchenDEV/codeTwo",
       "homepage": null,
       "pushed_at": "2026-08-21T13:57:23Z",
-      "pinned": false
-    },
-    {
-      "name": "home-page",
-      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
-      "language": "JavaScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/home-page",
-      "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-08-21T03:52:23Z",
       "pinned": false
     },
     {
@@ -225,34 +225,6 @@
   "contributions": {
     "total": 1599,
     "days": [
-      {
-        "date": "2025-08-17",
-        "count": 0
-      },
-      {
-        "date": "2025-08-18",
-        "count": 0
-      },
-      {
-        "date": "2025-08-19",
-        "count": 0
-      },
-      {
-        "date": "2025-08-20",
-        "count": 0
-      },
-      {
-        "date": "2025-08-21",
-        "count": 0
-      },
-      {
-        "date": "2025-08-22",
-        "count": 0
-      },
-      {
-        "date": "2025-08-23",
-        "count": 0
-      },
       {
         "date": "2025-08-24",
         "count": 0
@@ -1707,6 +1679,10 @@
       },
       {
         "date": "2026-08-22",
+        "count": 0
+      },
+      {
+        "date": "2026-08-23",
         "count": 0
       }
     ]
