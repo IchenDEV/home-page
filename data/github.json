@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-25T03:50:43.222Z",
+  "generated_at": "2026-08-26T03:55:07.391Z",
   "sync": {
-    "github_at": "2026-08-25T03:50:43.222Z",
-    "blog_at": "2026-08-25T03:50:43.222Z",
+    "github_at": "2026-08-26T03:55:07.391Z",
+    "blog_at": "2026-08-26T03:55:07.391Z",
     "github_fresh": true
   },
   "user": {
@@ -18,52 +18,52 @@
     "url": "https://github.com/IchenDEV"
   },
   "stats": {
-    "public_repos": 103,
-    "own_repos": 73,
+    "public_repos": 104,
+    "own_repos": 74,
     "stars": 37,
     "forks": 2,
-    "contributions": 1695
+    "contributions": 1848
   },
   "languages": [
     {
       "name": "TypeScript",
       "count": 20,
-      "percent": 29.4
+      "percent": 29
     },
     {
       "name": "JavaScript",
-      "count": 9,
-      "percent": 13.2
+      "count": 10,
+      "percent": 14.5
     },
     {
       "name": "C#",
       "count": 7,
-      "percent": 10.3
+      "percent": 10.1
     },
     {
       "name": "Swift",
       "count": 6,
-      "percent": 8.8
+      "percent": 8.7
     },
     {
       "name": "HTML",
       "count": 6,
-      "percent": 8.8
+      "percent": 8.7
     },
     {
       "name": "Vue",
       "count": 4,
-      "percent": 5.9
+      "percent": 5.8
     },
     {
       "name": "Rust",
       "count": 3,
-      "percent": 4.4
+      "percent": 4.3
     },
     {
       "name": "Python",
       "count": 3,
-      "percent": 4.4
+      "percent": 4.3
     }
   ],
   "repos": [
@@ -93,7 +93,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/utter",
       "homepage": "https://utter.idevlab.dev",
-      "pushed_at": "2026-08-25T03:33:34Z",
+      "pushed_at": "2026-08-25T18:24:08Z",
       "pinned": true
     },
     {
@@ -158,7 +158,31 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/codeTwo",
       "homepage": null,
-      "pushed_at": "2026-08-24T18:41:15Z",
+      "pushed_at": "2026-08-26T03:30:30Z",
+      "pinned": false
+    },
+    {
+      "name": "c2-plugins",
+      "description": "Community-maintained catalog of installable C2 plugin bundles.",
+      "language": "JavaScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/c2-plugins",
+      "homepage": null,
+      "pushed_at": "2026-08-26T02:23:15Z",
+      "pinned": false
+    },
+    {
+      "name": "agent-plugin-mkt",
+      "description": "Open-source marketplace for discovering Codex, Claude Code, and Agent Plugins—with web, REST API, MCP, and agent-readable catalogs.",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/agent-plugin-mkt",
+      "homepage": "https://pluginsmp.com/",
+      "pushed_at": "2026-08-26T02:12:13Z",
       "pinned": false
     },
     {
@@ -170,7 +194,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/home-page",
       "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-08-24T03:56:16Z",
+      "pushed_at": "2026-08-25T03:50:44Z",
       "pinned": false
     },
     {
@@ -196,34 +220,10 @@
       "homepage": "https://blogs.idevlab.dev/mini-game/",
       "pushed_at": "2026-08-13T04:24:50Z",
       "pinned": false
-    },
-    {
-      "name": "roundtable-skill-cloud",
-      "description": "让历史上最锐利的头脑，为你的问题交锋。  一句议题，数位大师入席——马斯克拆成本、芒格查盲点、费曼验真伪——独立思考，当面辩论，你随时插话。结束时主持人铺纸结案：共识、分歧、悬而未决。",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/roundtable-skill-cloud",
-      "homepage": "https://roundtable-skill-cloud.vercel.app/",
-      "pushed_at": "2026-08-11T03:17:11Z",
-      "pinned": false
-    },
-    {
-      "name": "petx-desktop",
-      "description": "A tiny cross-platform PetX desktop companion built with Tauri and React",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/petx-desktop",
-      "homepage": null,
-      "pushed_at": "2026-08-09T19:20:03Z",
-      "pinned": false
     }
   ],
   "contributions": {
-    "total": 1695,
+    "total": 1848,
     "days": [
       {
         "date": "2025-08-24",
@@ -1691,93 +1691,97 @@
       },
       {
         "date": "2026-08-25",
-        "count": 7
+        "count": 52
+      },
+      {
+        "date": "2026-08-26",
+        "count": 108
       }
     ]
   },
   "activity": [
     {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-25T03:33:34Z",
-      "type": "PullRequestEvent"
-    },
-    {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/utter",
-      "at": "2026-08-25T03:33:35Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-24T18:41:16Z",
+      "at": "2026-08-25T18:24:09Z",
       "type": "PushEvent"
     },
     {
       "verb": "created branch in",
       "repo": "IchenDEV/utter",
-      "at": "2026-08-24T17:56:01Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-24T16:37:01Z",
+      "at": "2026-08-25T17:56:19Z",
       "type": "CreateEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/agent-plugin-mkt",
-      "at": "2026-08-24T16:01:26Z",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-26T03:30:30Z",
       "type": "PushEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-25T20:42:32Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-25T20:04:56Z",
+      "type": "CreateEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-24T15:45:43Z",
+      "at": "2026-08-25T19:58:17Z",
       "type": "PushEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-24T17:56:17Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-24T15:35:38Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-24T16:38:15Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/agent-plugin-mkt",
-      "at": "2026-08-24T16:00:53Z",
-      "type": "CreateEvent"
     },
     {
       "verb": "merged a pull request in",
-      "repo": "IchenDEV/agent-plugin-mkt",
-      "at": "2026-08-24T16:01:25Z",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-26T02:52:04Z",
       "type": "PullRequestEvent"
     },
     {
       "verb": "opened a pull request in",
-      "repo": "IchenDEV/agent-plugin-mkt",
-      "at": "2026-08-24T16:01:10Z",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-26T02:49:13Z",
       "type": "PullRequestEvent"
     },
     {
       "verb": "created branch in",
-      "repo": "IchenDEV/agent-plugin-mkt",
-      "at": "2026-08-24T15:52:04Z",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-26T02:48:44Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-25T17:12:37Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-26T02:27:44Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-26T02:27:26Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-25T19:14:03Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-25T19:25:53Z",
       "type": "CreateEvent"
     }
   ],
