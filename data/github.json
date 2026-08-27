@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-26T03:55:07.391Z",
+  "generated_at": "2026-08-27T13:55:15.817Z",
   "sync": {
-    "github_at": "2026-08-26T03:55:07.391Z",
-    "blog_at": "2026-08-26T03:55:07.391Z",
+    "github_at": "2026-08-27T13:55:15.817Z",
+    "blog_at": "2026-08-27T13:55:15.817Z",
     "github_fresh": true
   },
   "user": {
@@ -18,11 +18,11 @@
     "url": "https://github.com/IchenDEV"
   },
   "stats": {
-    "public_repos": 104,
+    "public_repos": 106,
     "own_repos": 74,
     "stars": 37,
     "forks": 2,
-    "contributions": 1848
+    "contributions": 1927
   },
   "languages": [
     {
@@ -93,7 +93,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/utter",
       "homepage": "https://utter.idevlab.dev",
-      "pushed_at": "2026-08-25T18:24:08Z",
+      "pushed_at": "2026-08-27T08:32:24Z",
       "pinned": true
     },
     {
@@ -158,7 +158,31 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/codeTwo",
       "homepage": null,
-      "pushed_at": "2026-08-26T03:30:30Z",
+      "pushed_at": "2026-08-27T11:32:49Z",
+      "pinned": false
+    },
+    {
+      "name": "agent-plugin-mkt",
+      "description": "Open-source marketplace for discovering Codex, Claude Code, and Agent Plugins—with web, REST API, MCP, and agent-readable catalogs.",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/agent-plugin-mkt",
+      "homepage": "https://pluginsmp.com/",
+      "pushed_at": "2026-08-27T09:57:38Z",
+      "pinned": false
+    },
+    {
+      "name": "home-page",
+      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
+      "language": "JavaScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/home-page",
+      "homepage": "https://www.idevlab.dev",
+      "pushed_at": "2026-08-26T03:55:08Z",
       "pinned": false
     },
     {
@@ -171,30 +195,6 @@
       "url": "https://github.com/IchenDEV/c2-plugins",
       "homepage": null,
       "pushed_at": "2026-08-26T02:23:15Z",
-      "pinned": false
-    },
-    {
-      "name": "agent-plugin-mkt",
-      "description": "Open-source marketplace for discovering Codex, Claude Code, and Agent Plugins—with web, REST API, MCP, and agent-readable catalogs.",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/agent-plugin-mkt",
-      "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-08-26T02:12:13Z",
-      "pinned": false
-    },
-    {
-      "name": "home-page",
-      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
-      "language": "JavaScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/home-page",
-      "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-08-25T03:50:44Z",
       "pinned": false
     },
     {
@@ -223,7 +223,7 @@
     }
   ],
   "contributions": {
-    "total": 1848,
+    "total": 1927,
     "days": [
       {
         "date": "2025-08-24",
@@ -1695,94 +1695,98 @@
       },
       {
         "date": "2026-08-26",
-        "count": 108
+        "count": 170
+      },
+      {
+        "date": "2026-08-27",
+        "count": 17
       }
     ]
   },
   "activity": [
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-25T18:24:09Z",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-26T10:46:57Z",
       "type": "PushEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-25T17:56:19Z",
-      "type": "CreateEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-26T03:30:30Z",
+      "at": "2026-08-27T11:32:50Z",
       "type": "PushEvent"
     },
     {
       "verb": "created branch in",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-25T20:42:32Z",
+      "at": "2026-08-27T11:30:04Z",
       "type": "CreateEvent"
+    },
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-27T11:32:49Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-27T11:30:22Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-27T11:11:33Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-27T11:09:26Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-27T10:49:11Z",
+      "type": "PushEvent"
     },
     {
       "verb": "created branch in",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-25T20:04:56Z",
+      "at": "2026-08-27T10:46:31Z",
       "type": "CreateEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-25T19:58:17Z",
+      "at": "2026-08-27T10:37:51Z",
       "type": "PushEvent"
     },
     {
       "verb": "merged a pull request in",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-26T02:52:04Z",
+      "at": "2026-08-27T10:49:10Z",
       "type": "PullRequestEvent"
     },
     {
       "verb": "opened a pull request in",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-26T02:49:13Z",
+      "at": "2026-08-27T10:46:33Z",
       "type": "PullRequestEvent"
     },
     {
-      "verb": "created branch in",
+      "verb": "merged a pull request in",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-26T02:48:44Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-25T17:12:37Z",
-      "type": "PushEvent"
+      "at": "2026-08-27T10:37:50Z",
+      "type": "PullRequestEvent"
     },
     {
       "verb": "opened a pull request in",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-26T02:27:44Z",
+      "at": "2026-08-27T10:35:22Z",
       "type": "PullRequestEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-26T02:27:26Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-25T19:14:03Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-25T19:25:53Z",
-      "type": "CreateEvent"
     }
   ],
   "blog": {
