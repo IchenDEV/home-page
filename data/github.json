@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-28T15:06:57.181Z",
+  "generated_at": "2026-08-29T09:49:40.710Z",
   "sync": {
-    "github_at": "2026-08-28T15:06:57.181Z",
-    "blog_at": "2026-08-28T15:06:57.181Z",
+    "github_at": "2026-08-29T09:49:40.710Z",
+    "blog_at": "2026-08-29T09:49:40.710Z",
     "github_fresh": true
   },
   "user": {
@@ -18,47 +18,47 @@
     "url": "https://github.com/IchenDEV"
   },
   "stats": {
-    "public_repos": 106,
-    "own_repos": 74,
-    "stars": 37,
+    "public_repos": 107,
+    "own_repos": 75,
+    "stars": 38,
     "forks": 2,
-    "contributions": 1966
+    "contributions": 1997
   },
   "languages": [
     {
       "name": "TypeScript",
       "count": 20,
-      "percent": 29
+      "percent": 28.6
     },
     {
       "name": "JavaScript",
       "count": 10,
-      "percent": 14.5
+      "percent": 14.3
     },
     {
       "name": "C#",
       "count": 7,
-      "percent": 10.1
+      "percent": 10
     },
     {
       "name": "HTML",
       "count": 6,
-      "percent": 8.7
+      "percent": 8.6
     },
     {
       "name": "Swift",
       "count": 6,
-      "percent": 8.7
+      "percent": 8.6
+    },
+    {
+      "name": "Rust",
+      "count": 4,
+      "percent": 5.7
     },
     {
       "name": "Vue",
       "count": 4,
-      "percent": 5.8
-    },
-    {
-      "name": "Rust",
-      "count": 3,
-      "percent": 4.3
+      "percent": 5.7
     },
     {
       "name": "Python",
@@ -150,15 +150,15 @@
       "pinned": true
     },
     {
-      "name": "codeTwo",
-      "description": "Document-first coding-agent app: one Rust core driving a Tauri desktop app + a ratatui TUI over ACP (Claude Code / Codex / Grok / Cursor / OpenCode).",
+      "name": "doubao-skin",
+      "description": "macOS themes and tooling for Doubao and DoubaoWork",
       "language": "Rust",
-      "stars": 0,
+      "stars": 1,
       "forks": 0,
       "topics": [],
-      "url": "https://github.com/IchenDEV/codeTwo",
-      "homepage": null,
-      "pushed_at": "2026-08-28T12:52:44Z",
+      "url": "https://github.com/IchenDEV/doubao-skin",
+      "homepage": "https://doubao-skin.idevlab.dev",
+      "pushed_at": "2026-08-29T09:45:22Z",
       "pinned": false
     },
     {
@@ -170,7 +170,19 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/agent-plugin-mkt",
       "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-08-28T11:39:26Z",
+      "pushed_at": "2026-08-29T07:20:28Z",
+      "pinned": false
+    },
+    {
+      "name": "codeTwo",
+      "description": "Document-first coding-agent app: one Rust core driving a Tauri desktop app + a ratatui TUI over ACP (Claude Code / Codex / Grok / Cursor / OpenCode).",
+      "language": "Rust",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/codeTwo",
+      "homepage": null,
+      "pushed_at": "2026-08-28T21:05:54Z",
       "pinned": false
     },
     {
@@ -182,7 +194,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/home-page",
       "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-08-27T13:55:17Z",
+      "pushed_at": "2026-08-28T15:06:58Z",
       "pinned": false
     },
     {
@@ -208,22 +220,10 @@
       "homepage": null,
       "pushed_at": "2026-08-14T09:26:10Z",
       "pinned": false
-    },
-    {
-      "name": "mini-game",
-      "description": "五款 AI 生成浏览器小游戏合集，统一源码、历史与 GitHub Pages 发布。",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/mini-game",
-      "homepage": "https://blogs.idevlab.dev/mini-game/",
-      "pushed_at": "2026-08-13T04:24:50Z",
-      "pinned": false
     }
   ],
   "contributions": {
-    "total": 1966,
+    "total": 1997,
     "days": [
       {
         "date": "2025-08-24",
@@ -1699,98 +1699,102 @@
       },
       {
         "date": "2026-08-27",
-        "count": 23
+        "count": 28
       },
       {
         "date": "2026-08-28",
-        "count": 33
+        "count": 37
+      },
+      {
+        "date": "2026-08-29",
+        "count": 22
       }
     ]
   },
   "activity": [
     {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/harness-switch",
-      "at": "2026-08-28T14:26:15Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T12:52:44Z",
-      "type": "PullRequestEvent"
+      "verb": "starred",
+      "repo": "IchenDEV/doubao-skin",
+      "at": "2026-08-29T08:59:40Z",
+      "type": "WatchEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-27T11:11:34Z",
+      "repo": "IchenDEV/doubao-skin",
+      "at": "2026-08-29T08:46:21Z",
       "type": "PushEvent"
     },
     {
-      "verb": "opened a pull request in",
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/doubao-skin",
+      "at": "2026-08-29T08:44:29Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T12:46:22Z",
-      "type": "PullRequestEvent"
+      "at": "2026-08-28T09:06:58Z",
+      "type": "PushEvent"
     },
     {
       "verb": "created branch in",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-27T11:09:16Z",
+      "at": "2026-08-28T07:50:18Z",
       "type": "CreateEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-28T07:01:42Z",
+      "type": "PushEvent"
     },
     {
       "verb": "created branch in",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-27T10:35:20Z",
+      "at": "2026-08-28T06:59:10Z",
       "type": "CreateEvent"
     },
     {
-      "verb": "created branch in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-27T08:32:25Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "merged a pull request in",
+      "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T09:06:57Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T07:50:35Z",
-      "type": "PullRequestEvent"
+      "at": "2026-08-28T18:13:08Z",
+      "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-08-28T07:19:15Z",
+      "at": "2026-08-28T19:02:06Z",
       "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-28T18:12:29Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-28T18:12:09Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-27T19:46:11Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-27T18:48:00Z",
+      "type": "CreateEvent"
     },
     {
       "verb": "merged a pull request in",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T07:01:41Z",
+      "at": "2026-08-28T21:05:54Z",
       "type": "PullRequestEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T06:59:13Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-08-28T06:44:05Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-27T08:44:37Z",
-      "type": "PushEvent"
     }
   ],
   "blog": {
