@@ -25,7 +25,16 @@ const MAX_BLOG_BYTES = 1_000_000;
 const EXCLUDE = new Set([USER, `${USER}.github.io`, 'test-wx-cloud', 'code-test']);
 
 /** Hand-pinned repos always shown first, in this order. */
-const PINNED = ['kite', 'utter', 'superman', 'prompt-optimizer-plugins', 'larkfs', 'yemai'];
+const PINNED = [
+  'doubao-skin',
+  'agent-plugin-mkt',
+  'kite',
+  'utter',
+  'superman',
+  'prompt-optimizer-plugins',
+  'larkfs',
+  'yemai',
+];
 
 const headers = {
   'accept': 'application/vnd.github+json',

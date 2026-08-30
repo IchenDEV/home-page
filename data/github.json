@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-29T09:49:40.710Z",
+  "generated_at": "2026-08-30T06:14:38.241Z",
   "sync": {
-    "github_at": "2026-08-29T09:49:40.710Z",
-    "blog_at": "2026-08-29T09:49:40.710Z",
+    "github_at": "2026-08-30T06:14:38.241Z",
+    "blog_at": "2026-08-30T06:14:38.241Z",
     "github_fresh": true
   },
   "user": {
@@ -18,11 +18,11 @@
     "url": "https://github.com/IchenDEV"
   },
   "stats": {
-    "public_repos": 107,
-    "own_repos": 75,
-    "stars": 38,
+    "public_repos": 108,
+    "own_repos": 76,
+    "stars": 39,
     "forks": 2,
-    "contributions": 1997
+    "contributions": 2062
   },
   "languages": [
     {
@@ -68,6 +68,30 @@
   ],
   "repos": [
     {
+      "name": "doubao-skin",
+      "description": "macOS themes and tooling for Doubao and DoubaoWork",
+      "language": "Rust",
+      "stars": 1,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/doubao-skin",
+      "homepage": "https://doubao-skin.idevlab.dev",
+      "pushed_at": "2026-08-29T17:07:12Z",
+      "pinned": true
+    },
+    {
+      "name": "agent-plugin-mkt",
+      "description": "Open-source marketplace for discovering Codex, Claude Code, and Agent Plugins—with web, REST API, MCP, and agent-readable catalogs.",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/agent-plugin-mkt",
+      "homepage": "https://pluginsmp.com/",
+      "pushed_at": "2026-08-30T05:32:37Z",
+      "pinned": true
+    },
+    {
       "name": "kite",
       "description": "Native macOS 26+ multi-protocol downloader built with SwiftUI and aria2-next.",
       "language": "Swift",
@@ -100,7 +124,7 @@
       "name": "superman",
       "description": "本项目是一个聚合了多位中西方顶级思想家、政治家、军事家与极客 思维框架的 Agent Skills 集合。每一个视角不仅是「知识」，更是「可运行的认知算法」。",
       "language": null,
-      "stars": 12,
+      "stars": 13,
       "forks": 0,
       "topics": [],
       "url": "https://github.com/IchenDEV/superman",
@@ -150,27 +174,15 @@
       "pinned": true
     },
     {
-      "name": "doubao-skin",
-      "description": "macOS themes and tooling for Doubao and DoubaoWork",
-      "language": "Rust",
-      "stars": 1,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/doubao-skin",
-      "homepage": "https://doubao-skin.idevlab.dev",
-      "pushed_at": "2026-08-29T09:45:22Z",
-      "pinned": false
-    },
-    {
-      "name": "agent-plugin-mkt",
-      "description": "Open-source marketplace for discovering Codex, Claude Code, and Agent Plugins—with web, REST API, MCP, and agent-readable catalogs.",
-      "language": "TypeScript",
+      "name": "home-page",
+      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
+      "language": "JavaScript",
       "stars": 0,
       "forks": 0,
       "topics": [],
-      "url": "https://github.com/IchenDEV/agent-plugin-mkt",
-      "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-08-29T07:20:28Z",
+      "url": "https://github.com/IchenDEV/home-page",
+      "homepage": "https://www.idevlab.dev",
+      "pushed_at": "2026-08-29T09:49:41Z",
       "pinned": false
     },
     {
@@ -183,18 +195,6 @@
       "url": "https://github.com/IchenDEV/codeTwo",
       "homepage": null,
       "pushed_at": "2026-08-28T21:05:54Z",
-      "pinned": false
-    },
-    {
-      "name": "home-page",
-      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
-      "language": "JavaScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/home-page",
-      "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-08-28T15:06:58Z",
       "pinned": false
     },
     {
@@ -223,36 +223,8 @@
     }
   ],
   "contributions": {
-    "total": 1997,
+    "total": 2062,
     "days": [
-      {
-        "date": "2025-08-24",
-        "count": 0
-      },
-      {
-        "date": "2025-08-25",
-        "count": 0
-      },
-      {
-        "date": "2025-08-26",
-        "count": 0
-      },
-      {
-        "date": "2025-08-27",
-        "count": 0
-      },
-      {
-        "date": "2025-08-28",
-        "count": 0
-      },
-      {
-        "date": "2025-08-29",
-        "count": 0
-      },
-      {
-        "date": "2025-08-30",
-        "count": 0
-      },
       {
         "date": "2025-08-31",
         "count": 0
@@ -815,11 +787,11 @@
       },
       {
         "date": "2026-01-18",
-        "count": 34
+        "count": 33
       },
       {
         "date": "2026-01-19",
-        "count": 6
+        "count": 7
       },
       {
         "date": "2026-01-20",
@@ -859,11 +831,11 @@
       },
       {
         "date": "2026-01-29",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-01-30",
-        "count": 0
+        "count": 1
       },
       {
         "date": "2026-01-31",
@@ -955,11 +927,11 @@
       },
       {
         "date": "2026-02-22",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-02-23",
-        "count": 1
+        "count": 2
       },
       {
         "date": "2026-02-24",
@@ -983,27 +955,27 @@
       },
       {
         "date": "2026-03-01",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-03-02",
-        "count": 6
+        "count": 7
       },
       {
         "date": "2026-03-03",
-        "count": 8
+        "count": 7
       },
       {
         "date": "2026-03-04",
-        "count": 4
+        "count": 5
       },
       {
         "date": "2026-03-05",
-        "count": 3
+        "count": 2
       },
       {
         "date": "2026-03-06",
-        "count": 4
+        "count": 5
       },
       {
         "date": "2026-03-07",
@@ -1095,11 +1067,11 @@
       },
       {
         "date": "2026-03-29",
-        "count": 2
+        "count": 0
       },
       {
         "date": "2026-03-30",
-        "count": 4
+        "count": 6
       },
       {
         "date": "2026-03-31",
@@ -1123,19 +1095,19 @@
       },
       {
         "date": "2026-04-05",
-        "count": 25
+        "count": 24
       },
       {
         "date": "2026-04-06",
-        "count": 23
+        "count": 24
       },
       {
         "date": "2026-04-07",
-        "count": 2
+        "count": 1
       },
       {
         "date": "2026-04-08",
-        "count": 12
+        "count": 13
       },
       {
         "date": "2026-04-09",
@@ -1147,11 +1119,11 @@
       },
       {
         "date": "2026-04-11",
-        "count": 27
+        "count": 26
       },
       {
         "date": "2026-04-12",
-        "count": 19
+        "count": 20
       },
       {
         "date": "2026-04-13",
@@ -1199,11 +1171,11 @@
       },
       {
         "date": "2026-04-24",
-        "count": 22
+        "count": 21
       },
       {
         "date": "2026-04-25",
-        "count": 19
+        "count": 20
       },
       {
         "date": "2026-04-26",
@@ -1223,11 +1195,11 @@
       },
       {
         "date": "2026-04-30",
-        "count": 5
+        "count": 3
       },
       {
         "date": "2026-05-01",
-        "count": 7
+        "count": 9
       },
       {
         "date": "2026-05-02",
@@ -1239,11 +1211,11 @@
       },
       {
         "date": "2026-05-04",
-        "count": 35
+        "count": 34
       },
       {
         "date": "2026-05-05",
-        "count": 15
+        "count": 16
       },
       {
         "date": "2026-05-06",
@@ -1395,11 +1367,11 @@
       },
       {
         "date": "2026-06-12",
-        "count": 38
+        "count": 37
       },
       {
         "date": "2026-06-13",
-        "count": 36
+        "count": 37
       },
       {
         "date": "2026-06-14",
@@ -1435,11 +1407,11 @@
       },
       {
         "date": "2026-06-22",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-06-23",
-        "count": 4
+        "count": 5
       },
       {
         "date": "2026-06-24",
@@ -1523,11 +1495,11 @@
       },
       {
         "date": "2026-07-14",
-        "count": 2
+        "count": 0
       },
       {
         "date": "2026-07-15",
-        "count": 15
+        "count": 17
       },
       {
         "date": "2026-07-16",
@@ -1559,11 +1531,11 @@
       },
       {
         "date": "2026-07-23",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-07-24",
-        "count": 14
+        "count": 15
       },
       {
         "date": "2026-07-25",
@@ -1683,11 +1655,11 @@
       },
       {
         "date": "2026-08-23",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-08-24",
-        "count": 88
+        "count": 89
       },
       {
         "date": "2026-08-25",
@@ -1695,11 +1667,11 @@
       },
       {
         "date": "2026-08-26",
-        "count": 170
+        "count": 169
       },
       {
         "date": "2026-08-27",
-        "count": 28
+        "count": 29
       },
       {
         "date": "2026-08-28",
@@ -1707,94 +1679,98 @@
       },
       {
         "date": "2026-08-29",
-        "count": 22
+        "count": 73
+      },
+      {
+        "date": "2026-08-30",
+        "count": 14
       }
     ]
   },
   "activity": [
     {
-      "verb": "starred",
-      "repo": "IchenDEV/doubao-skin",
-      "at": "2026-08-29T08:59:40Z",
-      "type": "WatchEvent"
-    },
-    {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/doubao-skin",
-      "at": "2026-08-29T08:46:21Z",
+      "repo": "IchenDEV/IchenDEV.github.io",
+      "at": "2026-08-29T15:16:57Z",
       "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/doubao-skin",
-      "at": "2026-08-29T08:44:29Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T09:06:58Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T07:50:18Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T07:01:42Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T06:59:10Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T18:13:08Z",
+      "at": "2026-08-29T12:59:21Z",
       "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-08-28T19:02:06Z",
+      "at": "2026-08-29T15:23:28Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/doubao-skin",
+      "at": "2026-08-29T14:21:10Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/IchenDEV.github.io",
+      "at": "2026-08-29T11:52:08Z",
       "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T18:12:29Z",
+      "repo": "IchenDEV/IchenDEV.github.io",
+      "at": "2026-08-29T14:30:49Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/IchenDEV.github.io",
+      "at": "2026-08-29T14:12:45Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/doubao-skin",
+      "at": "2026-08-29T12:33:54Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/doubao-skin",
+      "at": "2026-08-29T12:31:31Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/doubao-skin",
+      "at": "2026-08-29T12:54:04Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/IchenDEV.github.io",
+      "at": "2026-08-29T11:55:45Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/IchenDEV.github.io",
+      "at": "2026-08-29T11:53:59Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/doubao-skin",
+      "at": "2026-08-29T12:00:17Z",
       "type": "PushEvent"
     },
     {
       "verb": "created branch in",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T18:12:09Z",
+      "at": "2026-08-28T12:46:06Z",
       "type": "CreateEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-27T19:46:11Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-27T18:48:00Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-28T21:05:54Z",
-      "type": "PullRequestEvent"
     }
   ],
   "blog": {
