@@ -15,6 +15,24 @@ Three.js 做 3D，项目 / 贡献 / 动态来自 GitHub，最新文章来自博�
   对话不出本机；GPU 不支持 f16 时自动换 f32 权重，`/model` 可切到 Qwen3.5-0.8B。
 - 无框架、无构建步骤，Three.js 与 WebLLM 已 vendored 到 `vendor/`，页面本体离线可跑。
 
+## 改版设计稿（designs/，已归档）
+
+2026-08 曾做过 4 版「非终端风」的候选设计（杂志编辑风 / 暗夜极光 / Bento 便当盒 / 新粗野主义），
+最终决定**保留终端风格**，线上页面未做替换。`designs/` 仅供日后参考：
+
+| 文件 | 风格 |
+| --- | --- |
+| `a-editorial.html` | 杂志编辑风（浅色、衬线大标题） |
+| `b-aurora.html` | 暗夜极光 · 玻璃拟态（深色） |
+| `c-bento.html` | Bento 便当盒（浅色、彩色卡片） |
+| `d-brutalist.html` | 新粗野主义（描边硬投影、撞色） |
+| `index.html` | 对比选择页（含四版缩略图） |
+
+它们是独立静态稿，数据取自当时的 `data/github.json` 快照并直接写在页面里，
+本地看：`npm run dev` 后访问 <http://localhost:4173/designs/>。
+Pages 工作流只打包 `index.html` 与 `assets/css/data/js/vendor`，`designs/` 不会被发布到线上；
+不需要时直接删掉这个目录即可。
+
 ## 本地开发
 
 ```bash

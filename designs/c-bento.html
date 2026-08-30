@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>idevlab — 设计稿 C · Bento 便当盒</title>
+<meta name="description" content="设计稿 C：Bento 便当盒布局的个人主页。">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/34794972?v=4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f4ef;
+    --card:#ffffff;
+    --ink:#191817;
+    --ink-2:#74716a;
+    --line:#e9e5dc;
+    --mint:#d9f2e4;
+    --lav:#e4e0fb;
+    --peach:#ffe4d3;
+    --sky:#d7e9fb;
+    --lemon:#fdeeb3;
+    --rose:#fbdde8;
+    --radius:24px;
+    --sans:"Outfit","PingFang SC",-apple-system,"Segoe UI",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:#ffd884;color:#191817}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+  /* ---------------------------------------------------------- nav */
+  .topnav{display:flex;align-items:center;justify-content:space-between;padding:26px 0}
+  .logo-chip{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--card);border:1.5px solid var(--line);border-radius:999px;
+    padding:9px 18px 9px 10px;font-weight:700;font-size:15px;
+    box-shadow:0 2px 10px rgba(30,25,15,.05);
+  }
+  .logo-chip img{width:26px;height:26px;border-radius:50%}
+  .nav-links{display:flex;gap:6px;background:var(--card);border:1.5px solid var(--line);
+    border-radius:999px;padding:6px;box-shadow:0 2px 10px rgba(30,25,15,.05)}
+  .nav-links a{
+    padding:8px 18px;border-radius:999px;font-size:14px;font-weight:600;color:var(--ink-2);
+    transition:.2s;white-space:nowrap;
+  }
+  .nav-links a:hover{background:var(--lemon);color:var(--ink)}
+
+  /* --------------------------------------------------------- bento */
+  .bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+  .tile{
+    background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius);
+    padding:26px;position:relative;overflow:hidden;
+    transition:transform .25s,box-shadow .25s;
+  }
+  .tile:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(30,25,15,.09)}
+  .t3{grid-column:span 3}.t4{grid-column:span 4}.t5{grid-column:span 5}
+  .t6{grid-column:span 6}.t8{grid-column:span 8}.t12{grid-column:span 12}
+  .tile-label{
+    font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-2);margin-bottom:14px;display:flex;align-items:center;gap:8px;
+  }
+  .tile-label::before{content:"";width:8px;height:8px;border-radius:3px;background:currentColor;opacity:.55}
+
+  /* hero tiles */
+  .hero-intro{background:linear-gradient(150deg,#ffffff 55%,var(--lemon) 160%)}
+  .hero-intro h1{font-size:clamp(34px,4.6vw,52px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  .hero-intro h1 .wave{display:inline-block}
+  .hero-intro .lede{margin-top:14px;font-size:16.5px;color:#514e47;max-width:56ch}
+  .hero-intro .lede b{color:var(--ink)}
+  .hero-cta{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+  .cta{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:14px;font-weight:700;padding:11px 20px;border-radius:999px;
+    background:var(--ink);color:#fff;transition:transform .2s,background .2s;
+  }
+  .cta:hover{transform:translateY(-2px);background:#33302b}
+  .cta.alt{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+  .cta.alt:hover{background:var(--card);border-color:#d5d0c5}
+
+  .avatar-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;
+    background:linear-gradient(160deg,var(--sky),#eaf3fc)}
+  .avatar-tile img{width:108px;height:108px;border-radius:50%;border:4px solid #fff;box-shadow:0 8px 24px rgba(40,80,140,.18)}
+  .avatar-tile b{font-size:17px}
+  .avatar-tile small{color:var(--ink-2);font-size:13px}
+  .loc-chip{
+    margin-top:6px;font-size:12.5px;font-weight:600;color:#3c5a7d;
+    background:rgba(255,255,255,.7);border-radius:999px;padding:5px 14px;
+  }
+
+  .stat-tile .num{font-size:clamp(30px,3.4vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  .stat-tile .lbl{margin-top:4px;color:var(--ink-2);font-size:13.5px;font-weight:600}
+  .stat-tile{display:flex;flex-direction:column;justify-content:center}
+  .bg-mint{background:var(--mint)}.bg-lav{background:var(--lav)}
+  .bg-peach{background:var(--peach)}.bg-sky{background:var(--sky)}
+
+  /* now tile */
+  .now-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .now-list li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:#4d4a43}
+  .now-list .ico{flex:none;width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff}
+  .now-list b{color:var(--ink)}
+
+  /* lang tile */
+  .lang-rows{display:flex;flex-direction:column;gap:11px}
+  .lang-row{display:grid;grid-template-columns:92px 1fr 44px;align-items:center;gap:10px;font-size:13.5px;font-weight:600}
+  .lang-row .track{height:9px;border-radius:5px;background:#efece5;overflow:hidden}
+  .lang-row .track i{display:block;height:100%;border-radius:5px}
+  .lang-row .pct{text-align:right;color:var(--ink-2);font-weight:600}
+
+  /* projects */
+  .proj-tile{display:flex;flex-direction:column;gap:12px}
+  .proj-head{display:flex;align-items:center;gap:13px}
+  .proj-logo{
+    flex:none;width:50px;height:50px;border-radius:14px;overflow:hidden;
+    background:#f2efe9;border:1.5px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .proj-logo img{width:100%;height:100%;object-fit:cover}
+  .proj-logo span{font-weight:800;font-size:16px;color:#fff;background:var(--ink);width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+  .proj-name{font-weight:700;font-size:17px;line-height:1.3}
+  .proj-name small{display:block;font-weight:600;font-size:12px;color:var(--ink-2);margin-top:2px}
+  .proj-desc{font-size:14px;color:#5a574f;flex:1}
+  .proj-foot{display:flex;gap:8px;align-items:center}
+  .tag{
+    font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;
+    background:var(--bg);border:1px solid var(--line);color:var(--ink-2);
+  }
+  .proj-foot .go{margin-left:auto;font-weight:700;font-size:13.5px;color:var(--ink);opacity:.55;transition:.2s}
+  .proj-tile:hover .go{opacity:1}
+  .featured-proj{background:linear-gradient(160deg,#fff 45%,var(--rose) 170%)}
+  .featured-proj .proj-desc{font-size:15px}
+  .more-tile{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    text-align:center;background:var(--ink);color:#fff;border-color:var(--ink);
+  }
+  .more-tile:hover{box-shadow:0 14px 34px rgba(20,18,12,.28)}
+  .more-tile .arrow{font-size:30px;font-weight:800}
+  .more-tile b{font-size:15px}
+  .more-tile small{color:#b9b5ac;font-size:12.5px}
+
+  /* blog */
+  .blog-tile{background:linear-gradient(160deg,#fff 50%,var(--sky) 180%);display:flex;flex-direction:column;gap:4px}
+  .post-row{
+    display:flex;flex-direction:column;gap:5px;padding:15px 0;border-bottom:1px dashed var(--line);
+  }
+  .post-row:last-of-type{border-bottom:none}
+  .post-row time{font-size:12px;font-weight:700;color:var(--ink-2);letter-spacing:.05em}
+  .post-row b{font-size:15.5px;line-height:1.45;transition:color .2s}
+  .post-row:hover b{color:#2563ad}
+  .post-row p{font-size:13px;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+
+  /* links */
+  .link-tile{display:flex;align-items:center;gap:13px;padding:20px 22px}
+  .link-mono{
+    flex:none;width:44px;height:44px;border-radius:13px;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:14px;color:#fff;
+  }
+  .link-tile b{display:block;font-size:14.5px}
+  .link-tile small{color:var(--ink-2);font-size:12.5px}
+
+  /* footer */
+  .site-foot{padding:44px 0 56px;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center;color:var(--ink-2);font-size:13.5px}
+  .site-foot b{color:var(--ink);font-size:15px}
+
+  /* section titles between bento groups */
+  .group-head{
+    display:flex;align-items:baseline;gap:14px;margin:52px 0 18px;
+  }
+  .group-head h2{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.01em}
+  .group-head span{color:var(--ink-2);font-size:14px;font-weight:600}
+  .group-head .dash{flex:1;border-top:2px dashed var(--line);transform:translateY(-4px)}
+
+  /* motion */
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    .tile,.cta,.nav-links a{transition:none}
+  }
+
+  /* responsive */
+  @media (max-width:960px){
+    .t3,.t4,.t5,.t6{grid-column:span 6}
+    .t8{grid-column:span 12}
+  }
+  @media (max-width:640px){
+    .t3,.t4,.t5,.t6,.t8{grid-column:span 12}
+    .nav-links a{padding:8px 12px}
+    .wrap{padding:0 16px}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="topnav" aria-label="主导航">
+    <a class="logo-chip" href="#">
+      <img src="https://avatars.githubusercontent.com/u/34794972?v=4" alt="" width="26" height="26">idevlab
+    </a>
+    <div class="nav-links">
+      <a href="#projects">项目</a>
+      <a href="#blog">文章</a>
+      <a href="#links">链接</a>
+      <a href="https://blogs.idevlab.dev" target="_blank" rel="noopener">博客 ↗</a>
+    </div>
+  </nav>
+
+  <!-- ------------------------------------------------------ hero bento -->
+  <div class="bento">
+    <section class="tile hero-intro t8 rv">
+      <h1>嗨，我是 idevlab <span class="wave" aria-hidden="true">👋</span></h1>
+      <p class="lede">创业者 · <b>AI-native 开发者</b>。我做 macOS 原生应用和 AI Agent 工具，
+        也写一些关于科技与人文的文字。相信 <b>"keep learning, keep shipping."</b></p>
+      <div class="hero-cta">
+        <a class="cta" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">阅读我的博客 →</a>
+        <a class="cta alt" href="#projects">浏览项目</a>
+        <a class="cta alt" href="mailto:idevlab@outlook.com">联系我</a>
+      </div>
+    </section>
+
+    <aside class="tile avatar-tile t4 rv">
+      <img src="https://avatars.githubusercontent.com/u/34794972?v=4" alt="idevlab 的头像" width="108" height="108">
+      <b>@IchenDEV</b>
+      <small>hacker &amp; creator</small>
+      <span class="loc-chip">📍 杭州 · 中国</span>
+    </aside>
+
+    <div class="tile stat-tile t3 bg-mint rv">
+      <div class="num">108</div>
+      <div class="lbl">公开仓库</div>
+    </div>
+    <div class="tile stat-tile t3 bg-lav rv">
+      <div class="num">2,062</div>
+      <div class="lbl">过去一年贡献</div>
+    </div>
+    <div class="tile stat-tile t3 bg-peach rv">
+      <div class="num">89</div>
+      <div class="lbl">博客文章</div>
+    </div>
+    <div class="tile stat-tile t3 bg-sky rv">
+      <div class="num">8 年+</div>
+      <div class="lbl">GitHub 之旅</div>
+    </div>
+
+    <div class="tile t6 rv">
+      <div class="tile-label" style="color:#0e8a5f">现在在做</div>
+      <ul class="now-list">
+        <li><span class="ico" style="background:#10b981">◆</span><span>打造 <b>Agent 插件市场</b>与 Skills 工具链</span></li>
+        <li><span class="ico" style="background:#6366f1">◆</span><span>写 <b>macOS 原生应用</b>：下载器、语音输入、桌面宠物</span></li>
+        <li><span class="ico" style="background:#f59e0b">◆</span><span>探索<b>本地优先</b>与浏览器内推理（WebLLM）</span></li>
+      </ul>
+    </div>
+
+    <div class="tile t6 rv">
+      <div class="tile-label" style="color:#4f46e5">语言构成</div>
+      <div class="lang-rows">
+        <div class="lang-row"><span>TypeScript</span><span class="track"><i style="width:28.6%;background:#3178c6"></i></span><span class="pct">29%</span></div>
+        <div class="lang-row"><span>JavaScript</span><span class="track"><i style="width:14.3%;background:#f1e05a"></i></span><span class="pct">14%</span></div>
+        <div class="lang-row"><span>C#</span><span class="track"><i style="width:10%;background:#178600"></i></span><span class="pct">10%</span></div>
+        <div class="lang-row"><span>Swift</span><span class="track"><i style="width:8.6%;background:#F05138"></i></span><span class="pct">9%</span></div>
+        <div class="lang-row"><span>Rust / Go</span><span class="track"><i style="width:11.4%;background:#dea584"></i></span><span class="pct">11%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- --------------------------------------------------------- projects -->
+  <div class="group-head" id="projects">
+    <h2>精选项目</h2><span>数据来自 GitHub · 每日自动同步</span><span class="dash" aria-hidden="true"></span>
+  </div>
+  <div class="bento">
+    <a class="tile proj-tile featured-proj t6 rv" href="https://github.com/IchenDEV/agent-plugin-mkt" target="_blank" rel="noopener">
+      <div class="proj-head">
+        <span class="proj-logo"><span>Mk</span></span>
+        <div class="proj-name">agent-plugin-mkt<small>TypeScript · 平台 · pluginsmp.com</small></div>
+      </div>
+      <p class="proj-desc">开源的 Agent 插件市场：发现 Codex、Claude Code 与 Agent 插件，提供 Web、REST API、MCP 与 agent 可读目录。</p>
+      <div class="proj-foot"><span class="tag">TypeScript</span><span class="tag">MCP</span><span class="tag">Agent</span><span class="go">访问 →</span></div>
+    </a>
+    <a class="tile proj-tile t3 rv" href="https://github.com/IchenDEV/kite" target="_blank" rel="noopener">
+      <div class="proj-head">
+        <span class="proj-logo"><img src="../assets/project-logos/kite.png" alt="" width="50" height="50" loading="lazy"></span>
+        <div class="proj-name">kite<small>Swift · macOS</small></div>
+      </div>
+      <p class="proj-desc">原生 macOS 26+ 多协议下载器，SwiftUI + aria2-next。</p>
+      <div class="proj-foot"><span class="tag">Swift</span><span class="go">→</span></div>
+    </a>
+    <a class="tile proj-tile t3 rv" href="https://github.com/IchenDEV/utter" target="_blank" rel="noopener">
+      <div class="proj-head">
+        <span class="proj-logo"><img src="../assets/project-logos/utter.png" alt="" width="50" height="50" loading="lazy"></span>
+        <div class="proj-name">utter<small>Swift · 语音</small></div>
+      </div>
+      <p class="proj-desc">菜单栏里的本地 AI 语音输入，隐私不出本机。</p>
+      <div class="proj-foot"><span class="tag">Local AI</span><span class="go">→</span></div>
+    </a>
+    <a class="tile proj-tile t3 rv" href="https://github.com/IchenDEV/doubao-skin" target="_blank" rel="noopener">
+      <div class="proj-head">
+        <span class="proj-logo"><img src="../assets/project-logos/doubao-skin.png" alt="" width="50" height="50" loading="lazy"></span>
+        <div class="proj-name">doubao-skin<small>Rust · 主题</small></div>
+      </div>
+      <p class="proj-desc">为豆包与豆包工作台打造的 macOS 主题与工具链。</p>
+      <div class="proj-foot"><span class="tag">Rust</span><span class="go">→</span></div>
+    </a>
+    <a class="tile proj-tile t3 rv" href="https://github.com/IchenDEV/superman" target="_blank" rel="noopener">
+      <div class="proj-head">
+        <span class="proj-logo"><img src="../assets/project-logos/superman.png" alt="" width="50" height="50" loading="lazy"></span>
+        <div class="proj-name">superman<small>Skills · ★ 13</small></div>
+      </div>
+      <p class="proj-desc">聚合顶级思想家与极客思维框架的 Agent Skills——每个视角都是可运行的认知算法。</p>
+      <div class="proj-foot"><span class="tag">Skills</span><span class="go">→</span></div>
+    </a>
+    <a class="tile proj-tile t3 rv" href="https://github.com/IchenDEV/larkfs" target="_blank" rel="noopener">
+      <div class="proj-head">
+        <span class="proj-logo"><span>Lf</span></span>
+        <div class="proj-name">larkfs<small>Go · 文件系统</small></div>
+      </div>
+      <p class="proj-desc">把飞书 / Lark 映射为本地可读写的文件目录。</p>
+      <div class="proj-foot"><span class="tag">Go</span><span class="go">→</span></div>
+    </a>
+    <a class="tile proj-tile t3 rv" href="https://github.com/IchenDEV/yemai" target="_blank" rel="noopener">
+      <div class="proj-head">
+        <span class="proj-logo"><img src="../assets/project-logos/yemai.png" alt="" width="50" height="50" loading="lazy"></span>
+        <div class="proj-name">页脉 yemai<small>JavaScript · 阅读</small></div>
+      </div>
+      <p class="proj-desc">本地优先的 AI 阅读记忆书架。</p>
+      <div class="proj-foot"><span class="tag">Local-first</span><span class="go">→</span></div>
+    </a>
+    <a class="tile more-tile t3 rv" href="https://github.com/IchenDEV?tab=repositories" target="_blank" rel="noopener">
+      <span class="arrow" aria-hidden="true">→</span>
+      <b>全部 108 个仓库</b>
+      <small>在 GitHub 上查看</small>
+    </a>
+  </div>
+
+  <!-- ------------------------------------------------------------- blog -->
+  <div class="group-head" id="blog">
+    <h2>最近在写</h2><span>来自博客 · 每日同步</span><span class="dash" aria-hidden="true"></span>
+  </div>
+  <div class="bento">
+    <a class="tile blog-tile t8 rv" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">
+      <div class="tile-label" style="color:#2563ad">最新文章</div>
+      <div class="post-row">
+        <time datetime="2026-05-25">2026.05.25</time>
+        <b>文艺复兴让人变宽，工业社会把人折叠了</b>
+        <p>从达芬奇的跨界通才，到工业社会的专业折叠，再到 AI 时代重新展开的可能性。</p>
+      </div>
+      <div class="post-row">
+        <time datetime="2026-05-24">2026.05.24</time>
+        <b>Open Source 社区正在死去，先死在维护者不再相信陌生人</b>
+        <p>低质量 PR 与简历流水线正在压垮开源维护者，但开源的免疫系统正在苏醒。</p>
+      </div>
+      <div class="post-row">
+        <time datetime="2026-05-22">2026.05.22</time>
+        <b>AI 的价值，正在从解答已知走向探索未知</b>
+        <p>我们太小了，所以要造更大的工具；太短暂了，所以要建立可积累的文明。</p>
+      </div>
+    </a>
+    <a class="tile t4 rv" href="https://blogs.idevlab.dev" target="_blank" rel="noopener" style="display:flex;flex-direction:column;justify-content:center;gap:10px;background:linear-gradient(160deg,var(--lemon),#fff 130%)">
+      <span style="font-size:34px" aria-hidden="true">✍️</span>
+      <b style="font-size:19px">89 篇文章在博客里</b>
+      <p style="font-size:14px;color:var(--ink-2)">关于 AI、开源、macOS 与人文的长期写作——去看看？</p>
+      <span class="cta" style="align-self:flex-start;margin-top:4px">前往博客 →</span>
+    </a>
+  </div>
+
+  <!-- ------------------------------------------------------------ links -->
+  <div class="group-head" id="links">
+    <h2>我的站点与朋友</h2><span>Links</span><span class="dash" aria-hidden="true"></span>
+  </div>
+  <div class="bento" style="margin-bottom:8px">
+    <a class="tile link-tile t4 rv" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">
+      <span class="link-mono" style="background:#111">&gt;_</span><span><b>idevlab's Blog</b><small>终端风格 · 89 篇</small></span>
+    </a>
+    <a class="tile link-tile t4 rv" href="https://github.com/IchenDEV" target="_blank" rel="noopener">
+      <span class="link-mono" style="background:#24292f">gh</span><span><b>GitHub @IchenDEV</b><small>所有开源项目</small></span>
+    </a>
+    <a class="tile link-tile t4 rv" href="https://utter.idevlab.dev" target="_blank" rel="noopener">
+      <span class="link-mono" style="background:#f43f5e">ut</span><span><b>Utter</b><small>macOS 本地语音输入</small></span>
+    </a>
+    <a class="tile link-tile t4 rv" href="https://petx.idevlab.dev" target="_blank" rel="noopener">
+      <span class="link-mono" style="background:#10b981">px</span><span><b>PetX</b><small>桌面宠物渲染器</small></span>
+    </a>
+    <a class="tile link-tile t4 rv" href="https://pluginsmp.com/" target="_blank" rel="noopener">
+      <span class="link-mono" style="background:#6366f1">mk</span><span><b>Plugin Market</b><small>Agent 插件市场</small></span>
+    </a>
+    <a class="tile link-tile t4 rv" href="https://blogs.idevlab.dev/yemai/" target="_blank" rel="noopener">
+      <span class="link-mono" style="background:#f59e0b">ym</span><span><b>页脉 Yemai</b><small>AI 阅读书架</small></span>
+    </a>
+  </div>
+
+  <footer class="site-foot">
+    <b>© 2026 idevlab</b>
+    <span>keep learning, keep shipping.</span>
+    <span>数据同步于 2026-08-30 · GitHub Actions</span>
+  </footer>
+</div>
+
+<script>
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!REDUCED) {
+    const io = new IntersectionObserver((es) => {
+      for (const e of es) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.rv').forEach((n) => io.observe(n));
+  } else {
+    document.querySelectorAll('.rv').forEach((n) => n.classList.add('in'));
+  }
+</script>
+</body>
+</html>

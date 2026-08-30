@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>idevlab — 设计稿 B · 暗夜极光</title>
+<meta name="description" content="设计稿 B：暗夜极光玻璃拟态风格的个人主页。">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/34794972?v=4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#070a14;
+    --bg-2:#0b1020;
+    --ink:#e8ecf8;
+    --ink-2:#9aa3bd;
+    --line:rgba(255,255,255,.09);
+    --glass:rgba(255,255,255,.045);
+    --glass-hi:rgba(255,255,255,.08);
+    --violet:#8b7cff;
+    --cyan:#4cc9f0;
+    --pink:#f472b6;
+    --display:"Space Grotesk","PingFang SC",-apple-system,sans-serif;
+    --sans:"Inter","PingFang SC",-apple-system,"Segoe UI",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;line-height:1.7;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--violet);color:#fff}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+  /* --------------------------------------------------------- aurora bg */
+  .aurora{position:fixed;inset:0;z-index:-1;overflow:hidden;background:
+    radial-gradient(1200px 700px at 85% -10%, rgba(76,201,240,.10), transparent 60%),
+    radial-gradient(1000px 800px at -10% 30%, rgba(139,124,255,.12), transparent 60%),
+    var(--bg);}
+  .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;will-change:transform}
+  .blob.b1{width:520px;height:520px;background:radial-gradient(circle,rgba(139,124,255,.55),transparent 65%);top:-160px;left:12%}
+  .blob.b2{width:460px;height:460px;background:radial-gradient(circle,rgba(76,201,240,.45),transparent 65%);top:26%;right:-140px}
+  .blob.b3{width:420px;height:420px;background:radial-gradient(circle,rgba(244,114,182,.35),transparent 65%);bottom:-120px;left:30%}
+  @keyframes drift{
+    0%,100%{transform:translate(0,0) scale(1)}
+    33%{transform:translate(60px,40px) scale(1.08)}
+    66%{transform:translate(-40px,70px) scale(.94)}
+  }
+  .blob{animation:drift 26s ease-in-out infinite}
+  .blob.b2{animation-duration:34s;animation-delay:-8s}
+  .blob.b3{animation-duration:30s;animation-delay:-16s}
+  @media (prefers-reduced-motion:reduce){.blob{animation:none}}
+  .grid-lines{position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 75%);
+  }
+
+  /* ---------------------------------------------------------- nav */
+  .nav{
+    position:sticky;top:0;z-index:20;
+    margin:18px auto 0;max-width:1120px;padding:0 28px;
+  }
+  .nav-pill{
+    display:flex;align-items:center;gap:6px;
+    background:rgba(13,18,35,.66);backdrop-filter:blur(18px);
+    border:1px solid var(--line);border-radius:16px;
+    padding:10px 12px;
+  }
+  .nav-logo{font-family:var(--display);font-weight:700;font-size:17px;margin:0 12px 0 6px;
+    background:linear-gradient(100deg,#fff 20%,var(--cyan) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav-pill a.nl{
+    padding:7px 14px;border-radius:10px;font-size:13.5px;color:var(--ink-2);
+    transition:color .2s,background .2s;
+  }
+  .nav-pill a.nl:hover{color:var(--ink);background:var(--glass-hi)}
+  .nav-right{margin-left:auto;display:flex;gap:6px;align-items:center}
+  .nav-cta{
+    font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:10px;color:#fff;
+    background:linear-gradient(120deg,var(--violet),#5ea2ef);
+    box-shadow:0 4px 20px rgba(139,124,255,.35);
+    transition:filter .2s,transform .2s;
+  }
+  .nav-cta:hover{filter:brightness(1.12);transform:translateY(-1px)}
+
+  /* ------------------------------------------------------------- hero */
+  .hero{padding:110px 0 90px;position:relative}
+  .badge{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:13px;color:#c6cde4;
+    background:var(--glass);border:1px solid var(--line);
+    padding:8px 16px;border-radius:999px;margin-bottom:30px;
+    backdrop-filter:blur(8px);
+  }
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:#4ade80;
+    box-shadow:0 0 12px #4ade80;animation:pulse 2.4s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  @media (prefers-reduced-motion:reduce){.badge .dot{animation:none}}
+  h1.display{
+    font-family:var(--display);
+    font-size:clamp(58px,9.5vw,118px);
+    font-weight:700;line-height:1.02;letter-spacing:-.02em;
+    background:linear-gradient(105deg,#ffffff 15%,#b9c6ff 45%,var(--cyan) 80%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{
+    margin-top:26px;font-size:clamp(17px,2.2vw,21px);color:var(--ink-2);max-width:620px;
+  }
+  .hero-sub b{color:var(--ink);font-weight:600}
+  .hero-sub .grad{
+    background:linear-gradient(90deg,var(--violet),var(--pink));
+    -webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600;
+  }
+  .hero-cta{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:14px 28px;border-radius:14px;font-size:15px;font-weight:600;
+    transition:transform .22s,filter .22s,background .22s,border-color .22s;
+  }
+  .btn.primary{
+    background:linear-gradient(120deg,var(--violet),#4f9cf5);color:#fff;
+    box-shadow:0 8px 30px rgba(139,124,255,.35);
+  }
+  .btn.primary:hover{transform:translateY(-2px);filter:brightness(1.1)}
+  .btn.ghost{background:var(--glass);border:1px solid var(--line);color:var(--ink);backdrop-filter:blur(8px)}
+  .btn.ghost:hover{background:var(--glass-hi);transform:translateY(-2px)}
+  .chips{margin-top:46px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{
+    font-size:13px;color:var(--ink-2);
+    background:var(--glass);border:1px solid var(--line);
+    padding:7px 15px;border-radius:999px;backdrop-filter:blur(8px);
+    transition:border-color .2s,color .2s;
+  }
+  .chip:hover{border-color:rgba(139,124,255,.5);color:var(--ink)}
+
+  /* ------------------------------------------------------------ stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:74px 0 0}
+  .stat{
+    background:var(--glass);border:1px solid var(--line);border-radius:18px;
+    padding:24px 22px;backdrop-filter:blur(14px);
+    transition:transform .25s,border-color .25s;
+  }
+  .stat:hover{transform:translateY(-4px);border-color:rgba(139,124,255,.45)}
+  .stat .num{
+    font-family:var(--display);font-size:clamp(30px,3.6vw,42px);font-weight:700;line-height:1.1;
+    background:linear-gradient(90deg,#fff,#b9c6ff);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .stat .lbl{margin-top:6px;font-size:13px;color:var(--ink-2)}
+
+  /* ---------------------------------------------------------- section */
+  section.block{padding:96px 0}
+  .sec-head{display:flex;align-items:flex-end;gap:18px;margin-bottom:42px}
+  .sec-head h2{font-family:var(--display);font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.01em}
+  .sec-head .no{
+    font-family:var(--display);font-size:14px;color:var(--violet);
+    border:1px solid rgba(139,124,255,.4);border-radius:8px;padding:3px 10px;
+  }
+  .sec-head .sub{margin-left:auto;font-size:13.5px;color:var(--ink-2)}
+
+  /* ------------------------------------------------------------ about */
+  .about-card{
+    background:var(--glass);border:1px solid var(--line);border-radius:24px;
+    padding:clamp(28px,4vw,48px);backdrop-filter:blur(14px);
+    display:grid;grid-template-columns:1.4fr 1fr;gap:48px;
+  }
+  .about-text p{color:#c3c9de;font-size:16.5px;margin-bottom:18px}
+  .about-text .hl{color:var(--ink);font-weight:600}
+  .about-text .hl-c{color:var(--cyan);font-weight:600}
+  .about-text .hl-p{color:var(--pink);font-weight:600}
+  .aside-label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);margin-bottom:16px}
+  .sk-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .sk-list li{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:14.5px;background:rgba(255,255,255,.03);
+    border:1px solid var(--line);border-radius:12px;padding:11px 16px;
+  }
+  .sk-list li span{font-size:12.5px;color:var(--ink-2)}
+  .langbar{margin-top:26px}
+  .lang-track{display:flex;height:8px;border-radius:4px;overflow:hidden;gap:3px}
+  .lang-track i{display:block;height:100%;border-radius:3px}
+  .lang-legend{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--ink-2)}
+  .lang-legend span{display:inline-flex;align-items:center;gap:5px}
+  .lang-legend i{width:8px;height:8px;border-radius:50%}
+
+  /* --------------------------------------------------------- projects */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .card{
+    position:relative;overflow:hidden;
+    background:var(--glass);border:1px solid var(--line);border-radius:22px;
+    padding:28px;backdrop-filter:blur(14px);
+    transition:transform .28s,border-color .28s,background .28s;
+  }
+  .card::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+    background:radial-gradient(420px 180px at 20% 0%,rgba(139,124,255,.14),transparent 70%);
+    opacity:0;transition:opacity .3s;
+  }
+  .card:hover{transform:translateY(-5px);border-color:rgba(139,124,255,.45);background:var(--glass-hi)}
+  .card:hover::before{opacity:1}
+  .card-top{display:flex;align-items:center;gap:15px;margin-bottom:15px}
+  .logo{
+    flex:none;width:52px;height:52px;border-radius:14px;overflow:hidden;
+    background:rgba(255,255,255,.06);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .logo img{width:100%;height:100%;object-fit:cover}
+  .logo span{font-family:var(--display);font-weight:700;font-size:17px;
+    background:linear-gradient(120deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .card-name{font-family:var(--display);font-size:19px;font-weight:700}
+  .card-name small{display:block;font-family:var(--sans);font-weight:500;font-size:12px;color:var(--ink-2);margin-top:3px}
+  .card-desc{font-size:14.5px;color:var(--ink-2);margin-bottom:16px;min-height:44px}
+  .card-foot{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .pill{
+    font-size:12px;color:#c6cde4;background:rgba(255,255,255,.05);
+    border:1px solid var(--line);padding:4px 12px;border-radius:999px;
+  }
+  .card-foot .go{margin-left:auto;font-size:13px;color:var(--cyan);opacity:0;transform:translateX(-6px);transition:.25s}
+  .card:hover .go{opacity:1;transform:none}
+
+  /* ------------------------------------------------------------- blog */
+  .post-list{display:flex;flex-direction:column;gap:14px}
+  .post{
+    display:grid;grid-template-columns:110px 1fr auto;gap:24px;align-items:center;
+    background:var(--glass);border:1px solid var(--line);border-radius:18px;
+    padding:24px 28px;backdrop-filter:blur(14px);
+    transition:transform .25s,border-color .25s;
+  }
+  .post:hover{transform:translateX(6px);border-color:rgba(76,201,240,.4)}
+  .post time{font-size:13px;color:var(--ink-2);font-family:var(--display)}
+  .post h3{font-size:17.5px;font-weight:600;font-family:var(--display);margin-bottom:5px}
+  .post p{font-size:13.5px;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+  .post .arrow{font-size:20px;color:var(--ink-2);transition:.2s}
+  .post:hover .arrow{color:var(--cyan);transform:translateX(4px)}
+
+  /* ------------------------------------------------------------ links */
+  .link-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .link-card{
+    display:flex;align-items:center;gap:14px;
+    background:var(--glass);border:1px solid var(--line);border-radius:16px;
+    padding:18px 20px;backdrop-filter:blur(12px);
+    transition:transform .22s,border-color .22s,background .22s;
+  }
+  .link-card:hover{transform:translateY(-3px);border-color:rgba(244,114,182,.45);background:var(--glass-hi)}
+  .link-mono{
+    flex:none;width:42px;height:42px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:700;font-size:14px;color:#fff;
+    background:linear-gradient(135deg,rgba(139,124,255,.5),rgba(76,201,240,.35));
+    border:1px solid rgba(255,255,255,.14);
+  }
+  .link-card b{display:block;font-size:14.5px;font-weight:600}
+  .link-card small{color:var(--ink-2);font-size:12px}
+
+  /* ----------------------------------------------------------- footer */
+  footer{padding:60px 0 70px}
+  .foot-card{
+    background:var(--glass);border:1px solid var(--line);border-radius:24px;
+    padding:40px clamp(24px,4vw,52px);backdrop-filter:blur(14px);
+    display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between;
+  }
+  .foot-card .big{font-family:var(--display);font-size:clamp(20px,3vw,28px);font-weight:700;
+    background:linear-gradient(90deg,#fff,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .foot-card small{color:var(--ink-2);font-size:13px}
+
+  /* ---------------------------------------------------------- motion */
+  .rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    .card,.btn,.post,.stat,.link-card{transition:none}
+  }
+
+  /* ------------------------------------------------------- responsive */
+  @media (max-width:900px){
+    .about-card{grid-template-columns:1fr;gap:34px}
+    .proj-grid{grid-template-columns:1fr}
+    .link-grid{grid-template-columns:1fr 1fr}
+    .post{grid-template-columns:1fr;gap:6px}
+    .post .arrow{display:none}
+    .stats{grid-template-columns:1fr 1fr}
+    .nav-pill a.nl{display:none}
+    .nav-cta{margin-left:auto}
+  }
+  @media (max-width:560px){
+    .link-grid{grid-template-columns:1fr}
+    .hero{padding-top:72px}
+  }
+</style>
+</head>
+<body>
+
+<div class="aurora" aria-hidden="true">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+</div>
+<div class="grid-lines" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="主导航">
+  <div class="nav-pill">
+    <a class="nav-logo" href="#">idevlab</a>
+    <a class="nl" href="#about">关于</a>
+    <a class="nl" href="#projects">项目</a>
+    <a class="nl" href="#blog">文章</a>
+    <a class="nl" href="#links">链接</a>
+    <div class="nav-right">
+      <a class="nav-cta" href="https://github.com/IchenDEV" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <!-- ------------------------------------------------------------- hero -->
+  <section class="hero">
+    <span class="badge"><span class="dot" aria-hidden="true"></span>正在杭州写代码 · 欢迎来聊</span>
+    <h1 class="display">idevlab</h1>
+    <p class="hero-sub">创业者 · <b>AI-native 开发者</b>。<br>
+      我用 <span class="grad">macOS 原生 &amp; AI Agent</span> 打造有趣、好玩的工具，
+      也写字记录科技与人文十字路口的思考。</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">阅读博客 →</a>
+      <a class="btn ghost" href="#projects">看看项目</a>
+      <a class="btn ghost" href="mailto:idevlab@outlook.com">✉ 邮件联系</a>
+    </div>
+    <div class="chips" aria-label="技术关键词">
+      <span class="chip">macOS · SwiftUI</span>
+      <span class="chip">AI Agent · Skills</span>
+      <span class="chip">Local-first</span>
+      <span class="chip">TypeScript</span>
+      <span class="chip">Rust</span>
+      <span class="chip">科技 × 人文</span>
+    </div>
+
+    <div class="stats" id="stats">
+      <div class="stat rv"><div class="num">108</div><div class="lbl">公开仓库</div></div>
+      <div class="stat rv"><div class="num">2,062</div><div class="lbl">过去一年贡献</div></div>
+      <div class="stat rv"><div class="num">89</div><div class="lbl">博客文章</div></div>
+      <div class="stat rv"><div class="num">$300+</div><div class="lbl">每月 AI 投入</div></div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------ about -->
+  <section class="block" id="about">
+    <div class="sec-head rv">
+      <span class="no">01</span><h2>关于我</h2>
+      <span class="sub">Who am I</span>
+    </div>
+    <div class="about-card rv">
+      <div class="about-text">
+        <p>你好，我是 <span class="hl">idevlab</span>，一名重度 macOS 用户，也是每个月在 AI 上投入超过 <span class="hl-p">300 美元</span>的重度用户。现在的身份是创业者，专注于 <span class="hl-c">AI &amp; Agent</span>。</p>
+        <p>我会时不时分享关于 AI 的见解，也会做一些<span class="hl">有趣、好玩的工具和应用</span>——从菜单栏里的本地语音输入，到跑在浏览器里的本地大模型。</p>
+        <p>我正在尝试成为一名 AI-native 开发者，探索<span class="hl-c">控制 Agent 的控制论</span>；也一直关注科技与人文的十字路口。</p>
+      </div>
+      <div>
+        <div class="aside-label">正在使用</div>
+        <ul class="sk-list">
+          <li>Swift / SwiftUI <span>macOS 原生</span></li>
+          <li>TypeScript <span>Web · Agent</span></li>
+          <li>Rust / Go <span>系统 · 工具</span></li>
+          <li>Claude Code · Codex <span>日常工作流</span></li>
+        </ul>
+        <div class="langbar">
+          <div class="aside-label">语言构成</div>
+          <div class="lang-track" role="img" aria-label="语言构成：TypeScript 28.6%，JavaScript 14.3%，C# 10%，其余为 HTML、Swift、Rust、Vue、Python">
+            <i style="width:28.6%;background:#3178c6"></i><i style="width:14.3%;background:#f1e05a"></i><i style="width:10%;background:#178600"></i><i style="width:8.6%;background:#e34c26"></i><i style="width:8.6%;background:#F05138"></i><i style="width:5.7%;background:#dea584"></i><i style="width:5.7%;background:#41b883"></i><i style="width:4.3%;background:#3572A5"></i><i style="flex:1;background:rgba(255,255,255,.08)"></i>
+          </div>
+          <div class="lang-legend">
+            <span><i style="background:#3178c6"></i>TypeScript</span>
+            <span><i style="background:#f1e05a"></i>JavaScript</span>
+            <span><i style="background:#178600"></i>C#</span>
+            <span><i style="background:#F05138"></i>Swift</span>
+            <span><i style="background:#dea584"></i>Rust</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --------------------------------------------------------- projects -->
+  <section class="block" id="projects">
+    <div class="sec-head rv">
+      <span class="no">02</span><h2>精选项目</h2>
+      <span class="sub">来自 GitHub · 每日同步</span>
+    </div>
+    <div class="proj-grid">
+      <a class="card rv" href="https://github.com/IchenDEV/doubao-skin" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="logo"><img src="../assets/project-logos/doubao-skin.png" alt="" width="52" height="52" loading="lazy"></span>
+          <div class="card-name">doubao-skin<small>Rust · macOS 主题</small></div>
+        </div>
+        <p class="card-desc">为豆包与豆包工作台打造的 macOS 主题与工具链。</p>
+        <div class="card-foot"><span class="pill">Rust</span><span class="pill">macOS</span><span class="go">访问 →</span></div>
+      </a>
+      <a class="card rv" href="https://github.com/IchenDEV/agent-plugin-mkt" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="logo"><span>Mk</span></span>
+          <div class="card-name">agent-plugin-mkt<small>TypeScript · 平台</small></div>
+        </div>
+        <p class="card-desc">开源 Agent 插件市场：发现 Codex / Claude Code 插件，提供 Web、REST API、MCP 与 agent 可读目录。</p>
+        <div class="card-foot"><span class="pill">TypeScript</span><span class="pill">MCP</span><span class="go">访问 →</span></div>
+      </a>
+      <a class="card rv" href="https://github.com/IchenDEV/kite" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="logo"><img src="../assets/project-logos/kite.png" alt="" width="52" height="52" loading="lazy"></span>
+          <div class="card-name">kite<small>Swift · 下载器</small></div>
+        </div>
+        <p class="card-desc">原生 macOS 26+ 多协议下载器，SwiftUI + aria2-next 驱动。</p>
+        <div class="card-foot"><span class="pill">Swift</span><span class="pill">aria2</span><span class="go">访问 →</span></div>
+      </a>
+      <a class="card rv" href="https://github.com/IchenDEV/utter" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="logo"><img src="../assets/project-logos/utter.png" alt="" width="52" height="52" loading="lazy"></span>
+          <div class="card-name">utter<small>Swift · 语音输入</small></div>
+        </div>
+        <p class="card-desc">菜单栏里的本地 AI 语音输入，隐私不出本机。</p>
+        <div class="card-foot"><span class="pill">Swift</span><span class="pill">Local AI</span><span class="go">访问 →</span></div>
+      </a>
+      <a class="card rv" href="https://github.com/IchenDEV/superman" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="logo"><img src="../assets/project-logos/superman.png" alt="" width="52" height="52" loading="lazy"></span>
+          <div class="card-name">superman<small>Agent Skills · ★ 13</small></div>
+        </div>
+        <p class="card-desc">聚合中西方顶级思想家与极客思维框架的 Agent Skills 集合——每个视角都是可运行的认知算法。</p>
+        <div class="card-foot"><span class="pill">Skills</span><span class="pill">★ 13</span><span class="go">访问 →</span></div>
+      </a>
+      <a class="card rv" href="https://github.com/IchenDEV/larkfs" target="_blank" rel="noopener">
+        <div class="card-top">
+          <span class="logo"><span>Lf</span></span>
+          <div class="card-name">larkfs<small>Go · 文件系统</small></div>
+        </div>
+        <p class="card-desc">把飞书 / Lark 映射为本地可读写的文件目录，像操作本地文件一样操作云端资源。</p>
+        <div class="card-foot"><span class="pill">Go</span><span class="pill">FUSE</span><span class="go">访问 →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------- blog -->
+  <section class="block" id="blog">
+    <div class="sec-head rv">
+      <span class="no">03</span><h2>最新文章</h2>
+      <span class="sub">来自博客 · 每日同步</span>
+    </div>
+    <div class="post-list">
+      <a class="post rv" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">
+        <time datetime="2026-05-25">2026.05.25</time>
+        <div>
+          <h3>文艺复兴让人变宽，工业社会把人折叠了</h3>
+          <p>从达芬奇的跨界通才，到工业社会的专业折叠，再到 AI 时代重新展开的可能性。</p>
+        </div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="post rv" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">
+        <time datetime="2026-05-24">2026.05.24</time>
+        <div>
+          <h3>Open Source 社区正在死去，先死在维护者不再相信陌生人</h3>
+          <p>AI 生成的低质量 PR 和批量制造的简历流水线，正在联手压垮开源社区的维护者。</p>
+        </div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="post rv" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">
+        <time datetime="2026-05-22">2026.05.22</time>
+        <div>
+          <h3>AI 的价值，正在从解答已知走向探索未知</h3>
+          <p>我们太小了，所以要造更大的工具。我们太短暂了，所以要建立可以积累的文明。</p>
+        </div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------ links -->
+  <section class="block" id="links" style="padding-bottom:40px">
+    <div class="sec-head rv">
+      <span class="no">04</span><h2>链接</h2>
+      <span class="sub">我的站点与朋友们</span>
+    </div>
+    <div class="link-grid rv">
+      <a class="link-card" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">
+        <span class="link-mono">&gt;_</span><span><b>idevlab's Blog</b><small>89 篇 · 终端风格</small></span>
+      </a>
+      <a class="link-card" href="https://github.com/IchenDEV" target="_blank" rel="noopener">
+        <span class="link-mono">gh</span><span><b>GitHub @IchenDEV</b><small>所有开源项目</small></span>
+      </a>
+      <a class="link-card" href="https://utter.idevlab.dev" target="_blank" rel="noopener">
+        <span class="link-mono">ut</span><span><b>Utter</b><small>macOS 本地语音输入</small></span>
+      </a>
+      <a class="link-card" href="https://petx.idevlab.dev" target="_blank" rel="noopener">
+        <span class="link-mono">px</span><span><b>PetX</b><small>桌面宠物渲染器</small></span>
+      </a>
+      <a class="link-card" href="https://pluginsmp.com/" target="_blank" rel="noopener">
+        <span class="link-mono">mk</span><span><b>Plugin Market</b><small>Agent 插件市场</small></span>
+      </a>
+      <a class="link-card" href="https://blogs.idevlab.dev/yemai/" target="_blank" rel="noopener">
+        <span class="link-mono">ym</span><span><b>页脉 Yemai</b><small>AI 阅读书架</small></span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot-card rv">
+    <span class="big">keep learning, keep shipping.</span>
+    <small>© 2026 idevlab · Hangzhou · 数据同步于 2026-08-30</small>
+  </div>
+</footer>
+
+<script>
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!REDUCED) {
+    const io = new IntersectionObserver((es) => {
+      for (const e of es) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.rv').forEach((n) => io.observe(n));
+  } else {
+    document.querySelectorAll('.rv').forEach((n) => n.classList.add('in'));
+  }
+</script>
+</body>
+</html>

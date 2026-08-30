@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>idevlab — 设计稿 A · 杂志编辑风</title>
+<meta name="description" content="设计稿 A：杂志编辑风格的个人主页。">
+<link rel="icon" href="https://avatars.githubusercontent.com/u/34794972?v=4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf6ef;
+    --paper-2:#f3ede2;
+    --ink:#1b1712;
+    --ink-2:#5f574a;
+    --hairline:#e2d8c8;
+    --accent:#bc3f1d;
+    --accent-ink:#8f2f14;
+    --serif:"Playfair Display","Noto Serif SC","Songti SC",Georgia,serif;
+    --sans:"Inter",-apple-system,"PingFang SC","Segoe UI",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent);color:var(--paper)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+  /* ---------------------------------------------------------- top bar */
+  .topbar{
+    border-bottom:1px solid var(--hairline);
+    position:sticky;top:0;z-index:10;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:blur(10px);
+  }
+  .topbar-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:60px;font-size:13px;letter-spacing:.02em;
+  }
+  .brand{font-family:var(--serif);font-size:18px;font-weight:700}
+  .brand em{color:var(--accent);font-style:italic}
+  .topbar nav{display:flex;gap:26px;color:var(--ink-2)}
+  .topbar nav a{transition:color .2s}
+  .topbar nav a:hover{color:var(--accent)}
+  .topbar nav a b{color:var(--ink);font-weight:500}
+
+  /* ------------------------------------------------------------- hero */
+  .hero{padding-block:96px 72px;border-bottom:1px solid var(--hairline)}
+  .kicker{
+    font-size:12px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:26px;font-weight:600;
+  }
+  h1.display{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(64px,11vw,132px);
+    line-height:.98;
+    letter-spacing:-.015em;
+  }
+  h1.display em{font-style:italic;color:var(--accent)}
+  .hero-manifesto{
+    margin-top:34px;
+    font-family:var(--serif);
+    font-size:clamp(20px,2.6vw,27px);
+    line-height:1.55;
+    max-width:640px;
+    color:var(--ink);
+  }
+  .hero-meta{
+    margin-top:40px;display:flex;flex-wrap:wrap;gap:10px 34px;
+    font-size:13.5px;color:var(--ink-2);
+  }
+  .hero-meta span b{color:var(--ink);font-weight:600;margin-right:6px}
+  .hero-cta{margin-top:44px;display:flex;flex-wrap:wrap;gap:14px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;border:1px solid var(--ink);
+    border-radius:999px;font-size:14px;font-weight:500;
+    transition:background .22s,color .22s,transform .22s;
+  }
+  .btn:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.primary:hover{background:var(--accent-ink);border-color:var(--accent-ink)}
+
+  /* ------------------------------------------------------------ stats */
+  .stats{border-bottom:1px solid var(--hairline)}
+  .stats-inner{
+    display:grid;grid-template-columns:repeat(4,1fr);
+  }
+  .stat{
+    padding:34px 8px 30px;border-left:1px solid var(--hairline);
+    padding-left:26px;
+  }
+  .stat:first-child{border-left:none;padding-left:0}
+  .stat .num{
+    font-family:var(--serif);font-size:clamp(34px,4.4vw,52px);
+    font-weight:600;line-height:1.1;
+  }
+  .stat .num sup{font-size:.45em;color:var(--accent);top:-.7em}
+  .stat .lbl{margin-top:6px;font-size:13px;color:var(--ink-2)}
+
+  /* ---------------------------------------------------------- section */
+  section.block{padding-block:84px;border-bottom:1px solid var(--hairline)}
+  .sec-head{display:flex;align-items:baseline;gap:22px;margin-bottom:48px}
+  .sec-no{
+    font-family:var(--serif);font-style:italic;font-size:20px;color:var(--accent);
+  }
+  .sec-head h2{
+    font-family:var(--serif);font-size:clamp(30px,4.4vw,44px);
+    font-weight:600;letter-spacing:-.01em;
+  }
+  .sec-head .sub{margin-left:auto;font-size:13.5px;color:var(--ink-2)}
+
+  /* ------------------------------------------------------- about grid */
+  .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:64px}
+  .about-text p{font-size:17px;line-height:1.9;color:#3d362c;margin-bottom:20px;max-width:60ch}
+  .about-text p:first-child::first-letter{
+    font-family:var(--serif);font-size:3.4em;float:left;
+    line-height:.82;padding:6px 12px 0 0;color:var(--accent);font-weight:700;
+  }
+  .about-text .kw{border-bottom:2px solid var(--accent);padding-bottom:1px}
+  .about-aside{border-left:1px solid var(--hairline);padding-left:40px}
+  .aside-label{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2);margin-bottom:16px}
+  .tag-list{list-style:none}
+  .tag-list li{
+    padding:12px 0;border-bottom:1px solid var(--hairline);
+    display:flex;justify-content:space-between;align-items:baseline;font-size:15px;
+  }
+  .tag-list li span{font-family:var(--serif);font-style:italic;color:var(--ink-2);font-size:13px}
+  .langbar{margin-top:34px}
+  .lang-track{display:flex;height:10px;border-radius:5px;overflow:hidden;gap:2px}
+  .lang-track i{display:block;height:100%}
+  .lang-legend{
+    margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 16px;
+    font-size:12px;color:var(--ink-2);
+  }
+  .lang-legend span{display:inline-flex;align-items:center;gap:6px}
+  .lang-legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+
+  /* --------------------------------------------------------- projects */
+  .proj-list{list-style:none}
+  .proj-row{
+    display:grid;
+    grid-template-columns:56px 96px 1.15fr 2fr auto;
+    gap:22px;align-items:center;
+    padding:26px 10px;
+    border-top:1px solid var(--hairline);
+    transition:background .25s,padding-left .25s;
+  }
+  .proj-row:last-child{border-bottom:1px solid var(--hairline)}
+  .proj-row:hover{background:var(--paper-2);padding-left:22px}
+  .proj-idx{font-family:var(--serif);font-style:italic;color:var(--ink-2);font-size:15px}
+  .proj-logo{
+    width:64px;height:64px;border-radius:16px;overflow:hidden;
+    background:#fff;border:1px solid var(--hairline);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .proj-logo img{width:100%;height:100%;object-fit:cover}
+  .proj-logo span{font-family:var(--serif);font-weight:700;font-size:22px;color:var(--accent)}
+  .proj-name{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.3}
+  .proj-name small{
+    display:block;font-family:var(--sans);font-weight:500;font-size:12px;
+    color:var(--accent);letter-spacing:.06em;margin-top:4px;text-transform:uppercase;
+  }
+  .proj-desc{font-size:14.5px;color:var(--ink-2);line-height:1.65}
+  .proj-go{
+    font-size:20px;color:var(--ink-2);transition:transform .25s,color .25s;
+  }
+  .proj-row:hover .proj-go{transform:translateX(6px);color:var(--accent)}
+  .proj-more{margin-top:34px;font-size:14px}
+  .proj-more a{border-bottom:1px solid var(--ink);padding-bottom:2px;transition:color .2s,border-color .2s}
+  .proj-more a:hover{color:var(--accent);border-color:var(--accent)}
+
+  /* ------------------------------------------------------------- blog */
+  .post{
+    display:grid;grid-template-columns:130px 1fr;gap:30px;
+    padding:30px 10px;border-top:1px solid var(--hairline);
+    transition:background .25s;
+  }
+  .post:last-of-type{border-bottom:1px solid var(--hairline)}
+  .post:hover{background:var(--paper-2)}
+  .post time{font-family:var(--serif);font-style:italic;color:var(--ink-2);font-size:15px;padding-top:5px}
+  .post h3{
+    font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);
+    font-weight:600;line-height:1.4;margin-bottom:10px;
+    transition:color .2s;
+  }
+  .post:hover h3{color:var(--accent)}
+  .post p{font-size:14.5px;color:var(--ink-2);max-width:62ch}
+  .post .tags{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+  .post .tags span{
+    font-size:11.5px;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
+    border-radius:999px;padding:3px 11px;letter-spacing:.04em;
+  }
+
+  /* ------------------------------------------------------------ links */
+  .link-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline)}
+  .link-card{
+    background:var(--paper);padding:26px 24px;display:flex;gap:16px;align-items:center;
+    transition:background .25s;
+  }
+  .link-card:hover{background:var(--paper-2)}
+  .link-mono{
+    flex:none;width:46px;height:46px;border:1px solid var(--ink);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-weight:700;font-size:15px;
+  }
+  .link-card b{display:block;font-size:15px;font-weight:600}
+  .link-card small{color:var(--ink-2);font-size:12.5px}
+
+  /* ----------------------------------------------------------- footer */
+  footer{padding:44px 0 60px;font-size:13px;color:var(--ink-2)}
+  .foot-inner{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between;align-items:baseline}
+  .foot-inner .slogan{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink)}
+
+  /* ---------------------------------------------------------- motion */
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    .btn,.proj-row,.proj-go{transition:none}
+  }
+
+  /* ------------------------------------------------------- responsive */
+  @media (max-width:900px){
+    .about-grid{grid-template-columns:1fr;gap:40px}
+    .about-aside{border-left:none;padding-left:0;border-top:1px solid var(--hairline);padding-top:30px}
+    .proj-row{grid-template-columns:40px 1fr auto;grid-template-areas:"idx name go" "idx desc go";row-gap:8px}
+    .proj-idx{grid-area:idx}.proj-name{grid-area:name}.proj-desc{grid-area:desc}
+    .proj-go{grid-area:go}.proj-logo{display:none}
+    .link-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:620px){
+    .stats-inner{grid-template-columns:1fr 1fr}
+    .stat{padding-left:0;border-left:none;border-top:1px solid var(--hairline);padding-top:22px}
+    .stat:nth-child(-n+2){border-top:none}
+    .post{grid-template-columns:1fr;gap:8px}
+    .topbar nav{gap:14px;font-size:12px}
+    .link-grid{grid-template-columns:1fr}
+    .hero{padding-top:64px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#">idev<em>lab</em></a>
+    <nav aria-label="主导航">
+      <a href="#about">关于</a>
+      <a href="#projects">项目</a>
+      <a href="#blog">文章</a>
+      <a href="#links">链接</a>
+      <a href="https://blogs.idevlab.dev" target="_blank" rel="noopener"><b>博客 ↗</b></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ------------------------------------------------------------- hero -->
+  <section class="hero wrap">
+    <p class="kicker">Personal Site · Hangzhou · Est. 2017</p>
+    <h1 class="display">idev<em>lab</em></h1>
+    <p class="hero-manifesto">写代码，也写字。在 macOS 原生开发与 AI Agent 之间，
+      做一些有趣、好玩的工具——关注科技与人文的十字路口。</p>
+    <div class="hero-meta">
+      <span><b>坐标</b>杭州 · 中国</span>
+      <span><b>身份</b>创业者 / AI-native 开发者</span>
+      <span><b>领域</b>AI &amp; Agent · macOS · 前端</span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn primary" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">阅读博客</a>
+      <a class="btn" href="https://github.com/IchenDEV" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="mailto:idevlab@outlook.com">邮件联系</a>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------ stats -->
+  <div class="stats">
+    <div class="wrap stats-inner">
+      <div class="stat rv"><div class="num">108</div><div class="lbl">公开仓库</div></div>
+      <div class="stat rv"><div class="num">2,062</div><div class="lbl">过去一年贡献</div></div>
+      <div class="stat rv"><div class="num">89</div><div class="lbl">博客文章</div></div>
+      <div class="stat rv"><div class="num">8<sup>+</sup></div><div class="lbl">种常用语言</div></div>
+    </div>
+  </div>
+
+  <!-- ------------------------------------------------------------ about -->
+  <section class="block wrap" id="about">
+    <div class="sec-head rv">
+      <span class="sec-no">01</span><h2>关于</h2>
+      <span class="sub">Who is idevlab</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-text rv">
+        <p>你好，我是 idevlab，一名重度 macOS 用户，也是每个月在 AI 上投入超过三百美元的重度用户。现在的身份是创业者，专注于 AI 与 Agent。</p>
+        <p>我会时不时分享关于 AI 的见解，也会做一些有趣、好玩的工具和应用——从 macOS 原生应用到浏览器里的本地模型。我正在尝试成为一名 AI-native 开发者，探索控制 Agent 的控制论。</p>
+        <p>我关注科技与人文的十字路口。口头禅：<em style="font-family:var(--serif)">keep learning, keep shipping.</em></p>
+      </div>
+      <aside class="about-aside rv">
+        <div class="aside-label">关键词</div>
+        <ul class="tag-list">
+          <li>macOS 原生 <span>SwiftUI</span></li>
+          <li>AI &amp; Agent <span>Skills</span></li>
+          <li>本地优先 <span>Local-first</span></li>
+          <li>科技 × 人文 <span>Essays</span></li>
+        </ul>
+        <div class="langbar">
+          <div class="aside-label">语言构成</div>
+          <div class="lang-track" role="img" aria-label="语言构成：TypeScript 28.6%，JavaScript 14.3%，C# 10%，HTML 8.6%，Swift 8.6%，Rust 5.7%，Vue 5.7%，Python 4.3%">
+            <i style="width:28.6%;background:#3178c6"></i><i style="width:14.3%;background:#f1e05a"></i><i style="width:10%;background:#178600"></i><i style="width:8.6%;background:#e34c26"></i><i style="width:8.6%;background:#F05138"></i><i style="width:5.7%;background:#dea584"></i><i style="width:5.7%;background:#41b883"></i><i style="width:4.3%;background:#3572A5"></i><i style="flex:1;background:var(--hairline)"></i>
+          </div>
+          <div class="lang-legend">
+            <span><i style="background:#3178c6"></i>TypeScript 28.6%</span>
+            <span><i style="background:#f1e05a"></i>JavaScript 14.3%</span>
+            <span><i style="background:#F05138"></i>Swift 8.6%</span>
+            <span><i style="background:#dea584"></i>Rust 5.7%</span>
+            <span><i style="background:#178600"></i>C# 10%</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- --------------------------------------------------------- projects -->
+  <section class="block wrap" id="projects">
+    <div class="sec-head rv">
+      <span class="sec-no">02</span><h2>项目索引</h2>
+      <span class="sub">数据来自 GitHub · 每日自动同步</span>
+    </div>
+    <ul class="proj-list">
+      <li class="proj-row rv">
+        <span class="proj-idx">№ 01</span>
+        <span class="proj-logo"><img src="../assets/project-logos/doubao-skin.png" alt="" width="64" height="64" loading="lazy"></span>
+        <div class="proj-name">doubao-skin<small>Rust · macOS</small></div>
+        <p class="proj-desc">为豆包与豆包工作台打造的 macOS 主题与工具链。</p>
+        <span class="proj-go" aria-hidden="true">→</span>
+      </li>
+      <li class="proj-row rv">
+        <span class="proj-idx">№ 02</span>
+        <span class="proj-logo"><span>Mk</span></span>
+        <div class="proj-name">agent-plugin-mkt<small>TypeScript · Web</small></div>
+        <p class="proj-desc">开源的 Agent 插件市场：发现 Codex / Claude Code 插件，提供 Web、REST API、MCP 与 agent 可读目录。</p>
+        <span class="proj-go" aria-hidden="true">→</span>
+      </li>
+      <li class="proj-row rv">
+        <span class="proj-idx">№ 03</span>
+        <span class="proj-logo"><img src="../assets/project-logos/kite.png" alt="" width="64" height="64" loading="lazy"></span>
+        <div class="proj-name">kite<small>Swift · macOS</small></div>
+        <p class="proj-desc">原生 macOS 26+ 多协议下载器，SwiftUI + aria2-next 驱动。</p>
+        <span class="proj-go" aria-hidden="true">→</span>
+      </li>
+      <li class="proj-row rv">
+        <span class="proj-idx">№ 04</span>
+        <span class="proj-logo"><img src="../assets/project-logos/utter.png" alt="" width="64" height="64" loading="lazy"></span>
+        <div class="proj-name">utter<small>Swift · 语音</small></div>
+        <p class="proj-desc">菜单栏里的本地 AI 语音输入，隐私不出本机。</p>
+        <span class="proj-go" aria-hidden="true">→</span>
+      </li>
+      <li class="proj-row rv">
+        <span class="proj-idx">№ 05</span>
+        <span class="proj-logo"><img src="../assets/project-logos/superman.png" alt="" width="64" height="64" loading="lazy"></span>
+        <div class="proj-name">superman<small>Agent Skills · ★13</small></div>
+        <p class="proj-desc">聚合中西方顶级思想家与极客思维框架的 Agent Skills 集合——每个视角都是可运行的认知算法。</p>
+        <span class="proj-go" aria-hidden="true">→</span>
+      </li>
+      <li class="proj-row rv">
+        <span class="proj-idx">№ 06</span>
+        <span class="proj-logo"><span>Lf</span></span>
+        <div class="proj-name">larkfs<small>Go · 文件系统</small></div>
+        <p class="proj-desc">把飞书 / Lark 映射为本地可读写的文件目录，像操作本地文件一样操作云端资源。</p>
+        <span class="proj-go" aria-hidden="true">→</span>
+      </li>
+      <li class="proj-row rv">
+        <span class="proj-idx">№ 07</span>
+        <span class="proj-logo"><img src="../assets/project-logos/yemai.png" alt="" width="64" height="64" loading="lazy"></span>
+        <div class="proj-name">页脉 yemai<small>JavaScript · 阅读</small></div>
+        <p class="proj-desc">本地优先的 AI 阅读记忆书架。</p>
+        <span class="proj-go" aria-hidden="true">→</span>
+      </li>
+    </ul>
+    <p class="proj-more rv"><a href="https://github.com/IchenDEV?tab=repositories" target="_blank" rel="noopener">查看全部 108 个仓库 →</a></p>
+  </section>
+
+  <!-- ------------------------------------------------------------- blog -->
+  <section class="block wrap" id="blog">
+    <div class="sec-head rv">
+      <span class="sec-no">03</span><h2>最近文章</h2>
+      <span class="sub">来自博客 · 每日同步</span>
+    </div>
+    <article class="post rv">
+      <time datetime="2026-05-25">2026.05.25</time>
+      <div>
+        <h3><a href="https://blogs.idevlab.dev" target="_blank" rel="noopener">文艺复兴让人变宽，工业社会把人折叠了</a></h3>
+        <p>从达芬奇的跨界通才，到工业社会的专业折叠，再到 AI 时代重新展开的可能性。我们在技术浪潮中，该如何找回完整的人？</p>
+        <div class="tags"><span>AI</span><span>思考</span><span>历史</span><span>教育</span></div>
+      </div>
+    </article>
+    <article class="post rv">
+      <time datetime="2026-05-24">2026.05.24</time>
+      <div>
+        <h3><a href="https://blogs.idevlab.dev" target="_blank" rel="noopener">Open Source 社区正在死去，先死在维护者不再相信陌生人</a></h3>
+        <p>AI 生成的低质量 PR 和培训机构批量制造的简历流水线，正在联手压垮开源社区的维护者。但这并非终局，开源的免疫系统正在苏醒。</p>
+        <div class="tags"><span>AI</span><span>开源</span><span>社区生态</span></div>
+      </div>
+    </article>
+    <article class="post rv">
+      <time datetime="2026-05-22">2026.05.22</time>
+      <div>
+        <h3><a href="https://blogs.idevlab.dev" target="_blank" rel="noopener">AI 的价值，正在从解答已知走向探索未知</a></h3>
+        <p>我们太小了，所以要造更大的工具。我们太短暂了，所以要建立可以积累的文明。</p>
+        <div class="tags"><span>AI</span><span>思考</span><span>未来</span></div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ------------------------------------------------------------ links -->
+  <section class="block wrap" id="links">
+    <div class="sec-head rv">
+      <span class="sec-no">04</span><h2>链接</h2>
+      <span class="sub">我的站点与朋友们</span>
+    </div>
+    <div class="link-grid rv">
+      <a class="link-card" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">
+        <span class="link-mono">&gt;_</span><span><b>idevlab's Blog</b><small>我的博客 · 终端风格 · 89 篇</small></span>
+      </a>
+      <a class="link-card" href="https://github.com/IchenDEV" target="_blank" rel="noopener">
+        <span class="link-mono">gh</span><span><b>GitHub @IchenDEV</b><small>所有开源项目</small></span>
+      </a>
+      <a class="link-card" href="https://utter.idevlab.dev" target="_blank" rel="noopener">
+        <span class="link-mono">ut</span><span><b>Utter</b><small>macOS 本地语音输入</small></span>
+      </a>
+      <a class="link-card" href="https://petx.idevlab.dev" target="_blank" rel="noopener">
+        <span class="link-mono">px</span><span><b>PetX</b><small>桌面宠物渲染器</small></span>
+      </a>
+      <a class="link-card" href="https://pluginsmp.com/" target="_blank" rel="noopener">
+        <span class="link-mono">mk</span><span><b>Plugin Market</b><small>Agent 插件市场</small></span>
+      </a>
+      <a class="link-card" href="https://blogs.idevlab.dev/yemai/" target="_blank" rel="noopener">
+        <span class="link-mono">ym</span><span><b>页脉 Yemai</b><small>本地优先的 AI 阅读书架</small></span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© 2026 idevlab</span>
+    <span class="slogan">"keep learning, keep shipping."</span>
+    <span>数据同步于 2026-08-30 · 来自 GitHub Actions</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal (skipped entirely under reduced motion).
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!REDUCED) {
+    const io = new IntersectionObserver((es) => {
+      for (const e of es) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.rv').forEach((n) => io.observe(n));
+  } else {
+    document.querySelectorAll('.rv').forEach((n) => n.classList.add('in'));
+  }
+</script>
+</body>
+</html>
