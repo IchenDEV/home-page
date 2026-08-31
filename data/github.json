@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-30T09:00:36.861Z",
+  "generated_at": "2026-08-31T09:28:18.798Z",
   "sync": {
-    "github_at": "2026-08-30T09:00:36.861Z",
-    "blog_at": "2026-08-30T09:00:36.861Z",
+    "github_at": "2026-08-31T09:28:18.798Z",
+    "blog_at": "2026-08-31T09:28:18.798Z",
     "github_fresh": true
   },
   "user": {
@@ -18,11 +18,11 @@
     "url": "https://github.com/IchenDEV"
   },
   "stats": {
-    "public_repos": 109,
+    "public_repos": 110,
     "own_repos": 76,
     "stars": 39,
     "forks": 2,
-    "contributions": 2087
+    "contributions": 2249
   },
   "languages": [
     {
@@ -32,8 +32,13 @@
     },
     {
       "name": "JavaScript",
-      "count": 10,
-      "percent": 14.1
+      "count": 9,
+      "percent": 12.7
+    },
+    {
+      "name": "HTML",
+      "count": 7,
+      "percent": 9.9
     },
     {
       "name": "C#",
@@ -42,11 +47,6 @@
     },
     {
       "name": "Swift",
-      "count": 6,
-      "percent": 8.5
-    },
-    {
-      "name": "HTML",
       "count": 6,
       "percent": 8.5
     },
@@ -76,7 +76,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/doubao-skin",
       "homepage": "https://doubao-skin.idevlab.dev",
-      "pushed_at": "2026-08-29T17:07:12Z",
+      "pushed_at": "2026-08-31T09:25:08Z",
       "pinned": true
     },
     {
@@ -88,7 +88,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/agent-plugin-mkt",
       "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-08-30T05:32:37Z",
+      "pushed_at": "2026-08-31T05:44:12Z",
       "pinned": true
     },
     {
@@ -105,7 +105,7 @@
       ],
       "url": "https://github.com/IchenDEV/kite",
       "homepage": null,
-      "pushed_at": "2026-08-13T03:54:52Z",
+      "pushed_at": "2026-08-30T21:00:07Z",
       "pinned": true
     },
     {
@@ -117,7 +117,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/utter",
       "homepage": "https://utter.idevlab.dev",
-      "pushed_at": "2026-08-30T08:07:36Z",
+      "pushed_at": "2026-08-31T06:57:49Z",
       "pinned": true
     },
     {
@@ -182,19 +182,31 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/codeTwo",
       "homepage": null,
-      "pushed_at": "2026-08-30T08:20:07Z",
+      "pushed_at": "2026-08-31T07:07:24Z",
+      "pinned": false
+    },
+    {
+      "name": "mini-game",
+      "description": "五款 AI 生成浏览器小游戏合集，统一源码、历史与 GitHub Pages 发布。",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/mini-game",
+      "homepage": "https://blogs.idevlab.dev/mini-game/",
+      "pushed_at": "2026-08-31T05:31:36Z",
       "pinned": false
     },
     {
       "name": "home-page",
       "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
-      "language": "JavaScript",
+      "language": "HTML",
       "stars": 0,
       "forks": 0,
       "topics": [],
       "url": "https://github.com/IchenDEV/home-page",
       "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-08-30T06:14:47Z",
+      "pushed_at": "2026-08-30T21:29:34Z",
       "pinned": false
     },
     {
@@ -208,22 +220,10 @@
       "homepage": null,
       "pushed_at": "2026-08-26T02:23:15Z",
       "pinned": false
-    },
-    {
-      "name": "dsh-plugins",
-      "description": "未经测试",
-      "language": "JavaScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/dsh-plugins",
-      "homepage": null,
-      "pushed_at": "2026-08-14T09:26:10Z",
-      "pinned": false
     }
   ],
   "contributions": {
-    "total": 2087,
+    "total": 2249,
     "days": [
       {
         "date": "2025-08-31",
@@ -1671,105 +1671,109 @@
       },
       {
         "date": "2026-08-27",
-        "count": 28
+        "count": 29
       },
       {
         "date": "2026-08-28",
-        "count": 37
+        "count": 38
       },
       {
         "date": "2026-08-29",
-        "count": 74
+        "count": 75
       },
       {
         "date": "2026-08-30",
-        "count": 38
+        "count": 58
+      },
+      {
+        "date": "2026-08-31",
+        "count": 139
       }
     ]
   },
   "activity": [
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-08-29T16:53:10Z",
+      "repo": "IchenDEV/doubao-skin",
+      "at": "2026-08-31T09:13:20Z",
       "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-08-29T16:29:36Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-30T08:20:07Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-30T08:19:36Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "merged a pull request in",
       "repo": "IchenDEV/utter",
-      "at": "2026-08-30T08:07:36Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-30T08:04:14Z",
+      "at": "2026-08-31T06:57:11Z",
       "type": "PushEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-30T08:01:31Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-30T07:55:59Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-30T07:55:38Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-30T07:54:20Z",
-      "type": "PullRequestEvent"
     },
     {
       "verb": "created branch in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-30T07:54:03Z",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-31T05:48:01Z",
       "type": "CreateEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-08-29T15:39:00Z",
+      "repo": "IchenDEV/utter",
+      "at": "2026-08-31T05:34:26Z",
       "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-08-29T15:36:23Z",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-31T07:07:26Z",
       "type": "PushEvent"
     },
     {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-31T07:07:25Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-31T06:59:02Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "released v0.0.44 of",
+      "repo": "IchenDEV/utter",
+      "at": "2026-08-31T06:57:50Z",
+      "type": "ReleaseEvent"
+    },
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-08-31T06:57:09Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-31T05:58:57Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-31T05:58:51Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/doubao-skin",
+      "at": "2026-08-31T05:53:56Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-31T05:48:27Z",
+      "type": "PullRequestEvent"
+    },
+    {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-08-29T15:17:23Z",
+      "repo": "IchenDEV/utter",
+      "at": "2026-08-31T05:38:58Z",
       "type": "PushEvent"
     }
   ],
