@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-31T09:28:18.798Z",
+  "generated_at": "2026-09-01T08:25:05.926Z",
   "sync": {
-    "github_at": "2026-08-31T09:28:18.798Z",
-    "blog_at": "2026-08-31T09:28:18.798Z",
+    "github_at": "2026-09-01T08:25:05.926Z",
+    "blog_at": "2026-09-01T08:25:05.926Z",
     "github_fresh": true
   },
   "user": {
@@ -22,7 +22,7 @@
     "own_repos": 76,
     "stars": 39,
     "forks": 2,
-    "contributions": 2249
+    "contributions": 2343
   },
   "languages": [
     {
@@ -76,7 +76,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/doubao-skin",
       "homepage": "https://doubao-skin.idevlab.dev",
-      "pushed_at": "2026-08-31T09:25:08Z",
+      "pushed_at": "2026-09-01T08:03:28Z",
       "pinned": true
     },
     {
@@ -88,7 +88,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/agent-plugin-mkt",
       "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-08-31T05:44:12Z",
+      "pushed_at": "2026-09-01T05:25:04Z",
       "pinned": true
     },
     {
@@ -117,7 +117,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/utter",
       "homepage": "https://utter.idevlab.dev",
-      "pushed_at": "2026-08-31T06:57:49Z",
+      "pushed_at": "2026-08-31T15:02:57Z",
       "pinned": true
     },
     {
@@ -182,7 +182,19 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/codeTwo",
       "homepage": null,
-      "pushed_at": "2026-08-31T07:07:24Z",
+      "pushed_at": "2026-09-01T07:51:28Z",
+      "pinned": false
+    },
+    {
+      "name": "home-page",
+      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/home-page",
+      "homepage": "https://www.idevlab.dev",
+      "pushed_at": "2026-08-31T09:28:20Z",
       "pinned": false
     },
     {
@@ -195,18 +207,6 @@
       "url": "https://github.com/IchenDEV/mini-game",
       "homepage": "https://blogs.idevlab.dev/mini-game/",
       "pushed_at": "2026-08-31T05:31:36Z",
-      "pinned": false
-    },
-    {
-      "name": "home-page",
-      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
-      "language": "HTML",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/home-page",
-      "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-08-30T21:29:34Z",
       "pinned": false
     },
     {
@@ -223,7 +223,7 @@
     }
   ],
   "contributions": {
-    "total": 2249,
+    "total": 2343,
     "days": [
       {
         "date": "2025-08-31",
@@ -1687,7 +1687,11 @@
       },
       {
         "date": "2026-08-31",
-        "count": 139
+        "count": 168
+      },
+      {
+        "date": "2026-09-01",
+        "count": 65
       }
     ]
   },
@@ -1695,85 +1699,85 @@
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/doubao-skin",
-      "at": "2026-08-31T09:13:20Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-31T06:57:11Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-31T05:48:01Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-31T05:34:26Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-31T07:07:26Z",
+      "at": "2026-09-01T07:47:52Z",
       "type": "PushEvent"
     },
     {
       "verb": "merged a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-31T07:07:25Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-31T06:59:02Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "released v0.0.44 of",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-31T06:57:50Z",
-      "type": "ReleaseEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-31T06:57:09Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-31T05:58:57Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-31T05:58:51Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "opened a pull request in",
       "repo": "IchenDEV/doubao-skin",
-      "at": "2026-08-31T05:53:56Z",
+      "at": "2026-09-01T08:03:12Z",
       "type": "PullRequestEvent"
     },
     {
-      "verb": "opened a pull request in",
+      "verb": "merged a pull request in",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-08-31T05:48:27Z",
+      "at": "2026-09-01T07:51:28Z",
       "type": "PullRequestEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-08-31T05:38:58Z",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-01T05:29:59Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/doubao-skin",
+      "at": "2026-09-01T05:24:16Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-01T07:22:06Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-01T07:40:37Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/IchenDEV.github.io",
+      "at": "2026-09-01T06:45:37Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-01T07:21:49Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/doubao-skin",
+      "at": "2026-09-01T06:31:31Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-31T21:40:56Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-01T05:43:52Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-01T05:43:51Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-08-31T21:06:55Z",
       "type": "PushEvent"
     }
   ],
