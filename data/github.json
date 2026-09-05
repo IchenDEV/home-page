@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-04T07:48:18.810Z",
+  "generated_at": "2026-09-05T07:29:44.406Z",
   "sync": {
-    "github_at": "2026-09-04T07:48:18.810Z",
-    "blog_at": "2026-09-04T07:48:18.810Z",
+    "github_at": "2026-09-05T07:29:44.406Z",
+    "blog_at": "2026-09-05T07:29:44.406Z",
     "github_fresh": true
   },
   "user": {
@@ -18,37 +18,37 @@
     "url": "https://github.com/IchenDEV"
   },
   "stats": {
-    "public_repos": 110,
-    "own_repos": 76,
+    "public_repos": 111,
+    "own_repos": 77,
     "stars": 42,
     "forks": 2,
-    "contributions": 2409
+    "contributions": 2424
   },
   "languages": [
     {
       "name": "TypeScript",
-      "count": 20,
-      "percent": 28.2
+      "count": 21,
+      "percent": 29.2
     },
     {
       "name": "JavaScript",
       "count": 9,
-      "percent": 12.7
+      "percent": 12.5
     },
     {
       "name": "HTML",
       "count": 7,
-      "percent": 9.9
+      "percent": 9.7
     },
     {
       "name": "C#",
       "count": 7,
-      "percent": 9.9
+      "percent": 9.7
     },
     {
       "name": "Swift",
       "count": 6,
-      "percent": 8.5
+      "percent": 8.3
     },
     {
       "name": "Rust",
@@ -76,7 +76,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/doubao-skin",
       "homepage": "https://doubao-skin.idevlab.dev",
-      "pushed_at": "2026-09-02T05:13:24Z",
+      "pushed_at": "2026-09-05T06:54:33Z",
       "pinned": true
     },
     {
@@ -88,7 +88,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/agent-plugin-mkt",
       "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-09-04T04:46:24Z",
+      "pushed_at": "2026-09-05T04:44:25Z",
       "pinned": true
     },
     {
@@ -182,7 +182,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/codeTwo",
       "homepage": null,
-      "pushed_at": "2026-09-04T07:32:52Z",
+      "pushed_at": "2026-09-04T12:53:10Z",
       "pinned": false
     },
     {
@@ -194,7 +194,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/home-page",
       "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-09-03T07:52:56Z",
+      "pushed_at": "2026-09-04T07:48:20Z",
       "pinned": false
     },
     {
@@ -223,7 +223,7 @@
     }
   ],
   "contributions": {
-    "total": 2409,
+    "total": 2424,
     "days": [
       {
         "date": "2025-08-31",
@@ -1703,94 +1703,98 @@
       },
       {
         "date": "2026-09-04",
-        "count": 10
+        "count": 25
+      },
+      {
+        "date": "2026-09-05",
+        "count": 0
       }
     ]
   },
   "activity": [
     {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-04T09:14:53Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-04T09:25:54Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-04T03:49:21Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-04T12:53:12Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-04T12:48:12Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-04T03:50:30Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-04T03:47:12Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/model-watch",
+      "at": "2026-09-04T11:29:12Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-04T09:11:28Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-04T06:47:32Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/prompt-optimizer-plugins",
+      "at": "2026-09-04T05:48:44Z",
+      "type": "CreateEvent"
+    },
+    {
       "verb": "merged a pull request in",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-04T07:32:53Z",
+      "at": "2026-09-04T12:53:11Z",
       "type": "PullRequestEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-04T06:46:04Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "starred",
-      "repo": "eternityspring/shuohao-skills",
-      "at": "2026-09-04T06:44:36Z",
-      "type": "WatchEvent"
     },
     {
       "verb": "opened a pull request in",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-04T06:20:20Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/prompt-optimizer-plugins",
-      "at": "2026-09-04T05:51:04Z",
+      "at": "2026-09-04T12:33:37Z",
       "type": "PullRequestEvent"
     },
     {
       "verb": "opened a pull request in",
-      "repo": "IchenDEV/prompt-optimizer-plugins",
-      "at": "2026-09-04T05:48:46Z",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-04T09:09:26Z",
       "type": "PullRequestEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-04T03:50:29Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-04T03:47:10Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-03T06:32:26Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-02T10:50:23Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-02T08:46:55Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-03T06:05:41Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-03T05:52:27Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/prompt-optimizer-plugins",
-      "at": "2026-09-02T05:14:55Z",
-      "type": "PushEvent"
     }
   ],
   "blog": {
