@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-05T07:29:44.406Z",
+  "generated_at": "2026-09-06T07:43:34.007Z",
   "sync": {
-    "github_at": "2026-09-05T07:29:44.406Z",
-    "blog_at": "2026-09-05T07:29:44.406Z",
+    "github_at": "2026-09-06T07:43:34.007Z",
+    "blog_at": "2026-09-06T07:43:34.007Z",
     "github_fresh": true
   },
   "user": {
@@ -88,7 +88,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/agent-plugin-mkt",
       "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-09-05T04:44:25Z",
+      "pushed_at": "2026-09-06T04:49:54Z",
       "pinned": true
     },
     {
@@ -174,6 +174,18 @@
       "pinned": true
     },
     {
+      "name": "home-page",
+      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/home-page",
+      "homepage": "https://www.idevlab.dev",
+      "pushed_at": "2026-09-05T07:29:45Z",
+      "pinned": false
+    },
+    {
       "name": "codeTwo",
       "description": "Document-first coding-agent app: one Rust core driving a Tauri desktop app + a ratatui TUI over ACP (Claude Code / Codex / Grok / Cursor / OpenCode).",
       "language": "Rust",
@@ -183,18 +195,6 @@
       "url": "https://github.com/IchenDEV/codeTwo",
       "homepage": null,
       "pushed_at": "2026-09-04T12:53:10Z",
-      "pinned": false
-    },
-    {
-      "name": "home-page",
-      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
-      "language": "HTML",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/home-page",
-      "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-09-04T07:48:20Z",
       "pinned": false
     },
     {
@@ -225,34 +225,6 @@
   "contributions": {
     "total": 2424,
     "days": [
-      {
-        "date": "2025-08-31",
-        "count": 0
-      },
-      {
-        "date": "2025-09-01",
-        "count": 0
-      },
-      {
-        "date": "2025-09-02",
-        "count": 0
-      },
-      {
-        "date": "2025-09-03",
-        "count": 0
-      },
-      {
-        "date": "2025-09-04",
-        "count": 0
-      },
-      {
-        "date": "2025-09-05",
-        "count": 0
-      },
-      {
-        "date": "2025-09-06",
-        "count": 0
-      },
       {
         "date": "2025-09-07",
         "count": 0
@@ -1708,10 +1680,50 @@
       {
         "date": "2026-09-05",
         "count": 0
+      },
+      {
+        "date": "2026-09-06",
+        "count": 0
       }
     ]
   },
   "activity": [
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-04T06:46:05Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-04T06:19:25Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/prompt-optimizer-plugins",
+      "at": "2026-09-04T05:51:05Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-04T12:34:19Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/model-watch",
+      "at": "2026-09-04T11:57:25Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/model-watch",
+      "at": "2026-09-04T11:45:10Z",
+      "type": "PushEvent"
+    },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/codeTwo",
@@ -1759,42 +1771,6 @@
       "repo": "IchenDEV/model-watch",
       "at": "2026-09-04T11:29:12Z",
       "type": "CreateEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-04T09:11:28Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-04T06:47:32Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/prompt-optimizer-plugins",
-      "at": "2026-09-04T05:48:44Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-04T12:53:11Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-04T12:33:37Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-04T09:09:26Z",
-      "type": "PullRequestEvent"
     }
   ],
   "blog": {
