@@ -14,6 +14,8 @@ Three.js 做 3D，项目 / 贡献 / 动态来自 GitHub，最新文章来自博�
   （WebLLM + WebGPU，引擎跑在 Web Worker 里）。权重从 Hugging Face 按需下载、进浏览器缓存，
   对话不出本机；GPU 不支持 f16 时自动换 f32 权重，`/model` 可切到 Qwen3.5-0.8B。
 - 无框架、无构建步骤，Three.js 与 WebLLM 已 vendored 到 `vendor/`，页面本体离线可跑。
+- 使用系统字体，正文与交互不等待 3D 模块；3D 场景在对应区域接近视口时加载。
+- 西湖页脚随深浅主题切换 WebP 插画，以低优先级延迟加载。
 
 ## 改版设计稿（designs/，已归档）
 
@@ -46,6 +48,13 @@ npm run dev     # http://localhost:4173
 ```bash
 GITHUB_TOKEN="$(gh auth token)" npm run fetch
 ```
+
+## 浏览器回归测试
+
+运行 `npm install` 和 `npx playwright install chromium` 准备测试工具，然后在
+`npm run dev` 启动后运行 `npm test`。测试覆盖字体 / Three.js 请求停滞时的内容与
+主题交互、页脚图片切换及贡献图按需加载。可用 `TEST_URL` 指定其他预览地址。
+Playwright 仅用于开发测试，不参与网页运行或静态发布。
 
 ## 数据从哪来
 

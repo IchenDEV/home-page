@@ -3,8 +3,6 @@
  * up the theme switcher, typing intro, tilt cards and keyboard shortcuts.
  */
 
-import { initHeroScene } from './scene.js';
-import { initContribScene } from './contrib3d.js';
 import { initChat } from './chat.js';
 
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -79,6 +77,9 @@ function getPalette() {
 function setTheme(name) {
   if (!THEMES.includes(name)) return;
   document.documentElement.dataset.terminalTheme = name;
+  const landscape = $('.footer-landscape img');
+  const landscapeSrc = `./assets/illustrations/hangzhou-west-lake${name === 'white' ? '' : '-dark'}.webp`;
+  if (landscape.getAttribute('src') !== landscapeSrc) landscape.src = landscapeSrc;
   try { localStorage.setItem('terminal-theme', name); } catch {}
   document.querySelectorAll('[data-theme-choice]').forEach((b) => {
     b.setAttribute('aria-pressed', String(b.dataset.themeChoice === name));
@@ -474,6 +475,16 @@ async function loadLive() {
   };
 }
 
+// Optional 3D modules must never hold up page content or controls.
+function whenVisible(target, initialize) {
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    observer.disconnect();
+    initialize().catch((err) => console.warn('3D scene unavailable', err));
+  }, { root: $('#viewport'), rootMargin: '200px' });
+  observer.observe(target);
+}
+
 async function boot() {
   initTheme();
   initTyping($('#typed'));
@@ -484,18 +495,6 @@ async function boot() {
   });
   renderLinks();
   $('#year').textContent = String(new Date().getFullYear());
-
-  // Hero scene first — it is the thing people see while data loads.
-  const hero = initHeroScene($('#hero-canvas'), { getPalette });
-  if (hero) {
-    listeners.push(hero.refreshPalette);
-    const viewport = $('#viewport');
-    const onScroll = () => {
-      const max = Math.max(1, window.innerHeight);
-      hero.setScroll(Math.min(1.6, viewport.scrollTop / max));
-    };
-    viewport.addEventListener('scroll', onScroll, { passive: true });
-  }
 
   let data;
   try {
@@ -510,6 +509,19 @@ async function boot() {
   renderProjects(data);
   renderBlog(data);
   renderActivity(data);
+
+  whenVisible($('.hero'), async () => {
+    const { initHeroScene } = await import('./scene.js');
+    const hero = initHeroScene($('#hero-canvas'), { getPalette });
+    if (!hero) return;
+    listeners.push(hero.refreshPalette);
+    const viewport = $('#viewport');
+    const onScroll = () => {
+      hero.setScroll(Math.min(1.6, viewport.scrollTop / Math.max(1, window.innerHeight)));
+    };
+    onScroll();
+    viewport.addEventListener('scroll', onScroll, { passive: true });
+  });
 
   // A 53-week strip inside a phone-width canvas renders as unreadable specks,
   // so narrow screens get the most recent half-year instead.
@@ -526,17 +538,19 @@ async function boot() {
     $('#contrib-range').textContent = '· 小屏显示近半年';
   }
 
-  const contrib = initContribScene($('#contrib-canvas'), shownDays, {
-    getPalette,
-    tooltip: $('#contrib-tip'),
-  });
-  if (contrib) {
-    listeners.push(() => {
-      const ramp = contrib.refreshPalette();
-      renderContribMeta(data, ramp);
+  renderContribMeta(data);
+  if (shownDays.length) {
+    whenVisible($('#contrib-canvas'), async () => {
+      const { initContribScene } = await import('./contrib3d.js');
+      const contrib = initContribScene($('#contrib-canvas'), shownDays, {
+        getPalette,
+        tooltip: $('#contrib-tip'),
+      });
+      if (!contrib) return;
+      renderContribMeta(data, contrib.ramp);
+      listeners.push(() => renderContribMeta(data, contrib.refreshPalette()));
     });
   }
-  renderContribMeta(data, contrib?.ramp);
 
   if (data.generated_at) {
     const githubAt = data.sync?.github_at?.slice(0, 10);

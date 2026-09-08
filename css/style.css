@@ -27,9 +27,8 @@
   --terminal-inline-code-bg: rgba(255, 255, 255, 0.055);
   --terminal-code-bg: #0e100d;
   --terminal-active-text: #06130a;
-  /* Roboto Mono carries no CJK glyphs, so name the CJK fallbacks explicitly
-     rather than leaving the Chinese copy to whatever `monospace` resolves to. */
-  --terminal-font: "Roboto Mono", "SFMono-Regular", "Cascadia Code", Consolas,
+  /* System fonts render immediately; explicit CJK fallbacks keep Chinese legible. */
+  --terminal-font: "SFMono-Regular", "Cascadia Code", Consolas,
     "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
     "Source Han Sans SC", monospace;
   --glow: 0 0 18px rgba(94, 222, 141, 0.22);
@@ -750,31 +749,31 @@ kbd {
   padding: 5rem 0 3rem;
   overflow: hidden;
   border-top: 1px solid var(--terminal-line);
-  background: #f4f3ed;
-  color: #62685f;
+  background: var(--terminal-bg);
+  color: var(--terminal-muted);
   font-size: 0.78rem;
 }
 .footer-top { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 2rem; }
-.site-footer a { color: #62685f; }
-.site-footer a:hover { color: #25613e; text-decoration: underline; text-underline-offset: 4px; }
-.site-footer a:focus-visible { outline: 2px solid #25613e; outline-offset: 5px; border-radius: 2px; }
-.site-footer .footer-logo { color: #303a31; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.08em; }
-.footer-logo span { color: #52745a; }
+.site-footer a { color: var(--terminal-muted); }
+.site-footer a:hover { color: var(--terminal-green); text-decoration: underline; text-underline-offset: 4px; }
+.site-footer a:focus-visible { outline: 2px solid var(--terminal-green); outline-offset: 5px; border-radius: 2px; }
+.site-footer .footer-logo { color: var(--terminal-text); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.08em; }
+.footer-logo span { color: var(--terminal-green); }
 .footer-brand p { margin: 0.8rem 0 0; line-height: 1.9; }
 .footer-column { display: flex; flex-direction: column; align-items: flex-start; gap: 0.65rem; }
-.footer-column h2 { margin: 0 0 0.4rem; color: #303a31; font-size: 0.8rem; font-weight: 700; }
+.footer-column h2 { margin: 0 0 0.4rem; color: var(--terminal-text); font-size: 0.8rem; font-weight: 700; }
 .footer-column a { padding-block: 0.2rem; }
 .footer-landscape { width: min(1440px, 100%); margin: 2.5rem auto 0; }
 .footer-landscape img {
   display: block;
   width: 100%;
   height: auto;
-  mix-blend-mode: multiply;
+  mix-blend-mode: lighten;
   mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 90%, transparent);
 }
+:root[data-terminal-theme="white"] .footer-landscape img { mix-blend-mode: multiply; }
 .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.8rem 2rem; margin-top: 1.5rem; }
-.footer-place { text-align: right; }
-.footer-place span { display: block; margin-top: 0.3rem; font-size: 0.7rem; }
+.footer-place { text-align: right; font-size: 0.7rem; }
 .site-footer .stamp { flex-basis: 100%; font-size: 0.65rem; }
 
 /* ------------------------------------------------------------- reveal fx -- */

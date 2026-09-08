@@ -8,7 +8,11 @@
     "fetch": "node scripts/fetch-github.mjs",
     "build": "node scripts/fetch-github.mjs",
     "dev": "node scripts/serve.mjs",
-    "start": "node scripts/serve.mjs"
+    "start": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
   },
   "engines": {
     "node": ">=18"
