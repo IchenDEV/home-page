@@ -72,7 +72,7 @@
       </nav>
 
       <!-- ------------------------------------------------------------ hero -->
-      <section class="hero wrap">
+      <section class="hero wrap" id="home">
         <div class="hero-prompt"><b>idevlab@hangzhou</b>:<span>~</span>$ whoami</div>
         <h1>i<span class="accent">dev</span>lab</h1>
         <p class="hero-typed"><span id="typed"></span><span class="cursor" aria-hidden="true"></span></p>
@@ -191,10 +191,37 @@
         <div class="link-grid" id="link-grid"></div>
       </section>
 
-      <footer class="site-footer wrap">
-        <div class="row">
+      <footer class="site-footer">
+        <div class="footer-top wrap">
+          <div class="footer-brand">
+            <a class="footer-logo" href="#home" aria-label="idevlab，返回首页">i<span>dev</span>lab<span class="footer-cursor" aria-hidden="true">_</span></a>
+            <p>keep learning,<br>keep shipping.</p>
+          </div>
+          <nav class="footer-column" aria-label="页脚探索">
+            <h2>探索 / Explore</h2>
+            <a href="#about">关于我</a>
+            <a href="#projects">开源项目</a>
+            <a href="#contrib">最近动态</a>
+          </nav>
+          <nav class="footer-column" aria-label="页脚阅读">
+            <h2>阅读 / Read</h2>
+            <a href="https://blogs.idevlab.dev" target="_blank" rel="noopener">博客 ↗</a>
+            <a href="#blog">最新文章</a>
+            <a href="#links">友情链接</a>
+          </nav>
+          <nav class="footer-column" aria-label="页脚联系">
+            <h2>联系 / Connect</h2>
+            <a href="https://github.com/IchenDEV" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="mailto:idevlab@outlook.com">Email ↗</a>
+          </nav>
+        </div>
+        <div class="footer-landscape">
+          <img src="./assets/illustrations/hangzhou-west-lake.png" width="2172" height="724"
+               alt="手绘杭州西湖山水：垂柳、江南亭台、石桥、远山与三潭印月。" loading="lazy" decoding="async">
+        </div>
+        <div class="footer-bottom wrap">
           <span>© <span id="year">2026</span> idevlab</span>
-          <span>&gt; keep learning, keep shipping.</span>
+          <span class="footer-place">写代码，也看山水。<span>Made in Hangzhou, China.</span></span>
           <span class="stamp" id="build-stamp"></span>
         </div>
       </footer>

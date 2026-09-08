@@ -746,14 +746,36 @@ kbd {
 /* --------------------------------------------------------------- footer -- */
 
 .site-footer {
-  padding: 2.5rem 0 3rem;
+  margin-top: 3rem;
+  padding: 5rem 0 3rem;
+  overflow: hidden;
   border-top: 1px solid var(--terminal-line);
-  color: var(--terminal-dim);
+  background: #f4f3ed;
+  color: #62685f;
   font-size: 0.78rem;
 }
-.site-footer .row { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: center; }
-.site-footer .row + .row { margin-top: 0.5rem; }
-.site-footer .stamp { margin-left: auto; }
+.footer-top { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 2rem; }
+.site-footer a { color: #62685f; }
+.site-footer a:hover { color: #25613e; text-decoration: underline; text-underline-offset: 4px; }
+.site-footer a:focus-visible { outline: 2px solid #25613e; outline-offset: 5px; border-radius: 2px; }
+.site-footer .footer-logo { color: #303a31; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.08em; }
+.footer-logo span { color: #52745a; }
+.footer-brand p { margin: 0.8rem 0 0; line-height: 1.9; }
+.footer-column { display: flex; flex-direction: column; align-items: flex-start; gap: 0.65rem; }
+.footer-column h2 { margin: 0 0 0.4rem; color: #303a31; font-size: 0.8rem; font-weight: 700; }
+.footer-column a { padding-block: 0.2rem; }
+.footer-landscape { width: min(1440px, 100%); margin: 2.5rem auto 0; }
+.footer-landscape img {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+  mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 90%, transparent);
+}
+.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.8rem 2rem; margin-top: 1.5rem; }
+.footer-place { text-align: right; }
+.footer-place span { display: block; margin-top: 0.3rem; font-size: 0.7rem; }
+.site-footer .stamp { flex-basis: 100%; font-size: 0.65rem; }
 
 /* ------------------------------------------------------------- reveal fx -- */
 
@@ -789,6 +811,12 @@ kbd {
   /* On phones the chat takes the whole shell — a floating window would be
      mostly keyboard anyway. */
   .chat-panel { inset: 0.5rem; width: auto; height: auto; }
+  .site-footer { margin-top: 2rem; padding: 3rem 0 2.5rem; }
+  .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1rem; }
+  .footer-column a { padding-block: 0.4rem; }
+  .footer-landscape { width: 160%; margin-left: -20%; margin-top: 2rem; }
+  .footer-bottom { flex-direction: column; gap: 0.8rem; }
+  .footer-place { text-align: left; }
 }
 
 @media (prefers-reduced-motion: reduce) {
