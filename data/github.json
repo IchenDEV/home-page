@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-13T08:05:53.487Z",
+  "generated_at": "2026-09-14T08:40:07.822Z",
   "sync": {
-    "github_at": "2026-09-13T08:05:53.487Z",
-    "blog_at": "2026-09-13T08:05:53.487Z",
+    "github_at": "2026-09-14T08:40:07.822Z",
+    "blog_at": "2026-09-14T08:40:07.822Z",
     "github_fresh": true
   },
   "user": {
@@ -22,7 +22,7 @@
     "own_repos": 78,
     "stars": 43,
     "forks": 2,
-    "contributions": 2534
+    "contributions": 2540
   },
   "languages": [
     {
@@ -88,7 +88,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/agent-plugin-mkt",
       "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-09-13T05:00:45Z",
+      "pushed_at": "2026-09-14T05:05:50Z",
       "pinned": true
     },
     {
@@ -146,7 +146,7 @@
       ],
       "url": "https://github.com/IchenDEV/prompt-optimizer-plugins",
       "homepage": null,
-      "pushed_at": "2026-09-06T14:24:41Z",
+      "pushed_at": "2026-09-13T15:28:28Z",
       "pinned": true
     },
     {
@@ -174,6 +174,18 @@
       "pinned": true
     },
     {
+      "name": "mini-game",
+      "description": "五款 AI 生成浏览器小游戏合集，统一源码、历史与 GitHub Pages 发布。",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/mini-game",
+      "homepage": "https://blogs.idevlab.dev/mini-game/",
+      "pushed_at": "2026-09-14T07:22:08Z",
+      "pinned": false
+    },
+    {
       "name": "home-page",
       "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
       "language": "HTML",
@@ -182,7 +194,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/home-page",
       "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-09-12T07:45:18Z",
+      "pushed_at": "2026-09-13T08:05:54Z",
       "pinned": false
     },
     {
@@ -208,22 +220,10 @@
       "homepage": null,
       "pushed_at": "2026-09-09T03:17:24Z",
       "pinned": false
-    },
-    {
-      "name": "mini-game",
-      "description": "五款 AI 生成浏览器小游戏合集，统一源码、历史与 GitHub Pages 发布。",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/mini-game",
-      "homepage": "https://blogs.idevlab.dev/mini-game/",
-      "pushed_at": "2026-09-08T05:33:11Z",
-      "pinned": false
     }
   ],
   "contributions": {
-    "total": 2534,
+    "total": 2540,
     "days": [
       {
         "date": "2025-09-14",
@@ -1683,11 +1683,63 @@
       },
       {
         "date": "2026-09-13",
-        "count": 0
+        "count": 1
+      },
+      {
+        "date": "2026-09-14",
+        "count": 5
       }
     ]
   },
   "activity": [
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/mini-game",
+      "at": "2026-09-14T07:20:55Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/mini-game",
+      "at": "2026-09-14T07:22:09Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/mini-game",
+      "at": "2026-09-14T07:22:08Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/mini-game",
+      "at": "2026-09-14T06:38:47Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/mini-game",
+      "at": "2026-09-14T06:30:07Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/mini-game",
+      "at": "2026-09-14T06:27:26Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/prompt-optimizer-plugins",
+      "at": "2026-09-13T15:28:32Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/prompt-optimizer-plugins",
+      "at": "2026-09-13T15:28:29Z",
+      "type": "CreateEvent"
+    },
     {
       "verb": "created branch in",
       "repo": "IchenDEV/utter",
@@ -1722,54 +1774,6 @@
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/model-watch",
       "at": "2026-09-11T06:40:28Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/web-sketches",
-      "at": "2026-09-09T07:46:31Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-09-08T19:55:49Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-09-08T19:43:00Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-08T19:20:15Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-09T03:11:39Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-09-08T20:00:51Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-09-08T19:51:21Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-09-08T19:46:28Z",
       "type": "PushEvent"
     }
   ],
