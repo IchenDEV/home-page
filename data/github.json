@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-14T08:40:07.822Z",
+  "generated_at": "2026-09-15T08:28:43.418Z",
   "sync": {
-    "github_at": "2026-09-14T08:40:07.822Z",
-    "blog_at": "2026-09-14T08:40:07.822Z",
+    "github_at": "2026-09-15T08:28:43.418Z",
+    "blog_at": "2026-09-15T08:28:43.418Z",
     "github_fresh": true
   },
   "user": {
@@ -18,11 +18,11 @@
     "url": "https://github.com/IchenDEV"
   },
   "stats": {
-    "public_repos": 112,
-    "own_repos": 78,
+    "public_repos": 113,
+    "own_repos": 79,
     "stars": 43,
     "forks": 2,
-    "contributions": 2540
+    "contributions": 2554
   },
   "languages": [
     {
@@ -88,7 +88,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/agent-plugin-mkt",
       "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-09-14T05:05:50Z",
+      "pushed_at": "2026-09-15T05:04:43Z",
       "pinned": true
     },
     {
@@ -174,15 +174,15 @@
       "pinned": true
     },
     {
-      "name": "mini-game",
-      "description": "五款 AI 生成浏览器小游戏合集，统一源码、历史与 GitHub Pages 发布。",
+      "name": "codeTwo",
+      "description": "Document-first coding-agent app: one Rust core driving a Tauri desktop app + a ratatui TUI over ACP (Claude Code / Codex / Grok / Cursor / OpenCode).",
       "language": "TypeScript",
       "stars": 0,
       "forks": 0,
       "topics": [],
-      "url": "https://github.com/IchenDEV/mini-game",
-      "homepage": "https://blogs.idevlab.dev/mini-game/",
-      "pushed_at": "2026-09-14T07:22:08Z",
+      "url": "https://github.com/IchenDEV/codeTwo",
+      "homepage": null,
+      "pushed_at": "2026-09-15T08:24:41Z",
       "pinned": false
     },
     {
@@ -194,7 +194,19 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/home-page",
       "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-09-13T08:05:54Z",
+      "pushed_at": "2026-09-14T08:40:09Z",
+      "pinned": false
+    },
+    {
+      "name": "mini-game",
+      "description": "五款 AI 生成浏览器小游戏合集，统一源码、历史与 GitHub Pages 发布。",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/mini-game",
+      "homepage": "https://blogs.idevlab.dev/mini-game/",
+      "pushed_at": "2026-09-14T07:22:08Z",
       "pinned": false
     },
     {
@@ -208,22 +220,10 @@
       "homepage": "https://blogs.idevlab.dev/web-sketches/",
       "pushed_at": "2026-09-09T08:09:16Z",
       "pinned": false
-    },
-    {
-      "name": "codeTwo",
-      "description": "Document-first coding-agent app: one Rust core driving a Tauri desktop app + a ratatui TUI over ACP (Claude Code / Codex / Grok / Cursor / OpenCode).",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/codeTwo",
-      "homepage": null,
-      "pushed_at": "2026-09-09T03:17:24Z",
-      "pinned": false
     }
   ],
   "contributions": {
-    "total": 2540,
+    "total": 2554,
     "days": [
       {
         "date": "2025-09-14",
@@ -1687,11 +1687,69 @@
       },
       {
         "date": "2026-09-14",
-        "count": 5
+        "count": 11
+      },
+      {
+        "date": "2026-09-15",
+        "count": 8
       }
     ]
   },
   "activity": [
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-15T08:24:41Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-15T08:19:47Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/GW",
+      "at": "2026-09-14T10:11:18Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "released v0.4.1-pages-cachefix-20260914 of",
+      "repo": "IchenDEV/GW",
+      "at": "2026-09-14T10:11:14Z",
+      "type": "ReleaseEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/GW",
+      "at": "2026-09-14T10:08:57Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "released v0.4.1-pages-20260914 of",
+      "repo": "IchenDEV/GW",
+      "at": "2026-09-14T10:08:54Z",
+      "type": "ReleaseEvent"
+    },
+    {
+      "verb": "released v0.4.0-pages-20260914 of",
+      "repo": "IchenDEV/GW",
+      "at": "2026-09-14T09:46:41Z",
+      "type": "ReleaseEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/GW",
+      "at": "2026-09-14T09:46:30Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/GW",
+      "at": "2026-09-14T09:45:05Z",
+      "type": "CreateEvent"
+    },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/mini-game",
@@ -1721,60 +1779,6 @@
       "repo": "IchenDEV/mini-game",
       "at": "2026-09-14T06:30:07Z",
       "type": "PullRequestEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/mini-game",
-      "at": "2026-09-14T06:27:26Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/prompt-optimizer-plugins",
-      "at": "2026-09-13T15:28:32Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/prompt-optimizer-plugins",
-      "at": "2026-09-13T15:28:29Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-11T08:01:59Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/model-watch",
-      "at": "2026-09-11T07:09:26Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/model-watch",
-      "at": "2026-09-11T06:43:32Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-11T08:02:13Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/model-watch",
-      "at": "2026-09-11T07:11:47Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/model-watch",
-      "at": "2026-09-11T06:40:28Z",
-      "type": "PushEvent"
     }
   ],
   "blog": {
