@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-16T08:22:34.851Z",
+  "generated_at": "2026-09-17T08:28:25.904Z",
   "sync": {
-    "github_at": "2026-09-16T08:22:34.851Z",
-    "blog_at": "2026-09-16T08:22:34.851Z",
+    "github_at": "2026-09-17T08:28:25.904Z",
+    "blog_at": "2026-09-17T08:28:25.904Z",
     "github_fresh": true
   },
   "user": {
@@ -22,7 +22,7 @@
     "own_repos": 78,
     "stars": 43,
     "forks": 2,
-    "contributions": 2597
+    "contributions": 2625
   },
   "languages": [
     {
@@ -88,7 +88,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/agent-plugin-mkt",
       "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-09-16T05:05:08Z",
+      "pushed_at": "2026-09-17T05:06:32Z",
       "pinned": true
     },
     {
@@ -117,7 +117,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/utter",
       "homepage": "https://utter.idevlab.dev",
-      "pushed_at": "2026-09-11T08:01:59Z",
+      "pushed_at": "2026-09-17T08:18:13Z",
       "pinned": true
     },
     {
@@ -146,7 +146,7 @@
       ],
       "url": "https://github.com/IchenDEV/prompt-optimizer-plugins",
       "homepage": null,
-      "pushed_at": "2026-09-13T15:28:28Z",
+      "pushed_at": "2026-09-17T08:18:41Z",
       "pinned": true
     },
     {
@@ -182,7 +182,19 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/codeTwo",
       "homepage": null,
-      "pushed_at": "2026-09-16T08:19:51Z",
+      "pushed_at": "2026-09-16T10:48:25Z",
+      "pinned": false
+    },
+    {
+      "name": "home-page",
+      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/home-page",
+      "homepage": "https://www.idevlab.dev",
+      "pushed_at": "2026-09-16T08:22:36Z",
       "pinned": false
     },
     {
@@ -203,18 +215,6 @@
       "pinned": false
     },
     {
-      "name": "home-page",
-      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
-      "language": "HTML",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/home-page",
-      "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-09-15T08:28:44Z",
-      "pinned": false
-    },
-    {
       "name": "mini-game",
       "description": "五款 AI 生成浏览器小游戏合集，统一源码、历史与 GitHub Pages 发布。",
       "language": "TypeScript",
@@ -228,7 +228,7 @@
     }
   ],
   "contributions": {
-    "total": 2597,
+    "total": 2625,
     "days": [
       {
         "date": "2025-09-14",
@@ -1680,7 +1680,7 @@
       },
       {
         "date": "2026-09-11",
-        "count": 5
+        "count": 6
       },
       {
         "date": "2026-09-12",
@@ -1688,7 +1688,7 @@
       },
       {
         "date": "2026-09-13",
-        "count": 1
+        "count": 2
       },
       {
         "date": "2026-09-14",
@@ -1700,93 +1700,97 @@
       },
       {
         "date": "2026-09-16",
-        "count": 34
+        "count": 54
+      },
+      {
+        "date": "2026-09-17",
+        "count": 6
       }
     ]
   },
   "activity": [
     {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-16T08:19:51Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-16T07:58:17Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-16T07:59:22Z",
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/prompt-optimizer-plugins",
+      "at": "2026-09-17T08:18:41Z",
       "type": "PullRequestEvent"
     },
     {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-16T07:54:44Z",
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-17T08:18:13Z",
       "type": "PullRequestEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/web-agent-bridge",
-      "at": "2026-09-16T03:37:58Z",
+      "at": "2026-09-15T19:21:03Z",
       "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/web-agent-bridge",
-      "at": "2026-09-16T05:26:38Z",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-17T07:11:59Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-17T05:13:26Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-15T17:41:42Z",
       "type": "PushEvent"
     },
     {
       "verb": "merged a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-16T05:21:15Z",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-17T05:13:25Z",
       "type": "PullRequestEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-16T04:06:45Z",
-      "type": "PushEvent"
     },
     {
       "verb": "opened a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-16T04:01:23Z",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-17T05:09:07Z",
       "type": "PullRequestEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-16T04:01:14Z",
+      "at": "2026-09-15T17:16:41Z",
       "type": "PushEvent"
     },
     {
+      "verb": "created branch in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-15T16:51:12Z",
+      "type": "CreateEvent"
+    },
+    {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/web-agent-bridge",
-      "at": "2026-09-16T03:26:48Z",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-16T10:41:36Z",
       "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-15T22:18:14Z",
+      "at": "2026-09-16T10:48:14Z",
       "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/web-agent-bridge",
-      "at": "2026-09-15T19:13:58Z",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-16T10:48:02Z",
       "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/web-agent-bridge",
-      "at": "2026-09-15T22:32:11Z",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-16T10:47:45Z",
       "type": "PushEvent"
     }
   ],
