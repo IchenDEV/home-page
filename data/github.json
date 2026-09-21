@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-20T08:23:04.744Z",
+  "generated_at": "2026-09-21T08:41:49.176Z",
   "sync": {
-    "github_at": "2026-09-20T08:23:04.744Z",
-    "blog_at": "2026-09-20T08:23:04.744Z",
+    "github_at": "2026-09-21T08:41:49.176Z",
+    "blog_at": "2026-09-21T08:41:49.176Z",
     "github_fresh": true
   },
   "user": {
@@ -22,7 +22,7 @@
     "own_repos": 78,
     "stars": 43,
     "forks": 2,
-    "contributions": 2651
+    "contributions": 2659
   },
   "languages": [
     {
@@ -88,7 +88,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/agent-plugin-mkt",
       "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-09-20T05:06:35Z",
+      "pushed_at": "2026-09-21T05:09:15Z",
       "pinned": true
     },
     {
@@ -117,7 +117,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/utter",
       "homepage": "https://utter.idevlab.dev",
-      "pushed_at": "2026-09-18T06:11:10Z",
+      "pushed_at": "2026-09-21T08:33:55Z",
       "pinned": true
     },
     {
@@ -174,30 +174,6 @@
       "pinned": true
     },
     {
-      "name": "home-page",
-      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
-      "language": "HTML",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/home-page",
-      "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-09-19T07:53:08Z",
-      "pinned": false
-    },
-    {
-      "name": "codeTwo",
-      "description": "Document-first coding-agent app: one Rust core driving a Tauri desktop app + a ratatui TUI over ACP (Claude Code / Codex / Grok / Cursor / OpenCode).",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/codeTwo",
-      "homepage": null,
-      "pushed_at": "2026-09-16T10:48:25Z",
-      "pinned": false
-    },
-    {
       "name": "web-agent-bridge",
       "description": "Bridge online web AI agents (Doubao, etc.) to A2A protocol endpoints via a Chrome extension",
       "language": "JavaScript",
@@ -211,7 +187,31 @@
       ],
       "url": "https://github.com/IchenDEV/web-agent-bridge",
       "homepage": null,
-      "pushed_at": "2026-09-16T06:48:13Z",
+      "pushed_at": "2026-09-21T07:39:24Z",
+      "pinned": false
+    },
+    {
+      "name": "codeTwo",
+      "description": "Document-first coding-agent app: one Rust core driving a Tauri desktop app + a ratatui TUI over ACP (Claude Code / Codex / Grok / Cursor / OpenCode).",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/codeTwo",
+      "homepage": null,
+      "pushed_at": "2026-09-21T06:43:03Z",
+      "pinned": false
+    },
+    {
+      "name": "home-page",
+      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/home-page",
+      "homepage": "https://www.idevlab.dev",
+      "pushed_at": "2026-09-20T08:23:06Z",
       "pinned": false
     },
     {
@@ -228,7 +228,7 @@
     }
   ],
   "contributions": {
-    "total": 2651,
+    "total": 2659,
     "days": [
       {
         "date": "2025-09-21",
@@ -1689,6 +1689,10 @@
       {
         "date": "2026-09-20",
         "count": 0
+      },
+      {
+        "date": "2026-09-21",
+        "count": 8
       }
     ]
   },
@@ -1696,86 +1700,86 @@
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/utter",
-      "at": "2026-09-18T04:45:02Z",
+      "at": "2026-09-21T07:59:28Z",
       "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/utter",
-      "at": "2026-09-18T02:48:03Z",
+      "at": "2026-09-21T07:48:48Z",
       "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/utter",
-      "at": "2026-09-18T04:38:00Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-18T04:25:46Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-18T05:09:44Z",
+      "at": "2026-09-21T07:40:13Z",
       "type": "PushEvent"
     },
     {
       "verb": "created branch in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-18T04:56:41Z",
+      "repo": "IchenDEV/web-agent-bridge",
+      "at": "2026-09-21T07:39:25Z",
       "type": "CreateEvent"
     },
     {
-      "verb": "created branch in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-17T18:21:57Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-17T05:08:54Z",
-      "type": "CreateEvent"
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/web-agent-bridge",
+      "at": "2026-09-21T07:39:27Z",
+      "type": "PullRequestEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/utter",
-      "at": "2026-09-17T08:18:15Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-17T07:50:06Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-18T06:11:11Z",
+      "at": "2026-09-21T07:30:56Z",
       "type": "PushEvent"
     },
     {
       "verb": "merged a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-21T06:43:04Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-21T06:26:58Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-21T06:16:47Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/codeTwo",
+      "at": "2026-09-21T06:17:00Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/utter",
-      "at": "2026-09-18T06:11:10Z",
+      "at": "2026-09-21T06:01:03Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-21T04:59:07Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-21T03:40:39Z",
       "type": "PullRequestEvent"
     },
     {
       "verb": "opened a pull request in",
       "repo": "IchenDEV/utter",
-      "at": "2026-09-18T06:00:26Z",
+      "at": "2026-09-21T03:40:27Z",
       "type": "PullRequestEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-18T06:00:07Z",
-      "type": "CreateEvent"
     }
   ],
   "blog": {
