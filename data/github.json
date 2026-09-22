@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-21T08:41:49.176Z",
+  "generated_at": "2026-09-22T08:20:19.707Z",
   "sync": {
-    "github_at": "2026-09-21T08:41:49.176Z",
-    "blog_at": "2026-09-21T08:41:49.176Z",
+    "github_at": "2026-09-22T08:20:19.707Z",
+    "blog_at": "2026-09-22T08:20:19.707Z",
     "github_fresh": true
   },
   "user": {
@@ -18,52 +18,52 @@
     "url": "https://github.com/IchenDEV"
   },
   "stats": {
-    "public_repos": 112,
-    "own_repos": 78,
+    "public_repos": 113,
+    "own_repos": 79,
     "stars": 43,
     "forks": 2,
-    "contributions": 2659
+    "contributions": 2734
   },
   "languages": [
     {
       "name": "TypeScript",
-      "count": 22,
-      "percent": 30.6
+      "count": 23,
+      "percent": 31.5
     },
     {
       "name": "JavaScript",
-      "count": 9,
-      "percent": 12.5
+      "count": 8,
+      "percent": 11
     },
     {
       "name": "HTML",
       "count": 7,
-      "percent": 9.7
+      "percent": 9.6
     },
     {
       "name": "C#",
       "count": 7,
-      "percent": 9.7
+      "percent": 9.6
+    },
+    {
+      "name": "Python",
+      "count": 6,
+      "percent": 8.2
     },
     {
       "name": "Swift",
       "count": 6,
-      "percent": 8.3
-    },
-    {
-      "name": "Python",
-      "count": 5,
-      "percent": 6.9
+      "percent": 8.2
     },
     {
       "name": "Vue",
       "count": 4,
-      "percent": 5.6
+      "percent": 5.5
     },
     {
       "name": "Rust",
       "count": 3,
-      "percent": 4.2
+      "percent": 4.1
     }
   ],
   "repos": [
@@ -88,7 +88,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/agent-plugin-mkt",
       "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-09-21T05:09:15Z",
+      "pushed_at": "2026-09-22T05:23:05Z",
       "pinned": true
     },
     {
@@ -117,7 +117,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/utter",
       "homepage": "https://utter.idevlab.dev",
-      "pushed_at": "2026-09-21T08:33:55Z",
+      "pushed_at": "2026-09-22T05:38:17Z",
       "pinned": true
     },
     {
@@ -174,9 +174,21 @@
       "pinned": true
     },
     {
+      "name": "qwen-image-2.1-gui",
+      "description": "Local BF16 Qwen-Image-2.1 GUI for Apple Silicon with reference-image support",
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/qwen-image-2.1-gui",
+      "homepage": null,
+      "pushed_at": "2026-09-22T07:57:47Z",
+      "pinned": false
+    },
+    {
       "name": "web-agent-bridge",
       "description": "Bridge online web AI agents (Doubao, etc.) to A2A protocol endpoints via a Chrome extension",
-      "language": "JavaScript",
+      "language": "TypeScript",
       "stars": 0,
       "forks": 0,
       "topics": [
@@ -187,19 +199,19 @@
       ],
       "url": "https://github.com/IchenDEV/web-agent-bridge",
       "homepage": null,
-      "pushed_at": "2026-09-21T07:39:24Z",
+      "pushed_at": "2026-09-22T07:14:14Z",
       "pinned": false
     },
     {
-      "name": "codeTwo",
-      "description": "Document-first coding-agent app: one Rust core driving a Tauri desktop app + a ratatui TUI over ACP (Claude Code / Codex / Grok / Cursor / OpenCode).",
+      "name": "model-watch",
+      "description": "持续监控 AI 模型厂商与云厂商的新模型发布，聚合成时间线页面，提供 RSS / Atom 订阅与飞书机器人推送。",
       "language": "TypeScript",
       "stars": 0,
       "forks": 0,
       "topics": [],
-      "url": "https://github.com/IchenDEV/codeTwo",
-      "homepage": null,
-      "pushed_at": "2026-09-21T06:43:03Z",
+      "url": "https://github.com/IchenDEV/model-watch",
+      "homepage": "https://model-watch-khaki.vercel.app",
+      "pushed_at": "2026-09-22T05:23:08Z",
       "pinned": false
     },
     {
@@ -211,24 +223,12 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/home-page",
       "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-09-20T08:23:06Z",
-      "pinned": false
-    },
-    {
-      "name": "mini-game",
-      "description": "五款 AI 生成浏览器小游戏合集，统一源码、历史与 GitHub Pages 发布。",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/mini-game",
-      "homepage": "https://blogs.idevlab.dev/mini-game/",
-      "pushed_at": "2026-09-14T07:22:08Z",
+      "pushed_at": "2026-09-21T08:41:51Z",
       "pinned": false
     }
   ],
   "contributions": {
-    "total": 2659,
+    "total": 2734,
     "days": [
       {
         "date": "2025-09-21",
@@ -1692,93 +1692,97 @@
       },
       {
         "date": "2026-09-21",
-        "count": 8
+        "count": 44
+      },
+      {
+        "date": "2026-09-22",
+        "count": 39
       }
     ]
   },
   "activity": [
     {
+      "verb": "created branch in",
+      "repo": "IchenDEV/qwen-image-2.1-gui",
+      "at": "2026-09-22T07:57:47Z",
+      "type": "CreateEvent"
+    },
+    {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-21T07:59:28Z",
+      "repo": "IchenDEV/web-agent-bridge",
+      "at": "2026-09-22T07:14:15Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/model-watch",
+      "at": "2026-09-22T05:23:09Z",
       "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/utter",
-      "at": "2026-09-21T07:48:48Z",
+      "at": "2026-09-22T05:13:49Z",
       "type": "PushEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-21T07:40:13Z",
+      "repo": "IchenDEV/web-agent-bridge",
+      "at": "2026-09-22T05:41:48Z",
       "type": "PushEvent"
     },
     {
       "verb": "created branch in",
-      "repo": "IchenDEV/web-agent-bridge",
-      "at": "2026-09-21T07:39:25Z",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-22T05:29:12Z",
       "type": "CreateEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/web-agent-bridge",
-      "at": "2026-09-21T07:39:27Z",
-      "type": "PullRequestEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/utter",
-      "at": "2026-09-21T07:30:56Z",
+      "at": "2026-09-22T05:38:19Z",
       "type": "PushEvent"
     },
     {
       "verb": "merged a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-21T06:43:04Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-21T06:26:58Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-21T06:16:47Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/codeTwo",
-      "at": "2026-09-21T06:17:00Z",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-22T05:38:18Z",
       "type": "PullRequestEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/utter",
-      "at": "2026-09-21T06:01:03Z",
+      "at": "2026-09-22T03:53:42Z",
       "type": "PushEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-22T05:29:25Z",
+      "type": "PullRequestEvent"
     },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/utter",
-      "at": "2026-09-21T04:59:07Z",
+      "at": "2026-09-22T03:31:32Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-22T05:13:48Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-22T04:19:22Z",
       "type": "PushEvent"
     },
     {
       "verb": "opened a pull request in",
       "repo": "IchenDEV/utter",
-      "at": "2026-09-21T03:40:39Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-21T03:40:27Z",
+      "at": "2026-09-22T05:05:44Z",
       "type": "PullRequestEvent"
     }
   ],
