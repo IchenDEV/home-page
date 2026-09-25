@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-24T08:14:28.348Z",
+  "generated_at": "2026-09-25T08:37:08.970Z",
   "sync": {
-    "github_at": "2026-09-24T08:14:28.348Z",
-    "blog_at": "2026-09-24T08:14:28.348Z",
+    "github_at": "2026-09-25T08:37:08.970Z",
+    "blog_at": "2026-09-25T08:37:08.970Z",
     "github_fresh": true
   },
   "user": {
@@ -22,7 +22,7 @@
     "own_repos": 79,
     "stars": 44,
     "forks": 2,
-    "contributions": 2759
+    "contributions": 2762
   },
   "languages": [
     {
@@ -88,7 +88,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/agent-plugin-mkt",
       "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-09-24T05:02:50Z",
+      "pushed_at": "2026-09-25T05:07:45Z",
       "pinned": true
     },
     {
@@ -117,7 +117,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/utter",
       "homepage": "https://utter.idevlab.dev",
-      "pushed_at": "2026-09-24T07:59:34Z",
+      "pushed_at": "2026-09-24T08:15:22Z",
       "pinned": true
     },
     {
@@ -174,6 +174,18 @@
       "pinned": true
     },
     {
+      "name": "home-page",
+      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "topics": [],
+      "url": "https://github.com/IchenDEV/home-page",
+      "homepage": "https://www.idevlab.dev",
+      "pushed_at": "2026-09-24T08:14:29Z",
+      "pinned": false
+    },
+    {
       "name": "model-watch",
       "description": "持续监控 AI 模型厂商与云厂商的新模型发布，聚合成时间线页面，提供 RSS / Atom 订阅与飞书机器人推送。",
       "language": "TypeScript",
@@ -183,18 +195,6 @@
       "url": "https://github.com/IchenDEV/model-watch",
       "homepage": "https://model-watch-khaki.vercel.app",
       "pushed_at": "2026-09-24T03:59:07Z",
-      "pinned": false
-    },
-    {
-      "name": "home-page",
-      "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
-      "language": "HTML",
-      "stars": 0,
-      "forks": 0,
-      "topics": [],
-      "url": "https://github.com/IchenDEV/home-page",
-      "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-09-23T08:22:25Z",
       "pinned": false
     },
     {
@@ -228,7 +228,7 @@
     }
   ],
   "contributions": {
-    "total": 2759,
+    "total": 2762,
     "days": [
       {
         "date": "2025-09-21",
@@ -1704,11 +1704,39 @@
       },
       {
         "date": "2026-09-24",
-        "count": 21
+        "count": 24
+      },
+      {
+        "date": "2026-09-25",
+        "count": 0
       }
     ]
   },
   "activity": [
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/model-watch",
+      "at": "2026-09-24T03:49:44Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/model-watch",
+      "at": "2026-09-24T03:39:43Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-24T08:15:22Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-24T08:15:24Z",
+      "type": "PushEvent"
+    },
     {
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/utter",
@@ -1767,30 +1795,6 @@
       "verb": "pushed 1 commit(s) to",
       "repo": "IchenDEV/utter",
       "at": "2026-09-23T18:48:51Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-23T17:10:07Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-23T17:20:26Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-23T17:18:51Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-23T17:25:56Z",
       "type": "PushEvent"
     }
   ],
