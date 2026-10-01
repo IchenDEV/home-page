@@ -37,7 +37,8 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 24
+          # Always the newest Node release (currently 26).
+          node-version: latest
 
       # The fetch script carries over any section whose source fails, so start
       # from whichever snapshot is newer: the committed one or the live one.
