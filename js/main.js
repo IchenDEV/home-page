@@ -27,16 +27,15 @@ const PROJECT_LOGOS = Object.fromEntries([
 /**
  * Friend links + my own sites.
  * To add a friend's blog, drop another entry in here — nothing else to change.
+ * `{posts}` in a description is filled from the synced blog index.
  */
 const LINKS = [
-  // `badge` is a short ASCII monogram — emoji would fall back to tofu on some
-  // systems and reads foreign next to the monospace type anyway.
-  { name: "idevlab's Blog", url: 'https://blogs.idevlab.dev', desc: '我的博客 · 终端风格 · 89 篇', badge: '>_' },
-  { name: 'GitHub @IchenDEV', url: 'https://github.com/IchenDEV', desc: '所有开源项目', badge: 'gh' },
-  { name: 'Utter', url: 'https://utter.idevlab.dev', desc: 'macOS 本地语音输入', badge: 'ut' },
-  { name: 'PetX', url: 'https://petx.idevlab.dev', desc: '桌面宠物渲染器', badge: 'px' },
-  { name: 'Plugin Market', url: 'https://pluginsmp.com/', desc: 'Agent 插件市场', badge: 'mk' },
-  { name: '页脉 Yemai', url: 'https://blogs.idevlab.dev/yemai/', desc: '本地优先的 AI 阅读书架', badge: 'ym' },
+  { name: "idevlab's Blog", url: 'https://blogs.idevlab.dev', desc: '终端风格博客 · {posts} 篇' },
+  { name: 'GitHub @IchenDEV', url: 'https://github.com/IchenDEV', desc: '所有开源项目' },
+  { name: 'Utter', url: 'https://utter.idevlab.dev', desc: 'macOS 本地语音输入' },
+  { name: 'PetX', url: 'https://petx.idevlab.dev', desc: '桌面宠物渲染器' },
+  { name: 'Plugin Market', url: 'https://pluginsmp.com/', desc: 'Agent 插件市场' },
+  { name: '页脉 Yemai', url: 'https://blogs.idevlab.dev/yemai/', desc: '本地优先的 AI 阅读书架' },
 ];
 
 /** Rough GitHub language colors for the weight bar. */
@@ -65,32 +64,40 @@ function getPalette() {
   const cs = getComputedStyle(document.documentElement);
   const v = (name) => cs.getPropertyValue(name).trim();
   return {
-    green: v('--terminal-green'),
-    cyan: v('--terminal-cyan'),
-    bg: v('--terminal-bg'),
-    line: v('--terminal-line'),
-    text: v('--terminal-text'),
+    green: v('--accent'),
+    cyan: v('--muted'),
+    bg: v('--paper'),
+    line: v('--line'),
+    text: v('--ink'),
     isLight: document.documentElement.dataset.terminalTheme === 'white',
   };
 }
 
 function setTheme(name) {
-  if (!THEMES.includes(name)) return;
+  if (!THEMES.includes(name)) name = 'green';
   document.documentElement.dataset.terminalTheme = name;
-  const landscape = $('.footer-landscape img');
+  const landscape = $('.terminal-footer img');
   const landscapeSrc = `./assets/illustrations/hangzhou-west-lake${name === 'white' ? '' : '-dark'}.webp`;
   if (landscape.getAttribute('src') !== landscapeSrc) landscape.src = landscapeSrc;
   try { localStorage.setItem('terminal-theme', name); } catch {}
-  document.querySelectorAll('[data-theme-choice]').forEach((b) => {
-    b.setAttribute('aria-pressed', String(b.dataset.themeChoice === name));
+  const label = `terminal-${name}`;
+  document.querySelectorAll('[data-terminal-theme-current]').forEach((b) => {
+    b.textContent = label;
+    b.title = label;
+    b.setAttribute('aria-label', `Cycle theme, ${label}`);
   });
   // Let the WebGL layers re-read the CSS variables on the next tick.
   requestAnimationFrame(() => listeners.forEach((fn) => fn()));
 }
 
+function cycleTheme() {
+  const cur = document.documentElement.dataset.terminalTheme;
+  setTheme(THEMES[(THEMES.indexOf(cur) + 1) % THEMES.length]);
+}
+
 function initTheme() {
-  document.querySelectorAll('[data-theme-choice]').forEach((b) => {
-    b.addEventListener('click', () => setTheme(b.dataset.themeChoice));
+  document.querySelectorAll('[data-terminal-theme-current]').forEach((b) => {
+    b.addEventListener('click', cycleTheme);
   });
   setTheme(document.documentElement.dataset.terminalTheme || 'green');
 }
@@ -121,38 +128,24 @@ function initTyping(node) {
   })();
 }
 
-/* ------------------------------------------------------------------ about -- */
+/* ------------------------------------------------------------------ stats -- */
 
 function renderStats(data) {
-  const wrap = $('#stats');
+  const sheet = $('#stat-sheet');
+  const since = data.user?.created_at?.slice(0, 4);
   const items = [
-    ['公开仓库', data.stats.public_repos],
-    ['年度贡献', data.stats.contributions],
+    ['Repos', data.stats.public_repos],
+    ['Stars', data.stats.stars],
+    ['Contribs/yr', data.stats.contributions || null],
+    ['Posts', data.stats.posts ?? data.blog?.total ?? null],
+    ['Since', since],
   ];
   for (const [label, value] of items) {
-    const box = el('div', 'stat');
-    const v = el('div', 'stat-value', '0');
-    box.append(v, el('div', 'stat-label', label));
-    wrap.append(box);
-    countUp(v, value);
+    if (value == null) continue;
+    const row = el('div');
+    row.append(el('dt', null, label), el('dd', null, String(value)));
+    sheet.append(row);
   }
-}
-
-/** Count-up that only runs once the tile scrolls into view. */
-function countUp(node, target) {
-  if (REDUCED) { node.textContent = String(target); return; }
-  const io = new IntersectionObserver(([e]) => {
-    if (!e.isIntersecting) return;
-    io.disconnect();
-    const dur = 1100;
-    const t0 = performance.now();
-    (function step(now) {
-      const p = Math.min(1, (now - t0) / dur);
-      node.textContent = String(Math.round(target * (1 - (1 - p) ** 3)));
-      if (p < 1) requestAnimationFrame(step);
-    })(t0);
-  }, { root: $('#viewport'), threshold: 0.4 });
-  io.observe(node);
 }
 
 function renderLanguages(data) {
@@ -191,79 +184,76 @@ function ago(iso) {
   return '刚刚';
 }
 
-function renderProjects(data) {
-  const grid = $('#projects-grid');
-  for (const repo of data.repos) {
-    const card = el('article', 'card reveal');
+/** 2026-09-30 / ISO timestamp -> 2026.09.30, the blog's date style. */
+const dotDate = (value) => String(value).slice(0, 10).replaceAll('-', '.');
 
-    const top = el('div', 'card-top');
-    const logo = el('a', 'card-logo');
-    logo.href = repo.url;
-    logo.target = '_blank';
-    logo.rel = 'noopener';
-    logo.setAttribute('aria-label', `打开 ${repo.name} 项目`);
+function externalLink(cls, text, href) {
+  const a = el('a', cls, text);
+  a.href = href;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  return a;
+}
+
+function timeEl(value) {
+  const t = el('time', null, dotDate(value));
+  t.dateTime = String(value);
+  return t;
+}
+
+function renderProjects(data) {
+  const list = $('#projects-list');
+  for (const repo of data.repos) {
+    const row = el('article', 'mail-row');
+
+    const logo = el('span', 'mail-logo');
+    logo.setAttribute('aria-hidden', 'true');
     const logoPath = PROJECT_LOGOS[repo.name];
     if (logoPath) {
       const image = el('img');
       image.src = logoPath;
       image.alt = '';
-      image.width = 320;
-      image.height = 320;
+      image.width = 44;
+      image.height = 44;
       image.loading = 'lazy';
       image.decoding = 'async';
       logo.append(image);
     } else {
-      logo.classList.add('card-logo-fallback');
       logo.textContent = repo.name.slice(0, 2).toUpperCase();
     }
-    const name = el('a', 'card-name', repo.name);
-    name.href = repo.url;
-    name.target = '_blank';
-    name.rel = 'noopener';
-    top.append(logo, name);
-    if (repo.pinned) top.append(el('span', 'card-pin', 'PINNED'));
 
-    const desc = el('p', 'card-desc', repo.description || '');
+    const preview = el('div', 'mail-preview');
+    preview.append(
+      externalLink('mail-subject', repo.name, repo.url),
+      el('span', 'mail-excerpt', repo.description || ''),
+    );
 
-    const topics = el('div', 'card-topics');
-    for (const t of repo.topics) topics.append(el('span', null, `#${t}`));
-
-    const foot = el('div', 'card-foot');
+    const meta = el('div', 'mail-meta');
+    if (repo.pinned) meta.append(el('span', 'pin', '[pinned]'));
     if (repo.language) {
       const lang = el('span');
       const dot = el('i', 'dot');
       dot.style.background = langColor(repo.language);
       lang.append(dot, document.createTextNode(repo.language));
-      foot.append(lang);
+      meta.append(lang);
     }
-    foot.append(el('span', null, ago(repo.pushed_at)));
+    if (repo.stars) meta.append(el('span', null, `★ ${repo.stars}`));
+    for (const t of repo.topics || []) meta.append(el('span', null, `#${t}`));
+    if (repo.homepage) meta.append(externalLink(null, 'live ↗', repo.homepage));
+    preview.append(meta);
 
-    const links = el('div', 'card-links');
-    if (repo.homepage) {
-      const live = el('a', null, 'live ↗');
-      live.href = repo.homepage;
-      live.target = '_blank';
-      live.rel = 'noopener';
-      links.append(live);
-    }
-    const code = el('a', null, 'code ↗');
-    code.href = repo.url;
-    code.target = '_blank';
-    code.rel = 'noopener';
-    links.append(code);
-    foot.append(links);
-
-    card.append(top, desc, topics, foot);
-    grid.append(card);
-    attachTilt(card);
+    const pushed = timeEl(repo.pushed_at);
+    pushed.title = ago(repo.pushed_at);
+    row.append(logo, preview, pushed);
+    list.append(row);
   }
 }
 
-/* ------------------------------------------------------------------- blog -- */
+/* ------------------------------------------------------------------ posts -- */
 
-function renderBlog(data) {
-  const section = $('#blog');
-  const grid = $('#blog-grid');
+function renderPosts(data) {
+  const section = $('#posts');
+  const list = $('#posts-list');
   const posts = data.blog?.posts || [];
   if (!posts.length) {
     section.hidden = true;
@@ -271,42 +261,14 @@ function renderBlog(data) {
   }
 
   for (const post of posts) {
-    const card = el('article', 'blog-card panel reveal');
-    const date = el('time', 'blog-date', post.date);
-    date.dateTime = post.date;
-
-    const title = el('a', 'blog-title', post.title);
-    title.href = post.url;
-    title.target = '_blank';
-    title.rel = 'noopener';
-
-    const excerpt = el('p', 'blog-excerpt', post.excerpt || '');
-    const tags = el('div', 'blog-tags');
-    for (const tag of post.tags || []) tags.append(el('span', null, `#${tag}`));
-
-    const read = el('a', 'blog-read', 'read ↗');
-    read.href = post.url;
-    read.target = '_blank';
-    read.rel = 'noopener';
-    card.append(date, title, excerpt, tags, read);
-    grid.append(card);
+    const row = el('article', 'mail-row');
+    const tag = el('span', 'mail-sender', post.tags?.[0] ? `#${post.tags[0]}` : 'idevlab');
+    const preview = el('div', 'mail-preview');
+    preview.append(externalLink('mail-subject', post.title, post.url));
+    if (post.excerpt) preview.append(el('span', 'mail-excerpt', post.excerpt));
+    row.append(tag, preview, timeEl(post.date));
+    list.append(row);
   }
-}
-
-/** Pointer-tracked 3D tilt + sheen. Skipped on touch and reduced-motion. */
-function attachTilt(card) {
-  if (REDUCED || !window.matchMedia('(hover: hover)').matches) return;
-  const MAX = 8;
-  card.addEventListener('pointermove', (e) => {
-    const r = card.getBoundingClientRect();
-    const px = (e.clientX - r.left) / r.width;
-    const py = (e.clientY - r.top) / r.height;
-    card.style.setProperty('--mx', `${px * 100}%`);
-    card.style.setProperty('--my', `${py * 100}%`);
-    card.style.transform =
-      `perspective(900px) rotateX(${(0.5 - py) * MAX}deg) rotateY(${(px - 0.5) * MAX}deg) translateZ(12px)`;
-  });
-  card.addEventListener('pointerleave', () => { card.style.transform = ''; });
 }
 
 /* --------------------------------------------------------------- activity -- */
@@ -319,44 +281,50 @@ function renderActivity(data) {
   }
   for (const a of data.activity) {
     const li = el('li');
-    li.append(el('span', 'when', ago(a.at)));
+    const when = el('time', 'when', ago(a.at));
+    when.dateTime = a.at;
+    when.title = a.at;
     const what = el('span', 'what');
-    what.append(document.createTextNode(`${a.verb} `));
-    const where = el('a', 'where', a.repo);
-    where.href = `https://github.com/${a.repo}`;
-    where.target = '_blank';
-    where.rel = 'noopener';
-    what.append(where);
-    li.append(what);
+    what.append(document.createTextNode(`${a.verb} `), externalLink('where', a.repo, `https://github.com/${a.repo}`));
+    li.append(when, what);
     list.append(li);
   }
 }
 
 /* ------------------------------------------------------------------ links -- */
 
-function renderLinks() {
+function renderLinks(data) {
   const grid = $('#link-grid');
+  const posts = data?.stats?.posts ?? data?.blog?.total;
   for (const l of LINKS) {
-    const a = el('a', 'link-card reveal');
-    a.href = l.url;
-    a.target = '_blank';
-    a.rel = 'noopener';
-
-    const av = el('div', 'link-avatar');
-    if (l.avatar) {
-      const img = el('img');
-      img.src = l.avatar;
-      img.alt = '';
-      img.loading = 'lazy';
-      av.append(img);
-    } else {
-      av.textContent = l.badge || l.name.slice(0, 1).toUpperCase();
+    let desc = l.desc || l.url;
+    if (desc.includes('{posts}')) {
+      desc = posts ? desc.replace('{posts}', String(posts)) : desc.replace(/\s*·\s*\{posts\}.*$/, '');
     }
-
-    const body = el('div');
-    body.append(el('div', 'link-name', l.name), el('div', 'link-desc', l.desc || l.url));
-    a.append(av, body);
+    const a = externalLink(null, null, l.url);
+    a.append(el('span', null, l.name), el('em', null, desc));
     grid.append(a);
+  }
+}
+
+/* ------------------------------------------------------------------- sync -- */
+
+/** Show when each source was last refreshed, so stale data is never silent. */
+function renderSync(data) {
+  const box = $('#sync-status');
+  const sync = data.sync || {};
+  const rows = [
+    ['github', sync.github_at || data.generated_at],
+    ['blog', sync.blog_at],
+  ];
+  for (const [label, at] of rows) {
+    if (!at) continue;
+    const dd = el('dd');
+    const t = el('time', null, ago(at));
+    t.dateTime = at;
+    t.title = at;
+    dd.append(t);
+    box.append(el('dt', null, `${label} sync`), dd);
   }
 }
 
@@ -388,51 +356,60 @@ function renderContribMeta(data, ramp) {
 
 /* ----------------------------------------------------------------- chrome -- */
 
-function initReveal() {
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    }
-  }, { root: $('#viewport'), threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach((n) => io.observe(n));
-}
+const SECTIONS = ['home', 'projects', 'posts', 'activity', 'links'];
 
-/** Highlight the section currently in view. */
+/** Mark the sidebar entry for the section currently in view, like the blog's `>`. */
 function initNavSpy() {
-  const links = [...document.querySelectorAll('.site-nav a[href^="#"]')];
-  const map = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (!e.isIntersecting) continue;
-      links.forEach((a) => a.classList.remove('is-active'));
-      map.get(e.target.id)?.classList.add('is-active');
+  const links = new Map(
+    [...document.querySelectorAll('[data-terminal-nav]')].map((a) => [a.dataset.terminalNav, a]),
+  );
+  const select = (id) => {
+    for (const [key, a] of links) {
+      const on = key === id;
+      a.querySelector('.nav-marker').textContent = on ? '>' : '';
+      if (on) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
     }
-  }, { root: $('#viewport'), rootMargin: '-45% 0px -50% 0px' });
-  ['about', 'projects', 'blog', 'contrib', 'links'].forEach((id) => {
+  };
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) select(e.target.id);
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  SECTIONS.forEach((id) => {
     const n = document.getElementById(id);
     if (n) io.observe(n);
   });
 }
 
-/** j/k scroll, g/G jump, t cycles theme — same muscle memory as the blog. */
-function initKeys(viewport) {
-  let lastG = 0;
-  document.addEventListener('keydown', (e) => {
-    if (e.metaKey || e.ctrlKey || e.altKey) return;
-    const tag = document.activeElement?.tagName;
-    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+/** Same muscle memory as the blog: j/k, gg/G, g+letter jumps, t for theme. */
+function initKeys(chat) {
+  const GOTO = { h: 'home', p: 'projects', b: 'posts', a: 'activity', l: 'links' };
+  const behavior = () => (REDUCED ? 'auto' : 'smooth');
+  const root = () => document.scrollingElement || document.documentElement;
+  let pending = 0;
 
-    if (e.key === 'j') { viewport.scrollBy({ top: 90, behavior: 'auto' }); e.preventDefault(); }
-    else if (e.key === 'k') { viewport.scrollBy({ top: -90, behavior: 'auto' }); e.preventDefault(); }
-    else if (e.key === 'G') { viewport.scrollTo({ top: viewport.scrollHeight, behavior: 'smooth' }); }
-    else if (e.key === 'g') {
-      const now = Date.now();
-      if (now - lastG < 500) viewport.scrollTo({ top: 0, behavior: 'smooth' });
-      lastG = now;
-    } else if (e.key === 't') {
-      const cur = document.documentElement.dataset.terminalTheme;
-      setTheme(THEMES[(THEMES.indexOf(cur) + 1) % THEMES.length]);
+  document.addEventListener('keydown', (e) => {
+    if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.target instanceof Element && e.target.closest('input, textarea, select, [contenteditable]')) return;
+
+    if (pending) {
+      clearTimeout(pending);
+      pending = 0;
+      if (e.key === 'g') root().scrollTo({ top: 0, behavior: behavior() });
+      else if (GOTO[e.key]) document.getElementById(GOTO[e.key])?.scrollIntoView({ behavior: behavior() });
+      else return;
+      e.preventDefault();
+      return;
     }
+
+    const page = Math.round(window.innerHeight * 0.85);
+    if (e.key === 'j') root().scrollBy({ top: page, behavior: behavior() });
+    else if (e.key === 'k') root().scrollBy({ top: -page, behavior: behavior() });
+    else if (e.key === 'G') root().scrollTo({ top: root().scrollHeight, behavior: behavior() });
+    else if (e.key === 'g') pending = setTimeout(() => { pending = 0; }, 1200);
+    else if (e.key === 't') cycleTheme();
+    else if (e.key === 'c') chat.open();
+    else return;
+    e.preventDefault();
   });
 }
 
@@ -481,46 +458,48 @@ function whenVisible(target, initialize) {
     if (!entries.some((entry) => entry.isIntersecting)) return;
     observer.disconnect();
     initialize().catch((err) => console.warn('3D scene unavailable', err));
-  }, { root: $('#viewport'), rootMargin: '200px' });
+  }, { rootMargin: '200px' });
   observer.observe(target);
 }
 
 async function boot() {
   initTheme();
   initTyping($('#typed'));
-  initKeys($('#viewport'));
   const chat = initChat();
+  initKeys(chat);
   document.querySelectorAll('[data-chat-open]').forEach((b) => {
     b.addEventListener('click', () => chat.open());
   });
-  renderLinks();
   $('#year').textContent = String(new Date().getFullYear());
+  initNavSpy();
 
   let data;
   try {
     data = await loadData();
   } catch (err) {
     console.error('data load failed', err);
+    renderLinks(null);
     return;
   }
 
   renderStats(data);
   renderLanguages(data);
   renderProjects(data);
-  renderBlog(data);
+  renderPosts(data);
   renderActivity(data);
+  renderLinks(data);
+  renderSync(data);
 
-  whenVisible($('.hero'), async () => {
+  whenVisible($('#hero-canvas'), async () => {
     const { initHeroScene } = await import('./scene.js');
     const hero = initHeroScene($('#hero-canvas'), { getPalette });
     if (!hero) return;
     listeners.push(hero.refreshPalette);
-    const viewport = $('#viewport');
     const onScroll = () => {
-      hero.setScroll(Math.min(1.6, viewport.scrollTop / Math.max(1, window.innerHeight)));
+      hero.setScroll(Math.min(1.6, window.scrollY / Math.max(1, window.innerHeight)));
     };
     onScroll();
-    viewport.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
   });
 
   // A 53-week strip inside a phone-width canvas renders as unreadable specks,
@@ -551,17 +530,6 @@ async function boot() {
       listeners.push(() => renderContribMeta(data, contrib.refreshPalette()));
     });
   }
-
-  if (data.generated_at) {
-    const githubAt = data.sync?.github_at?.slice(0, 10);
-    const blogAt = data.sync?.blog_at?.slice(0, 10);
-    $('#build-stamp').textContent = githubAt && blogAt
-      ? `github ${githubAt} · blog ${blogAt}`
-      : `data synced ${data.generated_at.slice(0, 10)}`;
-  }
-
-  initReveal();
-  initNavSpy();
 }
 
 boot();

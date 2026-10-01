@@ -1,8 +1,18 @@
 name: Deploy GitHub Pages
 
+# Data is fetched at deploy time instead of being committed back by a separate
+# daily job, so the site is never more than an hour behind GitHub and the blog,
+# and `main` is no longer flooded with "sync homepage data" commits.
 on:
   push:
     branches: [main]
+  schedule:
+    # Hourly, off the top of the hour when GitHub's scheduler is most congested.
+    - cron: '23 * * * *'
+  # The blog's deploy workflow can call this for an instant refresh:
+  #   gh api repos/IchenDEV/home-page/dispatches -f event_type=blog-published
+  repository_dispatch:
+    types: [blog-published]
   workflow_dispatch:
 
 permissions:
@@ -17,12 +27,49 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # The fetch script carries over any section whose source fails, so start
+      # from whichever snapshot is newer: the committed one or the live one.
+      - name: Pick the newest previous snapshot
+        run: |
+          if curl -fsSL --max-time 20 "https://www.idevlab.dev/data/github.json?t=$(date +%s)" -o /tmp/live.json; then
+            node -e '
+              const fs = require("fs");
+              const read = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
+              const live = read("/tmp/live.json");
+              const repo = read("data/github.json");
+              if (live?.generated_at && (!repo || live.generated_at > repo.generated_at)) {
+                fs.copyFileSync("/tmp/live.json", "data/github.json");
+                console.log(`using live snapshot from ${live.generated_at}`);
+              } else {
+                console.log(`using committed snapshot from ${repo?.generated_at}`);
+              }
+            '
+          fi
+
+      - name: Refresh GitHub and blog data
+        id: fetch
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB || github.token }}
+          GH_USER: ${{ github.repository_owner }}
+          BLOG_URL: https://blogs.idevlab.dev
+        run: npm run fetch
+
+      - name: Warn when publishing the previous snapshot
+        if: steps.fetch.outcome == 'failure'
+        run: echo "::warning::Data refresh failed; deploying the previous snapshot."
 
       - name: Prepare static site
         run: |

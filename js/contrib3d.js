@@ -289,7 +289,7 @@ export function initContribScene(canvas, days, { getPalette, tooltip }) {
 
   // Only animate while the section is actually on screen.
   const io = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; },
-    { root: document.getElementById('viewport'), threshold: 0 });
+    { threshold: 0 });
   io.observe(canvas);
 
   return { refreshPalette: applyPalette, ramp, dispose() { cancelAnimationFrame(raf); io.disconnect(); renderer.dispose(); } };

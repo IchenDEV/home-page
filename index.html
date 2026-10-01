@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>idevlab — hacker &amp; creator</title>
-<meta name="description" content="idevlab 的个人主页 — macOS / AI Agent / 前端。最近的开源项目、GitHub 贡献可视化与博客入口。">
+<meta name="description" content="idevlab 的个人主页 — macOS / AI Agent / 前端。最近的开源项目、博客文章与 GitHub 贡献可视化。">
 <meta name="author" content="idevlab">
 <link rel="icon" href="https://avatars.githubusercontent.com/u/34794972?v=4">
 
@@ -26,6 +26,7 @@
   })();
 </script>
 
+<link rel="preload" href="./assets/fonts/fusion-pixel.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="./css/style.css">
 
 <script type="importmap">
@@ -34,138 +35,128 @@
 </head>
 
 <body>
+<a class="skip-link" href="#main">跳到正文</a>
 <div class="terminal-shell">
 
-  <header class="terminal-titlebar">
-    <div class="terminal-controls" aria-hidden="true">
-      <span class="control control-close"></span>
-      <span class="control control-minimize"></span>
-      <span class="control control-zoom"></span>
-    </div>
-    <div class="terminal-title">idevlab — ~/home</div>
-    <div class="theme-switcher" aria-label="配色主题">
-      <button type="button" data-theme-choice="green" aria-label="terminal-green"></button>
-      <button type="button" data-theme-choice="amber" aria-label="terminal-amber"></button>
-      <button type="button" data-theme-choice="cyan" aria-label="terminal-cyan"></button>
-      <button type="button" data-theme-choice="magenta" aria-label="terminal-magenta"></button>
-      <button type="button" data-theme-choice="white" aria-label="terminal-white"></button>
-    </div>
+  <header class="mail-masthead">
+    <a class="mail-brand" href="#home" aria-label="idevlab 主页顶部">
+      <span class="prompt-mark" aria-hidden="true">&gt;</span>
+      <span>idevlab</span>
+    </a>
+    <span class="masthead-path" aria-hidden="true">~/home</span>
+    <button class="theme-current" type="button" data-terminal-theme-current aria-keyshortcuts="T"
+            aria-label="Cycle theme" title="terminal-green">terminal-green</button>
   </header>
 
-  <div class="terminal-body">
-    <canvas id="hero-canvas" aria-hidden="true"></canvas>
-
-    <div class="terminal-viewport" id="viewport">
-
-      <nav class="site-nav" aria-label="主导航">
-        <a href="#about">about</a>
-        <a href="#projects">projects</a>
-        <a href="#blog">blog</a>
-        <a href="#contrib">activity</a>
-        <a href="#links">links</a>
-        <button type="button" data-chat-open>chat</button>
-        <span class="nav-spacer"></span>
-        <a class="nav-cta" href="https://github.com/IchenDEV" target="_blank" rel="noopener">github ↗</a>
+  <div class="terminal-grid">
+    <aside class="terminal-sidebar">
+      <nav class="terminal-nav" aria-label="主导航">
+        <a href="#home" data-terminal-nav="home" aria-current="true">
+          <span class="nav-marker" aria-hidden="true">&gt;</span><span>_home</span>
+        </a>
+        <a href="#projects" data-terminal-nav="projects">
+          <span class="nav-marker" aria-hidden="true"></span><span>_projects</span>
+        </a>
+        <a href="#posts" data-terminal-nav="posts">
+          <span class="nav-marker" aria-hidden="true"></span><span>_posts</span>
+        </a>
+        <a href="#activity" data-terminal-nav="activity">
+          <span class="nav-marker" aria-hidden="true"></span><span>_activity</span>
+        </a>
+        <a href="#links" data-terminal-nav="links">
+          <span class="nav-marker" aria-hidden="true"></span><span>_links</span>
+        </a>
+        <button type="button" data-chat-open aria-keyshortcuts="C">
+          <span class="nav-marker" aria-hidden="true"></span><span>_chat</span>
+        </button>
       </nav>
 
-      <!-- ------------------------------------------------------------ hero -->
-      <section class="hero wrap" id="home">
-        <div class="hero-prompt"><b>idevlab@hangzhou</b>:<span>~</span>$ whoami</div>
-        <h1>i<span class="accent">dev</span>lab</h1>
-        <p class="hero-typed"><span id="typed"></span><span class="cursor" aria-hidden="true"></span></p>
+      <nav class="terminal-nav terminal-nav-out" aria-label="外部链接">
+        <a href="https://blogs.idevlab.dev" target="_blank" rel="noopener">
+          <span class="nav-marker" aria-hidden="true"></span><span>_blog ↗</span>
+        </a>
+        <a href="https://github.com/IchenDEV" target="_blank" rel="noopener">
+          <span class="nav-marker" aria-hidden="true"></span><span>_github ↗</span>
+        </a>
+        <a href="mailto:idevlab@outlook.com">
+          <span class="nav-marker" aria-hidden="true"></span><span>_mail ↗</span>
+        </a>
+      </nav>
 
-        <div class="hero-meta" id="hero-meta">
-          <span>Hangzhou, CN</span>
-          <span>AI &amp; Agent</span>
+      <dl class="sync-status" id="sync-status" aria-label="数据同步时间"></dl>
+
+      <details class="shortcut-panel">
+        <summary>shortcuts</summary>
+        <dl>
+          <dt><kbd>j</kbd> / <kbd>k</kbd></dt><dd>scroll</dd>
+          <dt><kbd>gg</kbd> / <kbd>G</kbd></dt><dd>top / bottom</dd>
+          <dt><kbd>g</kbd> <kbd>p</kbd> <kbd>b</kbd> <kbd>a</kbd> <kbd>l</kbd></dt><dd>jump to section</dd>
+          <dt><kbd>t</kbd></dt><dd>cycle theme</dd>
+          <dt><kbd>c</kbd></dt><dd>local chat</dd>
+        </dl>
+      </details>
+    </aside>
+
+    <main class="terminal-main" id="main">
+
+      <!-- ------------------------------------------------------------ intro -->
+      <section class="inbox-intro" id="home">
+        <div class="prompt-line"><span>$</span> whoami</div>
+        <h1>idevlab<span class="cursor" aria-hidden="true">_</span></h1>
+        <p class="intro-typed"><span id="typed">hacker &amp; creator — 在杭州写代码。</span></p>
+        <div class="about-text">
+          <p>你好，我是 <strong>idevlab</strong>，一名 macOS 用户，也是每个月在 AI 上投入超过 300 美元的重度用户。
+             现在的身份是创业者，专注于 AI &amp; Agent。</p>
+          <p>我会时不时分享关于 AI 的见解，也会做一些有趣、好玩的工具和应用；
+             正在尝试成为一名 AI-native 开发者，探索控制 Agent 的控制论。</p>
+          <p>我关注科技与人文的十字路口。</p>
         </div>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">cat ~/blog</a>
-          <a class="btn" href="https://github.com/IchenDEV" target="_blank" rel="noopener">git clone me</a>
-          <a class="btn" href="mailto:idevlab@outlook.com">send mail</a>
-          <button class="btn" type="button" data-chat-open>./chat --local</button>
-        </div>
-
-        <div class="scroll-hint">▼ scroll — 或按 <kbd>j</kbd> / <kbd>k</kbd></div>
+        <strong class="intro-accent">Stay curious. Keep shipping.</strong>
       </section>
 
-      <!-- ----------------------------------------------------------- about -->
-      <section class="section wrap" id="about">
-        <div class="section-head reveal">
-          <h2>cat ~/about.md</h2>
-          <p>一点关于我的背景</p>
-          <div class="rule"></div>
-        </div>
+      <figure class="hero-figure" aria-hidden="true">
+        <canvas id="hero-canvas"></canvas>
+      </figure>
 
-        <div class="about-grid">
-          <div class="panel about-text reveal">
-            <p>你好，我是 <span class="kw">idevlab</span>，一名 <span class="kw">macOS 用户</span>，
-               也是每个月在 AI 上投入超过 <span class="str">300 美元</span>的重度用户。
-               现在的身份是创业者，专注于 <span class="kw">AI &amp; Agent</span>。</p>
-            <p>我会时不时分享关于 AI 的见解，也会做一些
-               <span class="kw">有趣、好玩的工具和应用</span>。</p>
-            <p>我正在尝试成为一名 <span class="kw">AI-native 开发者</span>，
-               探索控制 Agent 的控制论。</p>
-            <p>我关注<span class="str">科技与人文的十字路口</span>。</p>
-            <p class="hero-prompt" style="margin-top:1.2rem">
-              <b>$</b> echo <span class="str">"keep learning, keep shipping."</span>
-            </p>
-          </div>
-
-          <div class="reveal">
-            <div class="stat-grid" id="stats"></div>
-            <div class="lang-bar" id="lang-bar"></div>
-            <div class="lang-legend" id="lang-legend"></div>
-          </div>
-        </div>
+      <!-- ------------------------------------------------------------ stats -->
+      <section class="section" id="stats" aria-label="GitHub 概览">
+        <div class="prompt-line"><span>$</span> gh api /users/IchenDEV</div>
+        <dl class="letter-head stat-sheet" id="stat-sheet"></dl>
+        <div class="lang-bar" id="lang-bar"></div>
+        <div class="lang-legend" id="lang-legend"></div>
       </section>
 
-      <!-- -------------------------------------------------------- projects -->
-      <section class="section wrap" id="projects">
-        <div class="section-head reveal">
-          <h2>ls -lt ~/projects</h2>
-          <p>最近在写的开源项目 — 数据直接来自 GitHub，自动更新</p>
-          <div class="rule"></div>
-        </div>
-        <div class="project-grid" id="projects-grid"></div>
-        <p style="margin-top:1.4rem">
-          <a class="btn" href="https://github.com/IchenDEV?tab=repositories" target="_blank" rel="noopener">
-            查看全部仓库 →
-          </a>
+      <!-- --------------------------------------------------------- projects -->
+      <section class="section" id="projects" aria-label="开源项目">
+        <div class="prompt-line"><span>$</span> ls -lt ~/projects</div>
+        <div class="mail-columns" aria-hidden="true"><span></span><span>Repository</span><span>Pushed</span></div>
+        <div class="mail-list" id="projects-list"></div>
+        <p class="section-more">
+          <a href="https://github.com/IchenDEV?tab=repositories" target="_blank" rel="noopener">&gt; 查看全部仓库 ↗</a>
         </p>
       </section>
 
-      <!-- ------------------------------------------------------------ blog -->
-      <section class="section wrap" id="blog">
-        <div class="section-head reveal">
-          <h2>tail -n 3 ~/blog</h2>
-          <p>最新发布的文章 — 每天由 GitHub Actions 自动同步</p>
-          <div class="rule"></div>
-        </div>
-        <div class="blog-grid" id="blog-grid"></div>
-        <p style="margin-top:1.4rem">
-          <a class="btn" href="https://blogs.idevlab.dev" target="_blank" rel="noopener">
-            查看全部文章 →
-          </a>
+      <!-- ------------------------------------------------------------ posts -->
+      <section class="section" id="posts" aria-label="最新文章">
+        <div class="prompt-line"><span>$</span> ls ~/blog/posts | head</div>
+        <div class="mail-columns" aria-hidden="true"><span>Tag</span><span>Subject</span><span>Date</span></div>
+        <div class="mail-list" id="posts-list"></div>
+        <p class="section-more">
+          <a href="https://blogs.idevlab.dev" target="_blank" rel="noopener">&gt; cd blogs.idevlab.dev ↗</a>
         </p>
       </section>
 
-      <!-- ---------------------------------------------------- contributions -->
-      <section class="section wrap" id="contrib">
-        <div class="section-head reveal">
-          <h2>git log --graph --3d</h2>
-          <p>过去一年的贡献热力图 — 拖动可以旋转</p>
-          <div class="rule"></div>
-        </div>
-
-        <div class="contrib-wrap reveal">
-          <canvas id="contrib-canvas"></canvas>
+      <!-- --------------------------------------------------------- activity -->
+      <section class="section" id="activity" aria-label="贡献与动态">
+        <div class="prompt-line"><span>$</span> git log --graph --3d</div>
+        <div class="contrib-wrap">
+          <canvas id="contrib-canvas" aria-label="过去一年的 3D 贡献热力图，可拖动旋转"></canvas>
           <div class="contrib-tip" id="contrib-tip"></div>
           <div class="contrib-foot">
             <span id="contrib-total">—</span>
             <span id="contrib-streak">—</span>
             <span id="contrib-range"></span>
-            <span class="legend">
+            <span class="legend" aria-hidden="true">
               <span>less</span>
               <i data-level="0"></i><i data-level="1"></i><i data-level="2"></i><i data-level="3"></i><i data-level="4"></i>
               <span>more</span>
@@ -173,74 +164,42 @@
           </div>
         </div>
 
-        <div class="panel activity reveal" style="margin-top:1.5rem">
-          <ul id="activity-list"></ul>
-        </div>
+        <div class="prompt-line prompt-gap"><span>$</span> gh api /users/IchenDEV/events | head</div>
+        <ul class="activity-list" id="activity-list"></ul>
       </section>
 
-      <!-- ----------------------------------------------------------- links -->
-      <section class="section wrap" id="links">
-        <div class="section-head reveal">
-          <h2>ls ~/links</h2>
-          <p>我的站点与友情链接</p>
-          <div class="rule"></div>
-        </div>
-        <div class="link-grid" id="link-grid"></div>
+      <!-- ------------------------------------------------------------ links -->
+      <section class="section" id="links" aria-label="站点与友链">
+        <div class="prompt-line"><span>$</span> ls ~/links</div>
+        <div class="directory-grid" id="link-grid"></div>
       </section>
 
-      <footer class="site-footer">
-        <div class="footer-top wrap">
-          <div class="footer-brand">
-            <a class="footer-logo" href="#home" aria-label="idevlab，返回首页">i<span>dev</span>lab<span class="footer-cursor" aria-hidden="true">_</span></a>
-            <p>keep learning,<br>keep shipping.</p>
-          </div>
-          <nav class="footer-column" aria-label="页脚探索">
-            <h2>探索 / Explore</h2>
-            <a href="#about">关于我</a>
-            <a href="#projects">开源项目</a>
-            <a href="#contrib">最近动态</a>
-          </nav>
-          <nav class="footer-column" aria-label="页脚阅读">
-            <h2>阅读 / Read</h2>
-            <a href="https://blogs.idevlab.dev" target="_blank" rel="noopener">博客 ↗</a>
-            <a href="#blog">最新文章</a>
-            <a href="#links">友情链接</a>
-          </nav>
-          <nav class="footer-column" aria-label="页脚联系">
-            <h2>联系 / Connect</h2>
-            <a href="https://github.com/IchenDEV" target="_blank" rel="noopener">GitHub ↗</a>
-            <a href="mailto:idevlab@outlook.com">Email ↗</a>
-          </nav>
-        </div>
-        <div class="footer-landscape">
-          <img src="./assets/illustrations/hangzhou-west-lake-dark.webp" width="2172" height="724"
-               alt="手绘杭州西湖山水：垂柳、江南亭台、石桥、远山与三潭印月。" loading="lazy" decoding="async" fetchpriority="low">
-        </div>
-        <div class="footer-bottom wrap">
-          <span>© <span id="year">2026</span> idevlab</span>
-          <span class="footer-place">Made in Hangzhou, China.</span>
-          <span class="stamp" id="build-stamp"></span>
+      <footer class="terminal-footer">
+        <img src="./assets/illustrations/hangzhou-west-lake-dark.webp" width="2172" height="724"
+             alt="手绘杭州西湖山水：垂柳、江南亭台、石桥、远山与三潭印月。" loading="lazy" decoding="async" fetchpriority="low">
+        <div class="terminal-footer-copy">
+          <span>© <span id="year">2026</span> idevlab · Made in Hangzhou</span>
+          <span>&gt; keep learning, keep shipping.</span>
         </div>
       </footer>
-
-    </div>
-
-    <!-- ------------------------------------------------- local llm chat -->
-    <section class="chat-panel" id="chat-panel" hidden aria-label="本地模型对话">
-      <header class="chat-head">
-        <span class="chat-title">idevlab@local:~$ ./chat --local</span>
-        <span class="chat-status" id="chat-status" data-state="offline">offline</span>
-        <button type="button" class="chat-close" id="chat-close" aria-label="关闭对话">✕</button>
-      </header>
-      <div class="chat-log" id="chat-log" aria-live="polite"></div>
-      <form class="chat-input-row" id="chat-form">
-        <span class="chat-prompt-sign" aria-hidden="true">$</span>
-        <input id="chat-input" autocomplete="off" autocapitalize="off" spellcheck="false"
-               placeholder="/load 启动本地模型" aria-label="输入消息或命令">
-      </form>
-    </section>
+    </main>
   </div>
 </div>
+
+<!-- ------------------------------------------------------- local llm chat -->
+<section class="chat-panel" id="chat-panel" hidden aria-label="本地模型对话">
+  <header class="chat-head">
+    <span class="chat-title">idevlab@local:~$ ./chat --local</span>
+    <span class="chat-status" id="chat-status" data-state="offline">offline</span>
+    <button type="button" class="chat-close" id="chat-close" aria-label="关闭对话">✕</button>
+  </header>
+  <div class="chat-log" id="chat-log" aria-live="polite"></div>
+  <form class="chat-input-row" id="chat-form">
+    <span class="chat-prompt-sign" aria-hidden="true">$</span>
+    <input id="chat-input" autocomplete="off" autocapitalize="off" spellcheck="false"
+           placeholder="/load 启动本地模型" aria-label="输入消息或命令">
+  </form>
+</section>
 
 <script type="module" src="./js/main.js"></script>
 </body>

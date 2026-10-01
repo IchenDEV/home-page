@@ -1,9 +1,10 @@
 {
-  "generated_at": "2026-09-30T09:26:11.041Z",
+  "generated_at": "2026-10-01T04:36:23.003Z",
   "sync": {
-    "github_at": "2026-09-30T09:26:11.041Z",
-    "blog_at": "2026-09-30T09:26:11.041Z",
-    "github_fresh": true
+    "github_at": "2026-10-01T04:36:23.003Z",
+    "contributions_at": "2026-10-01T04:36:23.003Z",
+    "activity_at": "2026-10-01T04:36:23.003Z",
+    "blog_at": "2026-10-01T04:36:23.003Z"
   },
   "user": {
     "login": "IchenDEV",
@@ -18,47 +19,48 @@
     "url": "https://github.com/IchenDEV"
   },
   "stats": {
-    "public_repos": 114,
-    "own_repos": 79,
+    "public_repos": 115,
+    "own_repos": 80,
     "stars": 44,
     "forks": 2,
-    "contributions": 2790
+    "contributions": 2803,
+    "posts": 77
   },
   "languages": [
     {
       "name": "TypeScript",
-      "count": 23,
-      "percent": 31.5
+      "count": 24,
+      "percent": 32.4
     },
     {
       "name": "JavaScript",
       "count": 8,
-      "percent": 11
+      "percent": 10.8
     },
     {
       "name": "HTML",
       "count": 7,
-      "percent": 9.6
+      "percent": 9.5
     },
     {
       "name": "C#",
       "count": 7,
-      "percent": 9.6
+      "percent": 9.5
     },
     {
       "name": "Swift",
       "count": 6,
-      "percent": 8.2
+      "percent": 8.1
     },
     {
       "name": "Python",
       "count": 6,
-      "percent": 8.2
+      "percent": 8.1
     },
     {
       "name": "Vue",
       "count": 4,
-      "percent": 5.5
+      "percent": 5.4
     },
     {
       "name": "Rust",
@@ -88,7 +90,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/agent-plugin-mkt",
       "homepage": "https://pluginsmp.com/",
-      "pushed_at": "2026-09-30T05:45:31Z",
+      "pushed_at": "2026-09-30T18:15:41Z",
       "pinned": true
     },
     {
@@ -117,7 +119,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/utter",
       "homepage": "https://utter.idevlab.dev",
-      "pushed_at": "2026-09-30T07:51:36Z",
+      "pushed_at": "2026-09-30T20:16:04Z",
       "pinned": true
     },
     {
@@ -174,6 +176,23 @@
       "pinned": true
     },
     {
+      "name": "framed-blur",
+      "description": "Progressive blur for the web — a stack of backdrop-filter layers masked by gradients. Framework-agnostic core with React, Vue 3, vanilla DOM and a Web Component.",
+      "language": "TypeScript",
+      "stars": 0,
+      "forks": 0,
+      "topics": [
+        "backdrop-filter",
+        "blur",
+        "css",
+        "frosted-glass"
+      ],
+      "url": "https://github.com/IchenDEV/framed-blur",
+      "homepage": "https://blogs.idevlab.dev/framed-blur/",
+      "pushed_at": "2026-09-30T09:37:39Z",
+      "pinned": false
+    },
+    {
       "name": "home-page",
       "description": "Personal home page — terminal-styled, WebGL, data straight from GitHub",
       "language": "HTML",
@@ -182,7 +201,7 @@
       "topics": [],
       "url": "https://github.com/IchenDEV/home-page",
       "homepage": "https://www.idevlab.dev",
-      "pushed_at": "2026-09-29T09:34:04Z",
+      "pushed_at": "2026-09-30T09:26:12Z",
       "pinned": false
     },
     {
@@ -208,27 +227,10 @@
       "homepage": "https://model-watch-khaki.vercel.app",
       "pushed_at": "2026-09-24T03:59:07Z",
       "pinned": false
-    },
-    {
-      "name": "web-agent-bridge",
-      "description": "Bridge online web AI agents (Doubao, etc.) to A2A protocol endpoints via a Chrome extension",
-      "language": "TypeScript",
-      "stars": 0,
-      "forks": 0,
-      "topics": [
-        "a2a",
-        "agent-to-agent",
-        "ai-agent",
-        "browser-extension"
-      ],
-      "url": "https://github.com/IchenDEV/web-agent-bridge",
-      "homepage": null,
-      "pushed_at": "2026-09-22T12:30:53Z",
-      "pinned": false
     }
   ],
   "contributions": {
-    "total": 2790,
+    "total": 2803,
     "days": [
       {
         "date": "2025-09-28",
@@ -680,11 +682,11 @@
       },
       {
         "date": "2026-01-18",
-        "count": 34
+        "count": 33
       },
       {
         "date": "2026-01-19",
-        "count": 6
+        "count": 7
       },
       {
         "date": "2026-01-20",
@@ -724,11 +726,11 @@
       },
       {
         "date": "2026-01-29",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-01-30",
-        "count": 0
+        "count": 1
       },
       {
         "date": "2026-01-31",
@@ -820,11 +822,11 @@
       },
       {
         "date": "2026-02-22",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-02-23",
-        "count": 1
+        "count": 2
       },
       {
         "date": "2026-02-24",
@@ -848,27 +850,27 @@
       },
       {
         "date": "2026-03-01",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-03-02",
-        "count": 6
+        "count": 7
       },
       {
         "date": "2026-03-03",
-        "count": 8
+        "count": 7
       },
       {
         "date": "2026-03-04",
-        "count": 4
+        "count": 5
       },
       {
         "date": "2026-03-05",
-        "count": 3
+        "count": 2
       },
       {
         "date": "2026-03-06",
-        "count": 4
+        "count": 5
       },
       {
         "date": "2026-03-07",
@@ -960,11 +962,11 @@
       },
       {
         "date": "2026-03-29",
-        "count": 2
+        "count": 0
       },
       {
         "date": "2026-03-30",
-        "count": 4
+        "count": 6
       },
       {
         "date": "2026-03-31",
@@ -988,19 +990,19 @@
       },
       {
         "date": "2026-04-05",
-        "count": 28
+        "count": 27
       },
       {
         "date": "2026-04-06",
-        "count": 25
+        "count": 26
       },
       {
         "date": "2026-04-07",
-        "count": 2
+        "count": 1
       },
       {
         "date": "2026-04-08",
-        "count": 12
+        "count": 13
       },
       {
         "date": "2026-04-09",
@@ -1012,11 +1014,11 @@
       },
       {
         "date": "2026-04-11",
-        "count": 27
+        "count": 26
       },
       {
         "date": "2026-04-12",
-        "count": 19
+        "count": 20
       },
       {
         "date": "2026-04-13",
@@ -1064,11 +1066,11 @@
       },
       {
         "date": "2026-04-24",
-        "count": 22
+        "count": 21
       },
       {
         "date": "2026-04-25",
-        "count": 19
+        "count": 20
       },
       {
         "date": "2026-04-26",
@@ -1088,11 +1090,11 @@
       },
       {
         "date": "2026-04-30",
-        "count": 5
+        "count": 3
       },
       {
         "date": "2026-05-01",
-        "count": 7
+        "count": 9
       },
       {
         "date": "2026-05-02",
@@ -1104,11 +1106,11 @@
       },
       {
         "date": "2026-05-04",
-        "count": 35
+        "count": 34
       },
       {
         "date": "2026-05-05",
-        "count": 16
+        "count": 17
       },
       {
         "date": "2026-05-06",
@@ -1260,11 +1262,11 @@
       },
       {
         "date": "2026-06-12",
-        "count": 39
+        "count": 38
       },
       {
         "date": "2026-06-13",
-        "count": 37
+        "count": 38
       },
       {
         "date": "2026-06-14",
@@ -1300,11 +1302,11 @@
       },
       {
         "date": "2026-06-22",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-06-23",
-        "count": 4
+        "count": 5
       },
       {
         "date": "2026-06-24",
@@ -1388,11 +1390,11 @@
       },
       {
         "date": "2026-07-14",
-        "count": 2
+        "count": 0
       },
       {
         "date": "2026-07-15",
-        "count": 15
+        "count": 17
       },
       {
         "date": "2026-07-16",
@@ -1424,11 +1426,11 @@
       },
       {
         "date": "2026-07-23",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-07-24",
-        "count": 14
+        "count": 15
       },
       {
         "date": "2026-07-25",
@@ -1548,11 +1550,11 @@
       },
       {
         "date": "2026-08-23",
-        "count": 1
+        "count": 0
       },
       {
         "date": "2026-08-24",
-        "count": 88
+        "count": 89
       },
       {
         "date": "2026-08-25",
@@ -1560,11 +1562,11 @@
       },
       {
         "date": "2026-08-26",
-        "count": 170
+        "count": 169
       },
       {
         "date": "2026-08-27",
-        "count": 29
+        "count": 30
       },
       {
         "date": "2026-08-28",
@@ -1572,7 +1574,7 @@
       },
       {
         "date": "2026-08-29",
-        "count": 75
+        "count": 74
       },
       {
         "date": "2026-08-30",
@@ -1580,7 +1582,7 @@
       },
       {
         "date": "2026-08-31",
-        "count": 168
+        "count": 169
       },
       {
         "date": "2026-09-01",
@@ -1640,11 +1642,11 @@
       },
       {
         "date": "2026-09-15",
-        "count": 17
+        "count": 16
       },
       {
         "date": "2026-09-16",
-        "count": 54
+        "count": 55
       },
       {
         "date": "2026-09-17",
@@ -1700,11 +1702,87 @@
       },
       {
         "date": "2026-09-30",
-        "count": 5
+        "count": 14
+      },
+      {
+        "date": "2026-10-01",
+        "count": 4
       }
     ]
   },
   "activity": [
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-30T19:36:26Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "created branch in",
+      "repo": "IchenDEV/IchenDEV.github.io",
+      "at": "2026-09-29T19:26:57Z",
+      "type": "CreateEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/IchenDEV.github.io",
+      "at": "2026-09-30T21:04:52Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-30T20:16:05Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-30T20:16:04Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-30T20:08:12Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-30T20:07:34Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "merged a pull request in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-30T20:07:33Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "opened a pull request in",
+      "repo": "IchenDEV/utter",
+      "at": "2026-09-30T19:36:45Z",
+      "type": "PullRequestEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/framed-blur",
+      "at": "2026-09-30T09:37:40Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "pushed 1 commit(s) to",
+      "repo": "IchenDEV/framed-blur",
+      "at": "2026-09-30T09:30:01Z",
+      "type": "PushEvent"
+    },
+    {
+      "verb": "open-sourced",
+      "repo": "IchenDEV/framed-blur",
+      "at": "2026-09-30T09:12:57Z",
+      "type": "PublicEvent"
+    },
     {
       "verb": "merged a pull request in",
       "repo": "IchenDEV/utter",
@@ -1716,83 +1794,48 @@
       "repo": "IchenDEV/utter",
       "at": "2026-09-30T07:07:39Z",
       "type": "PullRequestEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/utter",
-      "at": "2026-09-30T07:07:21Z",
-      "type": "CreateEvent"
-    },
-    {
-      "verb": "opened an issue in",
-      "repo": "yetone/magpie",
-      "at": "2026-09-30T04:32:27Z",
-      "type": "IssuesEvent"
-    },
-    {
-      "verb": "starred",
-      "repo": "rivet-dev/agentos",
-      "at": "2026-09-29T20:30:52Z",
-      "type": "WatchEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-09-29T19:37:42Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "merged a pull request in",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-09-29T19:37:41Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "opened a pull request in",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-09-29T19:37:08Z",
-      "type": "PullRequestEvent"
-    },
-    {
-      "verb": "forked",
-      "repo": "yetone/magpie",
-      "at": "2026-09-29T15:51:11Z",
-      "type": "ForkEvent"
-    },
-    {
-      "verb": "starred",
-      "repo": "tutti-os/tutti",
-      "at": "2026-09-29T14:50:16Z",
-      "type": "WatchEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-09-29T12:55:55Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/IchenDEV.github.io",
-      "at": "2026-09-29T11:30:08Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "pushed 1 commit(s) to",
-      "repo": "IchenDEV/prompt-optimizer-plugins",
-      "at": "2026-09-29T04:21:05Z",
-      "type": "PushEvent"
-    },
-    {
-      "verb": "created branch in",
-      "repo": "IchenDEV/prompt-optimizer-plugins",
-      "at": "2026-09-29T04:12:39Z",
-      "type": "CreateEvent"
     }
   ],
   "blog": {
     "url": "https://blogs.idevlab.dev",
+    "total": 77,
     "posts": [
+      {
+        "title": "MCP，终将会走向失败",
+        "url": "https://blogs.idevlab.dev/gallery/mcp-will-fail/",
+        "date": "2026-10-01",
+        "excerpt": "MCP 也许会成功得无处不在，却未必完成互操作性的承诺。问题不在于管道能否连通，而在于不同 Host、Server、授权、UI 与运行时如何真正协作。",
+        "tags": [
+          "Engineering",
+          "Agent",
+          "Architecture",
+          "MCP"
+        ]
+      },
+      {
+        "title": "Plan 和 Task 的消亡",
+        "url": "https://blogs.idevlab.dev/gallery/plan-and-task-are-disappearing/",
+        "date": "2026-09-29",
+        "excerpt": "Plan 和 Task 没有真的消失，但它们正在失去作为 Agent 默认配置的理由。更强的模型把组织工作的能力带回执行现场，harness 则应把力气放在上下文、边界、证据与恢复上。",
+        "tags": [
+          "Engineering",
+          "Agent",
+          "Codex",
+          "Claude Code"
+        ]
+      },
+      {
+        "title": "我真没想到，AI 这么快就开始影响种地了",
+        "url": "https://blogs.idevlab.dev/gallery/ai-farming-arrives/",
+        "date": "2026-09-09",
+        "excerpt": "最近看到麦肯锡的一份报告，有个数据让我愣了一下。",
+        "tags": [
+          "AI",
+          "农业",
+          "生成式 AI",
+          "McKinsey"
+        ]
+      },
       {
         "title": "文艺复兴让人变宽，工业社会把人折叠了",
         "url": "https://blogs.idevlab.dev/gallery/renaissance-to-ai-era/",
@@ -1815,18 +1858,6 @@
           "开源",
           "社区生态",
           "信任危机"
-        ]
-      },
-      {
-        "title": "AI 的价值，正在从解答已知走向探索未知",
-        "url": "https://blogs.idevlab.dev/gallery/ai-unknown-frontier/",
-        "date": "2026-05-22",
-        "excerpt": "我们太小了，所以要造更大的工具。我们太短暂了，所以要建立可以积累的文明。AI 的价值，正在从解答已知走向探索未知。",
-        "tags": [
-          "AI",
-          "思考",
-          "科学",
-          "未来"
         ]
       }
     ]

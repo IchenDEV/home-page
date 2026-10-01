@@ -1,20 +1,22 @@
 # idevlab — home page
 
-个人主页。终端风格（与 [blogs.idevlab.dev](https://blogs.idevlab.dev) 共用同一套设计变量），
-Three.js 做 3D，项目 / 贡献 / 动态来自 GitHub，最新文章来自博客索引，由 GitHub Actions 每天同步并发布到 GitHub Pages。
+个人主页。与 [blogs.idevlab.dev](https://blogs.idevlab.dev) 同一套「终端邮箱」风格（同名设计变量与组件类名），
+Three.js 做 3D，项目 / 贡献 / 动态来自 GitHub，最新文章来自博客线上索引，由 GitHub Actions 每小时抓取并发布到 GitHub Pages。
 
 ## 有什么
 
+- **博客同款布局** — 顶部 masthead + 左侧 `_home` 式导航；项目和文章用博客的 From / Subject / Date 邮件行，
+  标题与元数据用 Fusion Pixel 像素字体（OFL，已放在 `assets/fonts/`）。
 - **3D 英雄区** — 线框地形 + 粒子场 + 呼吸中的多面体，跟随鼠标视差、随滚动推进镜头。
 - **3D 贡献热力图** — 过去一年的 commit 拉成立体柱阵，可拖动旋转、悬停看当天数据。
-- **项目卡片** — 鼠标追踪的 3D 倾斜与光泽，数据直接取自 GitHub API。
-- **5 套配色** — green / amber / cyan / magenta / white，与博客同款，`t` 键循环；WebGL 图层会一起换色。
-- **键盘操作** — `j`/`k` 滚动，`gg`/`G` 到顶/底，`t` 换主题。
+- **同步状态** — 侧栏显示 GitHub / 博客数据各自最后一次刷新时间，数据过期一眼可见。
+- **5 套配色** — green / amber / cyan / magenta / white，与博客同款，右上角圆点或 `t` 键循环；WebGL 图层会一起换色。
+- **键盘操作** — 与博客一致：`j`/`k` 翻页，`gg`/`G` 到顶/底，`g` 加 `p`/`b`/`a`/`l` 跳到项目 / 文章 / 动态 / 链接，`t` 换主题，`c` 打开对话。
 - **本地 LLM 对话** — 导航栏 `_chat` 打开终端窗口，`/load` 后 Qwen3-0.6B 直接在访客浏览器里推理
   （WebLLM + WebGPU，引擎跑在 Web Worker 里）。权重从 Hugging Face 按需下载、进浏览器缓存，
   对话不出本机；GPU 不支持 f16 时自动换 f32 权重，`/model` 可切到 Qwen3.5-0.8B。
 - 无框架、无构建步骤，Three.js 与 WebLLM 已 vendored 到 `vendor/`，页面本体离线可跑。
-- 使用系统字体，正文与交互不等待 3D 模块；3D 场景在对应区域接近视口时加载。
+- 像素字体 `font-display: swap`，正文与交互不等待字体或 3D 模块；3D 场景在对应区域接近视口时加载。
 - 西湖页脚随深浅主题切换 WebP 插画，以低优先级延迟加载。
 
 ## 改版设计稿（designs/，已归档）
@@ -52,20 +54,33 @@ GITHUB_TOKEN="$(gh auth token)" npm run fetch
 ## 浏览器回归测试
 
 运行 `npm install` 和 `npx playwright install chromium` 准备测试工具，然后在
-`npm run dev` 启动后运行 `npm test`。测试覆盖字体 / Three.js 请求停滞时的内容与
-主题交互、页脚图片切换及贡献图按需加载。可用 `TEST_URL` 指定其他预览地址。
+`npm run dev` 启动后运行 `npm test`。测试覆盖像素字体 / Three.js 请求停滞时的内容与
+主题交互、文章与同步状态渲染、页脚图片切换及贡献图按需加载。可用 `TEST_URL` 指定其他预览地址。
 Playwright 仅用于开发测试，不参与网页运行或静态发布。
 
 ## 数据从哪来
 
-`.github/workflows/deploy.yml` 在每天 **03:00 UTC（杭州 / 新加坡 11:00）**运行一次：
+`.github/workflows/pages.yml` 在**每小时**（第 23 分钟）、`main` 有新提交、手动触发，
+以及收到 `blog-published` 的 `repository_dispatch` 时运行：
 
-1. 读取 GitHub 用户、仓库、贡献和公开活动；
-2. 从 `IchenDEV/IchenDEV.github.io` 仓库的 `gh-pages/index.html` 读取结构化文章索引，取最新 3 篇；
-3. 更新并提交 `data/github.json` 到 `main`；
-4. 页面优先读取这份静态快照，读取失败时才调用 GitHub 公开 API。
+1. 以「仓库里的快照」和「线上 `www.idevlab.dev/data/github.json`」中较新的一份作为上一份快照；
+2. 读取 GitHub 用户、仓库、贡献和公开活动；
+3. 从博客**线上首页** `https://blogs.idevlab.dev/` 内嵌的 `terminal-search-data` 索引取最新 5 篇和文章总数；
+4. 生成 `data/github.json` 并和页面一起发布，不再往 `main` 提交数据。
 
-抓取任一数据源失败时，工作流会失败并保留仓库里的上一份快照，不会用空数据覆盖现有内容。
+每个数据源单独失败时，只沿用上一份快照里的对应区块，`sync.*_at` 保留旧时间，侧栏会显示它有多久没更新；
+GitHub 主数据失败时整份沿用旧快照照常发布，并在 Actions 里给出 warning。
+
+> 之前文章停在 2026-05：博客改成 Actions 直接部署 Pages 后，`gh-pages` 分支在 2026-06-12 就不再更新，
+> 而旧脚本一直读的是它。现在改读线上站点，并对 CDN 缓存加了 cache-busting。
+
+想让博客发文后立刻刷新主页，可以在博客的部署工作流最后加一步（需要一个对本仓库有 `contents: write` 的 token）：
+
+```yaml
+- run: gh api repos/IchenDEV/home-page/dispatches -f event_type=blog-published
+  env:
+    GH_TOKEN: ${{ secrets.HOME_PAGE_DISPATCH_TOKEN }}
+```
 
 几个可调的地方，都在 `scripts/fetch-github.mjs` 顶部：
 
@@ -74,25 +89,20 @@ Playwright 仅用于开发测试，不参与网页运行或静态发布。
 | `PINNED` | 置顶项目，按数组顺序排前面 |
 | `EXCLUDE` | 不想出现在主页的仓库 |
 | `USER` | GitHub 用户名（也可用环境变量 `GH_USER`） |
-| `BLOG_REPO` | 博客 GitHub 仓库（也可用同名环境变量覆盖） |
-| `BLOG_REF` | 博客发布分支（默认 `gh-pages`） |
+| `BLOG_URL` / `BLOG_INDEX_URL` | 博客地址 / 读取文章索引的页面（环境变量可覆盖） |
+| `BLOG_POSTS` | 主页显示的文章数 |
 
-友情链接在 `js/main.js` 顶部的 `LINKS` 数组里，加一项就行。
+友情链接在 `js/main.js` 顶部的 `LINKS` 数组里，加一项就行；描述里写 `{posts}` 会替换成博客当前文章数。
 
 ## 部署
 
-### GitHub Actions（每日同步）
-
-工作流已包含 `schedule` 与手动触发入口。默认 `GITHUB_TOKEN` 可以刷新公开数据并把快照提交回仓库；
+`.github/workflows/pages.yml` 一个工作流完成抓取 + 打包 + 发布。默认 `GITHUB_TOKEN` 就能抓公开数据；
 想直接读取官方贡献日历，可以再添加 `PAT_GITHUB` secret（classic token，勾 `read:user`），
 否则脚本会自动走公开代理。
 
 > 默认的 `GITHUB_TOKEN` 读不到 contributions GraphQL，这是唯一需要 PAT 的地方。
 
-### GitHub Pages
-
-`.github/workflows/pages.yml` 在 `main` 分支有新提交时，将页面所需的静态文件打包并发布到 GitHub Pages。
-每日同步产生的提交会自动触发 Pages 部署；也可以从 Actions 页面手动运行。
+仓库里的 `data/github.json` 只是本地开发和抓取失败时的兜底，需要时 `npm run fetch` 后手动提交即可。
 
 自定义域名使用 `www.idevlab.dev`。Cloudflare DNS 应保持一条仅 DNS 的
 `CNAME www -> ichendev.github.io`，GitHub Pages 中启用自定义域名并强制 HTTPS。
@@ -109,8 +119,8 @@ js/chat.js            本地 LLM 终端（命令、流式输出、加载进度�
 js/chat-worker.js     WebLLM 引擎宿主（Web Worker，推理不阻塞页面）
 scripts/fetch-github.mjs   构建期抓取 GitHub 数据
 scripts/serve.mjs     本地静态服务器（零依赖）
-.github/workflows/deploy.yml  每日数据同步与快照提交
-.github/workflows/pages.yml   GitHub Pages 静态发布
+.github/workflows/pages.yml   每小时抓取数据 + GitHub Pages 发布
+assets/fonts/         Fusion Pixel 像素字体（与博客同款）及许可证
 vendor/three.module.js     Three.js r169
 vendor/web-llm.module.js   WebLLM 0.2.84（按需 dynamic import，首屏不加载）
 data/github.json      GitHub + 最新博客的静态快照（已提交）

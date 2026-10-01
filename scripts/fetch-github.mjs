@@ -5,6 +5,10 @@
  * Runs with zero dependencies. A token (GITHUB_TOKEN / GH_TOKEN) unlocks the
  * GraphQL contribution calendar and lifts the REST rate limit; without one we
  * fall back to the public contributions proxy so local runs still work.
+ *
+ * Each source is fetched independently. When one fails, its section is carried
+ * over from the previous snapshot and keeps its old timestamp in `sync`, so a
+ * flaky API never blanks a section and the page can tell what is stale.
  */
 
 import { writeFile, mkdir, readFile } from 'node:fs/promises';
@@ -15,9 +19,11 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const USER = process.env.GH_USER || 'IchenDEV';
 const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
 const BLOG_URL = process.env.BLOG_URL || 'https://blogs.idevlab.dev';
-const BLOG_REPO = process.env.BLOG_REPO || 'IchenDEV/IchenDEV.github.io';
-const BLOG_REF = process.env.BLOG_REF || 'gh-pages';
-const BLOG_SOURCE_URL = `https://raw.githubusercontent.com/${BLOG_REPO}/${BLOG_REF}/index.html`;
+// The blog is deployed by GitHub Actions straight to Pages, so the live site is
+// the only place its built index is current (the old gh-pages branch froze on
+// 2026-06-12 when the blog switched deploy methods).
+const BLOG_INDEX_URL = process.env.BLOG_INDEX_URL || `${BLOG_URL.replace(/\/$/, '')}/`;
+const BLOG_POSTS = 5;
 const OUT = resolve(ROOT, 'data/github.json');
 const MAX_BLOG_BYTES = 1_000_000;
 
@@ -172,8 +178,13 @@ function excerptFromSearchText(title, text) {
 
 /** Latest posts from the blog's embedded structured search index. */
 async function fetchBlog() {
-  const res = await fetch(BLOG_SOURCE_URL, { headers: { 'user-agent': `${USER}-home-page` } });
-  if (!res.ok) throw new Error(`blog repository -> ${res.status}`);
+  // Bust intermediate caches: Pages sits behind a CDN with a 10 minute TTL.
+  const url = new URL(BLOG_INDEX_URL);
+  url.searchParams.set('t', String(Date.now()));
+  const res = await fetch(url, {
+    headers: { 'user-agent': `${USER}-home-page`, 'cache-control': 'no-cache' },
+  });
+  if (!res.ok) throw new Error(`blog index -> ${res.status}`);
   const declared = Number(res.headers.get('content-length') || 0);
   if (declared > MAX_BLOG_BYTES) throw new Error('blog response is too large');
   const html = await res.text();
@@ -181,10 +192,10 @@ async function fetchBlog() {
   const match = html.match(/<script[^>]*id=["']terminal-search-data["'][^>]*>([\s\S]*?)<\/script>/i);
   if (!match?.[1]) throw new Error('blog search index not found');
 
-  const posts = JSON.parse(match[1])
-    .filter((post) => post?.title && post?.url && post?.date)
+  const all = JSON.parse(match[1]).filter((post) => post?.title && post?.url && post?.date);
+  const posts = all
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 3)
+    .slice(0, BLOG_POSTS)
     .map((post) => ({
       title: post.title,
       url: new URL(post.url, BLOG_URL).href,
@@ -194,39 +205,62 @@ async function fetchBlog() {
     }));
 
   if (!posts.length) throw new Error('blog search index contains no posts');
-  return { url: BLOG_URL, posts };
+  return { url: BLOG_URL, total: all.length, posts };
+}
+
+async function readPrevious() {
+  try {
+    return JSON.parse(await readFile(OUT, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+/** Resolve a source, or carry the previous section over when it fails. */
+async function settle(label, promise, fallback) {
+  try {
+    return { value: await promise, fresh: true };
+  } catch (err) {
+    console.warn(`  ${label} unavailable: ${err.message}`);
+    if (fallback === undefined) throw err;
+    console.warn(`  ${label}: keeping previous snapshot`);
+    return { value: fallback, fresh: false };
+  }
 }
 
 async function main() {
   console.log(`> fetching github data for ${USER}${TOKEN ? ' (authenticated)' : ' (anonymous)'}`);
+  const prev = await readPrevious();
+  const now = new Date().toISOString();
 
-  const [user, repoPages, contributions, activity, blog] = await Promise.all([
-    api(`/users/${USER}`),
-    Promise.all([
-      api(`/users/${USER}/repos?per_page=100&sort=pushed&page=1`),
-      api(`/users/${USER}/repos?per_page=100&sort=pushed&page=2`),
-    ]).then((pages) => pages.flat()),
-    fetchContributions().catch((err) => {
-      console.warn(`  contributions unavailable: ${err.message}`);
-      return { total: 0, days: [] };
-    }),
-    fetchActivity().catch((err) => {
-      console.warn(`  activity unavailable: ${err.message}`);
-      return [];
-    }),
-    // Blog content is a first-class part of the snapshot. If it fails, keep
-    // the previous complete snapshot instead of publishing an empty section.
-    fetchBlog(),
+  const [core, contributions, activity, blog] = await Promise.all([
+    // User + repos are the backbone of the page; without them there is nothing
+    // new worth writing, so this one is allowed to fail the run.
+    settle('github', Promise.all([
+      api(`/users/${USER}`),
+      Promise.all([
+        api(`/users/${USER}/repos?per_page=100&sort=pushed&page=1`),
+        api(`/users/${USER}/repos?per_page=100&sort=pushed&page=2`),
+      ]).then((pages) => pages.flat()),
+    ])),
+    settle('contributions', fetchContributions().then((c) => {
+      if (!c.days.length) throw new Error('empty calendar');
+      return c;
+    }), prev?.contributions),
+    settle('activity', fetchActivity(), prev?.activity),
+    settle('blog', fetchBlog(), prev?.blog),
   ]);
 
+  const [user, repoPages] = core.value;
   const own = repoPages.filter((r) => !r.fork);
-  const generatedAt = new Date().toISOString();
+  const stamp = (res, key) => (res.fresh ? now : prev?.sync?.[key] || prev?.generated_at || null);
   const payload = {
-    generated_at: generatedAt,
+    generated_at: now,
     sync: {
-      github_at: generatedAt,
-      blog_at: generatedAt,
-      github_fresh: true,
+      github_at: now,
+      contributions_at: stamp(contributions, 'contributions_at'),
+      activity_at: stamp(activity, 'activity_at'),
+      blog_at: stamp(blog, 'blog_at'),
     },
     user: {
       login: user.login,
@@ -245,13 +279,14 @@ async function main() {
       own_repos: own.length,
       stars: own.reduce((n, r) => n + r.stargazers_count, 0),
       forks: own.reduce((n, r) => n + r.forks_count, 0),
-      contributions: contributions.total,
+      contributions: contributions.value?.total ?? 0,
+      posts: blog.value?.total ?? null,
     },
     languages: summarizeLanguages(own),
     repos: rankRepos(repoPages),
-    contributions,
-    activity,
-    blog,
+    contributions: contributions.value || { total: 0, days: [] },
+    activity: activity.value || [],
+    blog: blog.value || { url: BLOG_URL, posts: [] },
   };
 
   await mkdir(dirname(OUT), { recursive: true });
@@ -260,15 +295,14 @@ async function main() {
   console.log(`> wrote ${OUT}`);
   console.log(`  ${payload.repos.length} repos, ${payload.stats.stars} stars, ` +
     `${payload.contributions.days.length} days, ${payload.activity.length} events, ` +
-    `${payload.blog.posts.length} posts`);
+    `${payload.blog.posts.length} posts (latest ${payload.blog.posts[0]?.date ?? 'n/a'})`);
+  const stale = Object.entries(payload.sync).filter(([, at]) => at !== now).map(([k]) => k);
+  if (stale.length) console.warn(`  stale sections: ${stale.join(', ')}`);
 }
 
-main().catch(async (err) => {
+main().catch((err) => {
   console.error(`! fetch failed: ${err.message}`);
   // Never clobber a good snapshot with a failed run.
-  try {
-    await readFile(OUT);
-    console.error('  keeping existing data/github.json');
-  } catch {}
+  console.error('  keeping existing data/github.json');
   process.exit(1);
 });
