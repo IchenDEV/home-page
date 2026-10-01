@@ -32,45 +32,63 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
+    env:
+      GITHUB_TOKEN: ${{ secrets.PAT_GITHUB || github.token }}
+      GH_USER: ${{ github.repository_owner }}
+      BLOG_URL: https://blogs.idevlab.dev
+
     steps:
       - uses: actions/checkout@v7
 
       - uses: actions/setup-node@v7
         with:
-          # Always the newest Node release (currently 26).
+          # Always the newest Node release; an LTS retry below covers the case
+          # where a new major breaks the fetch script.
           node-version: latest
 
       # The fetch script carries over any section whose source fails, so start
       # from whichever snapshot is newer: the committed one or the live one.
+      # Best effort: the committed snapshot is a fine starting point too.
       - name: Pick the newest previous snapshot
+        continue-on-error: true
         run: |
-          if curl -fsSL --max-time 20 "https://www.idevlab.dev/data/github.json?t=$(date +%s)" -o /tmp/live.json; then
-            node -e '
-              const fs = require("fs");
-              const read = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
-              const live = read("/tmp/live.json");
-              const repo = read("data/github.json");
-              if (live?.generated_at && (!repo || live.generated_at > repo.generated_at)) {
-                fs.copyFileSync("/tmp/live.json", "data/github.json");
-                console.log(`using live snapshot from ${live.generated_at}`);
-              } else {
-                console.log(`using committed snapshot from ${repo?.generated_at}`);
-              }
-            '
-          fi
+          curl -fsSL --max-time 20 "https://www.idevlab.dev/data/github.json?t=$(date +%s)" -o /tmp/live.json
+          node -e '
+            const fs = require("fs");
+            const read = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
+            const live = read("/tmp/live.json");
+            const repo = read("data/github.json");
+            if (live?.generated_at && (!repo || live.generated_at > repo.generated_at)) {
+              fs.copyFileSync("/tmp/live.json", "data/github.json");
+              console.log(`using live snapshot from ${live.generated_at}`);
+            } else {
+              console.log(`using committed snapshot from ${repo?.generated_at}`);
+            }
+          '
 
-      - name: Refresh GitHub and blog data
+      - name: Refresh data (latest Node)
         id: fetch
         continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB || github.token }}
-          GH_USER: ${{ github.repository_owner }}
-          BLOG_URL: https://blogs.idevlab.dev
         run: npm run fetch
 
-      - name: Warn when publishing the previous snapshot
+      # A failure here is either a flaky source or a Node release that broke
+      # the script; one retry on LTS tells the two apart and keeps data fresh.
+      - name: Fall back to Node LTS
         if: steps.fetch.outcome == 'failure'
-        run: echo "::warning::Data refresh failed; deploying the previous snapshot."
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+
+      - name: Refresh data (Node LTS)
+        id: fetch_lts
+        if: steps.fetch.outcome == 'failure'
+        continue-on-error: true
+        run: npm run fetch
+
+      - name: Report the LTS fallback
+        if: steps.fetch.outcome == 'failure' && steps.fetch_lts.outcome == 'success'
+        run: |
+          echo "::warning::Fetch failed on the latest Node but passed on LTS $(node -v). If this repeats, the newest Node likely broke scripts/fetch-github.mjs."
 
       - name: Prepare static site
         run: |
@@ -92,3 +110,11 @@ jobs:
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+      # The previous snapshot is already live, so the site is fine — but fail
+      # the run so GitHub sends a notification instead of going stale silently.
+      - name: Fail when no fresh data was published
+        if: steps.fetch.outcome == 'failure' && steps.fetch_lts.outcome != 'success'
+        run: |
+          echo "::error::Data refresh failed on both latest Node and LTS; the site is serving the previous snapshot."
+          exit 1
